@@ -1,0 +1,233 @@
+*::selection {
+  background: #6ea4f5;
+}
+body {
+  padding: 50px;
+}
+ul.user-index,
+ul.user-index * {
+  border-radius: 10px;
+}
+li {
+  list-style-type: none;
+}
+.user-index li:hover a {
+  color: white;
+  background-color: lightgreen;
+  text-decoration: underline;
+}
+.user-index li a {
+  padding: 15px 10px;
+  display: block;
+  text-decoration: none;
+}
+.home {
+  text-align: center;
+}
+.home a {
+  -webkit-transition: all ease 0.5s;
+  -moz-transition: all ease 0.5s;
+  -ms-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  display: inline-block;
+  width: 2.2em;
+  position: fixed;
+  top: 0;
+  color: white;
+  font-weight: bold;
+  right: 0;
+  left: 0;
+  margin: 30px auto;
+  background-color: red;
+  padding: 10px;
+  border-radius: 30%;
+}
+.home a:hover {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+  box-shadow: 0 0 20px black;
+  font-size: 2em;
+  text-decoration: none;
+  color: yellow;
+  background-color: black;
+}
+/*======= module beseller ===========*/
+
+.module-beseller-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.module-beseller {
+  position: relative;
+  height: 600px;
+  width: 100%;
+}
+.module-color {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+}
+.module-beseller form {
+  border: 1px solid #777777;
+  box-shadow: 0 0 2px red;
+  width: 37em;
+  padding: 0 0 0 2em;
+  top: 0;
+  bottom: 0;
+  height: 350px;
+  position: absolute;
+  background-color: white;
+}
+.dec-title {
+  font-weight: bold;
+}
+#beseller-form .close {
+  float: right;
+  display: inline-block;
+  font-size: 2em;
+  padding: 0 5px;
+}
+.close:hover {
+  background-color: tomato;
+  cursor: pointer;
+  -webkit-transition: all ease 0.2s;
+  -moz-transition: all ease 0.2s;
+  -ms-transition: all ease 0.2s;
+  -o-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+}
+/*======= module beseller ===========*/
+
+.content-container {
+  background-color: lightgreen;
+  border-radius: 10px;
+  margin-left: 30px;
+}
+.info-name {
+  text-indent: 5px;
+  font-weight: bold;
+  width: 110px;
+  display: inline-block;
+}
+.myinfo li {
+  padding: 0.3em;
+}
+.content {
+  position: relative;
+}
+/*--- publish products ---*/
+
+.pubpros {
+  overflow: hidden;
+  padding: 1em;
+}
+.pubpros .tips {
+  font-size: 1.5em;
+  padding-top: 20px;
+  display: block;
+}
+.pubpros .isnew {
+  background: #d1bbbb;
+  width: 300px;
+  height: 200px;
+  text-align: center;
+  position: relative;
+}
+.pubpros .isnew .confirm-isnew {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+  display: inline-block;
+  background: red;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: none;
+  cursor: pointer;
+}
+.pubpros .isnew .confirm-isnew:hover {
+  background-color: black;
+  color: red;
+}
+.pubpros .isnew .pro-choice {
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+  background: orange;
+  padding: 0.2em;
+  border-radius: 8px;
+  margin: 0 20px;
+  margin-top: 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+.pubpros .isnew .pro-choice.active {
+  background-color: white;
+  color: orange;
+}
+.pubpros .btype,
+.pubpros .stype {
+  display: none;
+  margin-bottom: 3em;
+}
+.pubpros .btype ._t-g,
+.pubpros .stype ._t-g {
+  margin: 0 10px;
+}
+.pubpros .btype a,
+.pubpros .stype a {
+  display: block;
+  color: white;
+  background: black;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.pubpros .btype a:hover,
+.pubpros .stype a:hover {
+  text-decoration: none;
+  background-color: #1a1a1a;
+}
+.pubpros .btype a.active,
+.pubpros .stype a.active {
+  background-color: white;
+  color: black;
+}
+.pubpros .btype .confirm-btype,
+.pubpros .stype .confirm-btype,
+.pubpros .btype .confirm-stype,
+.pubpros .stype .confirm-stype {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+  display: inline-block;
+  background: red;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: none;
+  cursor: pointer;
+}
+.pubpros .btype .confirm-btype:hover,
+.pubpros .stype .confirm-btype:hover,
+.pubpros .btype .confirm-stype:hover,
+.pubpros .stype .confirm-stype:hover {
+  background-color: black;
+  color: red;
+}
+.pubpros .proinfo .pi-n {
+  width: 80px;
+  display: inline-block;
+}
+#verify {
+  cursor: pointer;
+}
+/*--- end of publish products ---*/
+

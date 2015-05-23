@@ -1,0 +1,160 @@
+@charset "gb2312";
+
+/* CSS Document */
+
+
+/*fenye*/
+.fybg {
+	background: none repeat scroll 0 0 #FCFEFF;
+	border: 1px solid #EAF6FD;
+	margin: 10px 0;
+	padding: 8px 15px 5px;
+	overflow: auto;
+	zoom: 1
+}
+
+.fenye {
+	float: right;
+}
+
+.fenye a,.fenye span,.fenye select {
+	display: block;
+	float: left;
+	margin: 0 2px
+}
+
+.fenye a {
+	position: relative;
+	padding: 0px 0 0px 8px;
+	margin: 0 2px;
+	color: #1345a3;
+	background: url(../../images/admin/psdindex_03.gif) no-repeat left top;
+	height: 25px;
+	line-height: 25px;
+}
+
+.fenye a.nextpage {
+	background: url(../../../../images/admin/admin/pagebut.gif) no-repeat left -26px;
+	width: 45px;
+	height: 25px;
+	margin: 0 0 0 2px;
+	padding-right: 15px
+}
+
+.fenye a.nextpage:hover {
+	color: #000;
+	background: url(../../images/admin/pagebut.gif) no-repeat left -26px;
+}
+
+.fenye a.nextpage {
+	background: url(../../images/admin/pagebut.gif) no-repeat left -26px;
+	width: 45px;
+	height: 25px;
+	padding-right: 15px
+}
+
+.fenye a.nextpage:hover {
+	color: #000;
+	background: url(../../images/admin/pagebut.gif) no-repeat left -26px;
+}
+
+.fenye a.backpage {
+	background: url(../../images/admin/pagebut.gif) no-repeat left top;
+	width: 45px;
+	height: 25px;
+	margin: 0 2px 0 0;
+	padding-left: 15px
+}
+
+.fenye a.backpage:hover {
+	color: #000;
+	background: url(../../images/admin/pagebut.gif) no-repeat left top;
+}
+
+.fenye a.grey {
+	background: url(../../images/admin/pagebutgrey.gif) no-repeat left top;
+	color: #999999;
+	cursor: no-drop
+}
+
+.fenye a.grey:hover {
+	background: url(../../images/admin/pagebutgrey.gif) no-repeat left top;
+	color: #999999
+}
+
+.fenye a.greys {
+	background: url(../../images/admin/pagebutgrey.gif) no-repeat left -26px;
+	color: #999999;
+	cursor: no-drop
+}
+
+.fenye a.greys:hover {
+	background: url(../../images/admin/pagebutgrey.gif) no-repeat left top;
+	color: #999999
+}
+
+.fenye a:hover,.fenye a.active {
+	background: url(../../images/admin/psdindex_07.jpg) no-repeat left top;
+	color: #FFFFFF;
+	text-decoration: none
+}
+
+.fenye a:hover b,.fenye a.active b {
+	background: url(../../images/admin/psdindex_07.jpg) no-repeat right top;
+	cursor: pointer
+}
+
+.fenye a.shenlue {
+	background: none;
+	padding: 0;
+	margin: 0 5px
+}
+
+.fenye a.shenlue:hover {
+	color: #333333
+}
+
+.fenye a b {
+	font-size: 12px;
+	display: block; +
+	display: block;
+	_display: inline;
+	position: relative;
+	font-weight: normal;
+	background: url(../../images/admin/psdindex_03.gif) no-repeat right top;
+	height: 25px;
+	line-height: 25px;
+	padding: 0 8px 0 0; +
+	padding: 0 8px 0 0;
+	_padding: 5px 18px 10px 0px;
+	margin-right: 0px; +
+	margin-right: 0px;
+	_margin-right: -8px;
+}
+
+.fenye a b font {
+	font-size: 12px;
+	font-weight: normal
+}
+
+.fenye span {
+	padding: 2px
+}
+
+.fenye select {
+	margin-top: 1px; +
+	margin-top: 2px;
+	_margin-top: 2px;
+	padding: 4px
+}
+
+.fenyes {
+	text-align: center
+}
+
+.fenyes span a {
+	color: #FF0000;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0 2px
+}

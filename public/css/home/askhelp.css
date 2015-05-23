@@ -1,0 +1,185 @@
+.colr {
+	color: #999999;
+}
+div.askhelp {
+text-align: center;
+padding-top: 20px;
+}
+.askhelp form {
+	text-align: left;
+	width: 500px;
+	margin: 30px auto;
+}
+.askhelp p {
+	margin: 10px 0;
+}
+.askhelp .submit-wp {
+	margin-top: 30px;
+	text-align: center;
+}
+.askhelp #submit {
+	width: 164px;
+	border: 0;
+	padding: 10px 50px;
+	color: #FFF;
+	border-radius: 5px;
+	background: #3BB3C3;
+	cursor: pointer;
+	height: 100%;
+}
+.askhelp #submit:hover {
+	background: #62C2CF;
+}
+.askhelp textarea {
+	border: 1px solid #e7e7e7;
+	max-width: 310px;
+}
+input.group {
+	border: 1px solid #e7e7e7;
+	height: 32px;
+	padding: 0 30px 0 10px;
+	border-radius: 5px;
+	background: #ffffff;
+}
+.sd:focus {
+	-webkit-transition: all ease 0.5s;
+	-moz-transition: all ease 0.5s;
+	-ms-transition: all ease 0.5s;
+	-o-transition: all ease 0.5s;
+	transition: all ease 0.5s;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+	border-color: #a0d5ff;
+}
+input.nomodify {
+	border: none;
+	width: 180px;
+	border-bottom: 1px dashed #D8D8D8;
+	border-radius: 0;
+	padding-right: 0;
+}
+input.nomodify.active {
+	color: rgb(155, 155, 155);
+}
+.askname input {
+	width: 290px;
+}
+.must-field {
+	color: #ff0000;
+	margin-left: 20px;
+	vertical-align: middle;
+}
+.must-field span {
+	color: #857C7C;
+	margin-left: 10px;
+	font-size: 15px;
+}
+.w-h {
+	width: 155px;
+	height: 30px;
+}
+.pi-n {
+	color: #000;
+	margin-top: 10px;
+	width: 80px;
+	vertical-align: top;
+	margin-right: 25px;
+	display: inline-block;
+	text-align: right;
+	font-size: 15px;
+}
+.descript {
+	margin-top: 10px;
+	width: 360px;
+	border-radius: 4px;
+	height: 120px;
+	padding: 5px 10px;
+	font-size: 15px;
+	letter-spacing: 1px;
+}
+.tel em {
+	display: inline-block;
+	background-color: #fff;
+	border: 1px;
+	padding: 3px 3px;
+	border: 1px solid #e7e7e7;
+	width: 50px;
+	text-align: center;
+	margin: 0 3px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+.tel em.active {
+	background: #3bb3c3;
+	color: #fff;
+}
+.tel input {
+	margin-right: 20px;
+}
+
+/* 求助区 */
+.listhelp{
+	padding:20px 40px;
+}
+.title {
+	font-size: 25px;
+	color: #3BB3C3;
+}
+.listhelp .head{
+	padding-bottom: 10px;
+}
+.listhelp .body{
+	border-top: 1px solid #e7e7e7;
+	padding:0 5px;
+}
+.listhelp .body li{
+	padding:25px 0;
+	border-bottom: 1px dashed #e7e7e7;
+}
+.listhelp p{
+	color:#858484;
+}
+p.helptitle a{
+	font-size: 20px;
+	color:#000;
+}
+.go-help{
+	width: 90px;
+	height: 27px;
+	background-color: #3BB3C3;
+	display: block;
+	color: #FFF;
+	padding: 0;
+	padding-top: 10px;
+}
+
+.listhelp .col1 img{
+	border-radius: 50%;
+}
+.listhelp .col1 .user{
+	width: 110px;
+	margin-top: 3px;
+	margin-left: 5px;
+}
+.listhelp .col1{
+	margin-right: 30px;
+}
+.listhelp .col2{
+	width:670px;
+}
+.listhelp .col3{
+	width: 100px;
+	float: right;
+}
+.listhelp .col3 p{
+	text-align: right;
+}
+.listhelp p {
+	margin-bottom: 11px;
+}
+.col1 p{
+	margin-bottom: 0;
+}
+.info span {
+	margin-right: 50px;
+}
+/* end of 求助区 */

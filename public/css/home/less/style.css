@@ -1,0 +1,283 @@
+/*--reset--*/
+
+input {
+  -webkit-transition: all ease 0.5s;
+  -moz-transition: all ease 0.5s;
+  -ms-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  padding: 3px 5px;
+  height: 1.5em;
+  border: 1px solid #aaaaaa;
+  margin: 5px 0;
+  border-radius: 4px;
+}
+input:focus {
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  border-color: #a0d5ff;
+}
+/*--- end --*/
+
+/*之前写在index的html里面的css */
+
+.container {
+  padding: 10px;
+  min-width: 980px;
+  max-width: 980px;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+/*================占位css=============*/
+
+.logo {
+  width: 200px;
+  height: 150px;
+  background-color: #eeffee;
+  line-height: 200px;
+}
+/*================占位css=============*/
+
+/*微调css*/
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #b4e69d;
+}
+.nav-wrap {
+  text-align: center;
+}
+ul.nav {
+  display: inline-block;
+}
+.searchbar {
+  text-align: center;
+}
+.searchbar .search-query {
+  width: 70%;
+}
+#newbooks {
+  border: 1px solid black;
+  background-color: #334455;
+  width: 60%;
+  float: left;
+}
+.nav-wrap {
+  margin: 1em 0;
+  background-color: #352c2b;
+}
+.nav-wrap .nav {
+  margin: 0;
+  vertical-align: top;
+}
+#newbooks li {
+  list-style: none;
+  color: white;
+}
+#newbooks .bookname {
+  width: 30%;
+  display: inline-block;
+}
+#newbooks .booktime {
+  float: right;
+  padding-right: 50px;
+}
+.signup-wrap {
+  width: 30%;
+  background-color: #334455;
+}
+#signup {
+  padding: 1em;
+  color: white;
+  font-size: 1.5em;
+  text-align: center;
+}
+.hotbooks-wrap ul {
+  background-color: #334455;
+}
+#hotbook-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: white;
+}
+.footer {
+  height: 2em;
+  width: 100%;
+  background-color: lightgreen;
+}
+/*======= module login ===========*/
+
+.module-login-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.module-login {
+  position: relative;
+  height: 600px;
+  width: 100%;
+}
+.module-color {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+}
+.module-login form {
+  border: 1px solid #777777;
+  box-shadow: 0 0 2px red;
+  width: 37em;
+  padding: 0 0 0 2em;
+  top: 0;
+  bottom: 0;
+  height: 350px;
+  position: absolute;
+  background-color: white;
+}
+.dec-title {
+  font-weight: bold;
+}
+#login-form .close {
+  float: right;
+  display: inline-block;
+  font-size: 2em;
+  padding: 0 5px;
+}
+.close:hover {
+  background-color: tomato;
+  cursor: pointer;
+  -webkit-transition: all ease 0.2s;
+  -moz-transition: all ease 0.2s;
+  -ms-transition: all ease 0.2s;
+  -o-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+}
+/*======= module login ===========*/
+
+.newpro-wrap,
+.askpro-wrap,
+.hotpro-wrap {
+  background-color: tomato;
+  margin-top: 2em;
+  height: 200px;
+}
+.askpro-wrap,
+.hotpro-wrap {
+  width: 45%;
+  background: white;
+}
+.hotpro-wrap {
+  background-color: #95d353;
+}
+/*之前写在index的html里面的css */
+/*=======<a></a>========link button======*/
+/*css*/
+
+.header {
+  padding-top: 1px;
+}
+.header .tool .t-register {
+  display: inline-block;
+  background-color: tomato;
+  color: white;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 5px 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.header .tool .t-register:hover {
+  background-color: #ff4d2d;
+  text-decoration: none;
+}
+.header .tool .t-login,
+.header .tool .t-logout {
+  display: inline-block;
+  background-color: #1c9439;
+  color: white;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 5px 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.header .tool .t-login:hover,
+.header .tool .t-logout:hover {
+  background-color: #187f31;
+  text-decoration: none;
+}
+.header .tool .t-userinfo {
+  display: inline-block;
+  background-color: #303030;
+  color: white;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 5px 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.header .tool .t-userinfo:hover {
+  background-color: #232323;
+  text-decoration: none;
+}
+.header .search {
+  margin-top: 4em;
+}
+.header .search form {
+  width: 270px;
+  margin: 0 auto;
+}
+.nav a {
+  display: inline-block;
+  background-color: #666b64;
+  color: white;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 5px 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.nav a:hover {
+  background-color: #595e58;
+  text-decoration: none;
+}
+.nav a.active {
+  background-color: #79afff;
+}
+/*second page*/
+
+.b-items {
+  width: 20%;
+  height: 500px;
+  background-color: #f38383;
+}
+.b-items li {
+  padding: 10px 5px;
+  position: relative;
+}
+.b-items li:hover {
+  background: #a4e479;
+  color: white;
+}
+.b-items li:hover div {
+}
+.b-items li div {
+  display: none;
+  display: block;
+}
+.hot-wrap {
+  width: 80%;
+}
+.hot-wrap .hotpros {
+  width: 48%;
+  margin: 5px;
+  box-sizing: border-box;
+  height: 200px;
+  background-color: orange;
+  border: 1px solid black;
+}
+/*end of second page*/
+

@@ -3,6 +3,6 @@
 ibook/Runtime
 uploads/
 node_modules/
-public/
+# public/
 ThinkPHP/
 

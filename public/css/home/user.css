@@ -1,0 +1,773 @@
+.notread-tips{
+	color: #FFF;
+	font-weight: bold;
+	background: #00B364;
+	padding: 0 1px;
+	border-radius: 50%;
+	font-size: 12px;
+	min-width: 22px;
+	height: 22px;
+	text-align: center;
+	display: inline-block;
+	line-height: 23px;
+	margin-left: 10px;
+	text-indent: 0;
+	box-shadow: 0 0 3px 0 #00B364;
+}
+a.notallow{
+	color: #BBB;
+	cursor: not-allowed;
+	text-decoration: none;
+}
+
+#verify {
+	width: 100px;
+	height: 35px;
+}
+.arrawbg {
+	display: inline-block;
+	width: 10px;
+	height: 18px;
+	background-position: 0 -405px;
+	float: right;
+	margin-top: -37px;
+}
+.arrawbg.arraw-middle {
+	margin-top: -89px;
+}
+.user-items-wp li.active .arrawbg {
+	background-position: -10px -405px;
+}
+.user-items-wp {
+	font-weight: bold;
+}
+.user-items-wp li {
+	padding: 0 20px 0 30px;
+	text-indent: 20px;
+}
+.user-items-wp li.active {
+	border-left: 5px solid #3bb3c3;
+	background-color: #FFFDFF;
+	padding: 0;
+}
+.user-items-wp .link.active a {
+	color: #78cbd6;
+}
+.user-items-wp li.active i {
+	margin-right: 20px;
+}
+.user-items-wp li.active .manage-sub div {
+	text-indent: 70px;
+}
+.user-items-wp .item {
+	border-top: 1px dashed #e7e7e7;
+	border-bottom: 1px dashed #e7e7e7;
+	padding: 15px;
+	margin-top: -1px;
+}
+.user-items-wp li.active .item {
+	text-indent: 45px;
+	border-top: 1px solid #e7e7e7;
+	border-bottom: 1px solid #e7e7e7;
+}
+.user-items-wp .user-center {
+	font-size: 22px;
+	padding: 11px 0 10px 0;
+	border-bottom: 1px solid #E7E7E7;
+	text-align: center;
+	text-indent: 0;
+}
+.user-info .item{
+	border-bottom:none;
+}
+/* 约谈管理 */
+a {
+	color: #000;
+}
+.user-items-wp {
+	width: 232px;
+}
+.user-items-wp ul {
+}
+.user-content {
+	width: 762px;
+	margin-left: 25px;
+}
+.publishgoods {
+	border-left-color: #6BE0BB;
+}
+.publishgoods .sub-title {
+	font-size: 0.8em;
+	font-weight: normal;
+}
+.publishgoods .sub-title-all {
+	color:orange;
+	font-weight: bold;
+}
+.publishgoods .sub-title-em {
+	font-weight: bold;
+	text-shadow:0 1px 2px #CF4C4C;
+	color:red;
+}
+.info-title:hover{
+	text-decoration: none;
+}
+.ct-user .info-title {
+	display: block;
+	padding: 10px;
+	border-bottom: 1px solid #e7e7e7;
+	border-top: 1px solid #e7e7e7;
+	font-size: 0.9em;
+	cursor: pointer;
+}
+.delete-order{
+	display: inline-block;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 100%;
+	margin-right: -10px;
+	margin-top: -9px;
+	padding: 10px;
+}
+.delete-order:hover{
+	font-weight: bold;
+	font-size: 19px;
+	color:#fff;
+}
+.ct-user .info-title.notread{
+	background: #65cc79;
+	color: #FFF;
+	font-size: 1em;
+}
+.ct-user .info-title .order-time {
+	margin-left: 30px;
+}
+.ct-user .chat-num {
+	width: 180px;
+	display: inline-block;
+}
+.ct-user .notread .order-time {
+	color:#f1ffe4;
+}
+.ct-user a.hasread:hover {
+	text-decoration: none;
+	background: #DDD;
+}
+.ct-user li> .info-body {
+	padding-left: 30px;
+	padding-bottom: 30px;
+	background-color: #fff;
+	display: none;
+}
+.ct-user li> .info-body:hover {
+	background: #fcfcfc;
+}
+.info-img {
+	padding: 0 6px;
+	border: 1px solid #e4e4e4;
+	display: inline-block;
+}
+.info-img {
+	*display: inline;
+}
+.pro-info-wp {
+	width: 360px;
+	border-right: 1px dashed #ebebeb;
+}
+.pro-info {
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 20px;
+}
+.pro-info {
+	*display: inline;
+}
+.pro-info p {
+	width: 220px;
+	overflow: hidden;
+	max-height: 60px;
+	font-size: 13px;
+}
+.pro-info .pro-name a {
+	font-size: 1.2em;
+	color: #3bb3c3;
+}
+.pro-info .author {
+	font-size: 0.8em;
+}
+.pro-info .desc {
+	font-size: 0.9em;
+	text-overflow: ellipsis;
+	max-width: 210px;
+}
+/*.info-img img {
+	width: 61px;
+	height: 72px;
+}*/
+.price {
+	font-size: 1.2em;
+	/* color: #dc7066;
+	*/;
+}
+.costprice {
+	color: #000;
+	font-size: 0.9em;
+	margin-left: 10px;
+}
+.manage-sub div {
+	font-weight: normal;
+	text-align: left;
+	text-indent: 45px;
+	padding-top: 5px;
+}
+.buyer {
+	width: 300px;
+	padding-left: 50px;
+}
+.buyer p{
+	color: #f17e5a;
+	text-shadow: 0 0 1px;
+}
+.buyer img {
+	border-radius: 50%;
+	margin-right: 20px;
+}
+.buyer-desc{
+	clear: both;
+	background-color: #f3f3f3;
+	padding: 5px 20px;
+	margin-right: 30px;
+	margin-top: 20px;
+	border-top: 10px solid #FFF;
+}
+.buyer-desc h5{
+	font-size: 17px;
+	color: #FFA500;
+	padding-bottom: 5px;
+}
+.buyer-desc p{
+	padding-left: 15px;
+}
+/* end of 约谈管理 */
+/* 发布商品 */
+.ct-pubgoods form {
+	padding: 35px 0 30px 45px;
+}
+.ct-pubgoods form .colr {
+	color: #999999;
+}
+input.group {
+	border: 1px solid #e7e7e7;
+	height: 32px;
+	padding: 0 30px 0 10px;
+}
+input.sd:focus {
+	-webkit-transition: all ease 0.5s;
+	-moz-transition: all ease 0.5s;
+	-ms-transition: all ease 0.5s;
+	-o-transition: all ease 0.5s;
+	transition: all ease 0.5s;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+	border-color: #a0d5ff;
+}
+.w-h {
+	width: 155px;
+	height: 30px;
+}
+.pi-n {
+	color: #000;
+	margin: 15px 0;
+	width: 80px;
+	vertical-align: top;
+	margin-right: 25px;
+	display: inline-block;
+	text-align: right;
+	font-size: 15px;
+}
+.ct-pubgoods .pi-n.hide {
+	visibility: hidden;
+}
+.ct-pubgoods .costprice-title {
+	margin-right: -58px;
+	position: relative;
+	margin-left: 10px;
+}
+.ct-pubgoods input.costprice {
+	padding-left: 50px;
+	width: 115px;
+}
+.ct-pubgoods .goods-name {
+	width: 455px;
+}
+.ct-pubgoods form input.isnew {
+	background-color: #FFF;
+	padding: 5px 32px 5px 33px;
+	height: 34px;
+	cursor: pointer;
+}
+.ct-pubgoods .isnew.active {
+	background-color: #24ABBD;
+	color: #FFF;
+}
+.ct-pubgoods .isnew.true {
+	margin-left: -1px;
+}
+.add-on {
+	margin-left: -30px;
+}
+
+/* 图片预览 */
+.not-support {
+	padding: 20px;
+	font-size: 15px;
+}
+#uploadimg, .imgpreview, #imgUpload {
+	width: 150px;
+	height: 150px;
+}
+#imgUpload {
+	font-size: 0;
+	filter: alpha(opacity:0);
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	cursor: pointer;
+	display: block;
+}
+.imgfile-wrap {
+	position: relative;
+	margin-top: 30px\9;
+	margin-top: 10px;
+	display: inline-block;
+	vertical-align: top;
+}
+.imgfile-wrap {
+	*display: inline;
+}
+.imgfile-wrap .uploadimg {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#imgUpload {
+	font-size: 15px\9;
+	filter: alpha(opacity:100)\9;
+	opacity: 1\9;
+	display: block\9;
+	width: auto\9;
+	height: auto\9;
+	top: 5px\9;
+}
+#uploadimg {
+	border: 1px solid #000\9;
+	margin-top: 35px\9;
+}
+.warning-tip {
+	vertical-align: bottom;
+	color: red;
+	margin-left: 20px;
+	height: 30px;
+	line-height: 30px;
+	text-indent: 10px;
+	display: inline-block;
+	background: #FDF4F4;
+}
+
+/* end of 图片预览 */
+.descript {
+	margin: 15px 0;
+	width: 300px;
+	height: 90px;
+	padding: 5px 10px;
+	font-size: 15px;
+	letter-spacing: 1px;
+}
+.type-choose {
+	display: inline-block;
+	color: #818181;
+	width: 197px;
+	background-color: #fff;
+	padding: 7px 0;
+	text-align: center;
+	border: 1px solid #e7e7e7;
+}
+.type-choose {
+	*display: inline;
+}
+.type-choose:hover {
+	background-color: #F0F0F0;
+	cursor: pointer;
+}
+.type-choose.active {
+	background-color: #24abbd;
+	color: #fff;
+	/* border: 1px solid rgb(70, 197, 236);
+	*/
+	box-shadow: 0 1px 5px rgb(34, 233, 233) inset;
+}
+.type-choose.active i {
+	border-top-color: #fff;
+}
+.type-arraw {
+	border: 10px solid #dcdddd;
+	border-top: 0 solid transparent;
+	border-right: 10px solid transparent;
+	border-left: 10px solid transparent;
+	display: inline-block;
+	_font-size: 0;
+	margin-left: 24px;
+	vertical-align: middle;
+	margin-bottom: -6px;
+}
+.type-wrap {
+	display: none;
+	z-index: 2;
+	position: absolute;
+	background: #fff;
+}
+.sptype {
+	border: 1px solid red;
+	width: 360px;
+	border: 2px solid #dcdddd;
+}
+.sptype ul.menu {
+	padding: 5px;
+	border: 5px solid #e7e7e7;
+}
+.sptype .menu .btype-wp {
+	display: none;
+}
+.sptype .menu >li {
+	float: left;
+	padding: 10px 20px 10px 10px;
+	margin-right: 50px;
+	width: 90px;
+	position: relative;
+	cursor: pointer;
+}
+.sptype .menu  li:hover {
+	background-color: #24abbd;
+	color: #fff;
+}
+.btype-wp {
+	border: 1px solid #dcdddd;
+	position: absolute;
+	left: 90%;
+	top: 50%;
+	z-index: 10;
+	float: left;
+	padding: 5px 10px;
+	background-color: #f9f9f9;
+	border-radius: 10px;
+}
+div.btype-wp:hover {
+	background: #F3F3F3;
+	box-shadow: 0 0 10px rgb(190, 188, 188);
+}
+.btype {
+	width: 310px;
+}
+.btype-name {
+	font-size: 17px;
+	margin-top: 12px;
+	overflow: hidden;
+	white-space: nowrap;
+	cursor: default;
+	color: rgb(167, 167, 167);
+}
+.btype .stype {
+	width: 310px;
+}
+.btype .stype ul {
+	padding: 5px;
+}
+.btype .stype li {
+	float: left;
+	width: 130px;
+	color: #474747;
+	padding: 8px 0 8px 15px;
+}
+li.hide {
+	display: none;
+}
+
+/* end of发布商品 */
+.ct-pubgoods form #submit {
+	width: 164px;
+	border: 0;
+	padding: 10px 50px;
+	color: #FFF;
+	border-radius: 5px;
+	background: #3BB3C3;
+	cursor: pointer;
+	height: 100%;
+	margin-left: 110px;
+	margin-top: 20px;
+}
+
+/* 已发布宝贝 */
+.haspub {
+	border-left-color: #EB5FA2;
+}
+.toolbar-wp {
+	padding: 10px 30px;
+}
+.toolbar-wp .opt1 {
+	width: 310px;
+}
+.toolbar-wp .opt {
+	width: 92px;
+	text-align: center;
+}
+.opt1 .pro-info {
+	max-width: 180px;
+}
+.toolbar-main-wp .opt, .toolbar-main-wp .pro-info {
+	margin-top: 10px;
+	font-size: 15px;
+}
+input.price-gp {
+	margin-top: -7px;
+	width: 50px;
+	display: inline-block;
+	text-align: right;
+	border: 0;
+	outline: none;
+	background-color: #ffffff;
+	color: #000;
+	padding: 2px 2px 2px 0;
+	cursor: default;
+}
+input.price-gp.active {
+	border: 1px solid #0de0cf;
+	box-shadow: 0 0 10px 1px #0de0cf;
+	background-color: #f0f0f0;
+}
+.opt .deletepros:hover{
+	cursor: pointer;
+	text-decoration: underline;
+}
+.opt a.upcarriage{
+	color:red;
+	font-weight: bold;
+}
+.opt a.undercarriage:hover,.opt a.upcarriage:hover{
+	cursor: pointer;
+	text-decoration: underline;
+}
+span.undercarriage {
+	color: rgb(160, 129, 112);
+	font-weight: bold;
+}
+.review_ok {
+	color: red;
+}
+.review_ing {
+	color: orange;
+}
+.review_pass{
+	color:#99B0B1;
+}
+.unreview a {
+	cursor: default;
+}
+.unreview a:hover {
+	text-decoration: none;
+}
+.tool-page {
+	border-top: 2px solid #e7e7e7;
+}
+
+/* end 已发布 */
+
+/* 个人中心 */
+.change-avatar-titile{
+	border-left-color: orange;
+}
+.ct-myinfo{
+	padding:20px 0;
+}
+.myinfo-wp{
+	border-left-color: #4171D6;
+}
+.headicon-wp{
+	padding-bottom:20px;
+	text-align: center;
+}
+.ct-myinfo .headicon-wp img{
+	border-radius:50%;
+}
+.ct-myinfo .myname{
+	color: rgb(84, 84, 84);
+	font-size: 25px;
+	font-weight: bold;
+	text-shadow: 0 1px 1px #000;
+	padding-left: 30px;
+	min-width:200px;
+	display: inline-block;
+	text-align: left;
+	background-color: #fff;
+	border: none;
+}
+.ct-myinfo form p{
+	width:350px;
+	margin:0 auto;
+}
+.ct-myinfo input{
+	background-color: #fff;
+	border:none;
+	border-bottom:1px dashed #e7e7e7;
+	margin-top:5px;
+	box-shadow: none;
+	cursor: default;
+}
+.ct-myinfo input.active{
+	/*background-color: #fff;
+	*/
+	border:1px solid #e7e7e7;
+	background-color: #fdfdfd;
+}
+.ct-myinfo .p-first{
+	border-top:1px dotted #e7e7e7;
+	padding-top:20px;
+}
+.modify-myinfo-wp{
+	text-align: center;
+}
+#modify-myinfo{
+	background-color: #e7e7e7;
+	border: 1px solid rgb(163, 159, 159);
+	padding: 5px 10px;
+	color: rgb(134, 127, 127);
+	border-radius:3px;
+	cursor: pointer;
+	margin-left: -70px;
+}
+.ct-myinfo .submit-wp{
+	text-align: center;
+	display: none;
+}
+.ct-myinfo .submit-wp input{
+	width: 85px;
+	margin: 20px 10px 0;
+	border: 0;
+	color: #FFF;
+	border-radius: 5px;
+	background: #3BB3C3;
+	cursor: pointer;
+	height: 100%;
+	padding: 5px 0;
+}
+/* end of个人中心 */
+
+/* 成为卖家 */
+.agreeitems{
+	text-align: center;
+	padding: 30px;
+}
+.agreeitems p{
+	text-shadow: 0 0px 1px;
+	padding-bottom: 30px;
+	color: #FF9D9D;
+}
+.agreeitems p a{
+	color: #3BBCE4;
+	font-weight: bold;
+}
+form.beseller-form{
+	border:1px solid red;
+	border: 5px solid #8ADB5C;
+	overflow: hidden;
+	width: 340px;
+	padding: 20px;
+	margin: 0 auto;
+	text-align: left;
+	margin-top: 45px;
+}
+.ct-pubgoods .beseller-form #submit{
+	margin:0;
+	border: 0;
+	padding: 7px 20px;
+	color: #FFF;
+	border-radius: 5px;
+	background: #3BB3C3;
+	cursor: pointer;
+	width: auto;
+}
+.beseller-form div{
+	text-align: center;
+	padding-top:10px;
+}
+.beseller-form span{
+	margin-top: 10px;
+}
+.beseller-form input{
+	font-size: 15px;
+}
+/* 头像 */
+#modify-avator{
+	position: relative;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+#modify-avator a:hover{
+	background-color:#e7e7e7;
+	color:#9C999B;
+	border-radius: 5px;
+	text-decoration: none;
+}
+#modify-avator a{
+	position: absolute;
+	padding: 3px 5px;
+	color: #9C999B;
+	font-weight: bold;
+}
+.i-f-wrap {
+	float: left;
+	position: relative;
+	overflow: hidden;
+	width: 90px;
+	height: 32px;
+}
+.i-f-wrap a.btn {
+	height: 21px;
+	width: 63px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#imgUpload{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 150px;
+	width: 150px;
+	opacity: 0;
+}
+.i-upload {
+	font-size: 16px;
+	height: 29px;
+	left: -129px;
+	position: absolute;
+	top: 0;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	cursor: pointer;
+}
+
+.change-avatar-wp{
+	padding:10px;
+}
+.change-avatar-wp .avatar-img{
+	border-radius: 50%;
+}
+.change-avatar-wp p{
+	margin:15px 0;
+}
+.change-avatar-wp .uploading{
+	display: none;
+	margin: 15px 0;
+	margin-left: 25px;
+}

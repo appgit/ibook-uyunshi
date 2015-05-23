@@ -1,0 +1,274 @@
+/*--reset--*/
+input{
+	.transitionEase;
+	&:focus{
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 8px rgba(82, 168, 236, 0.6);
+		border-color:#A0D5FF;
+	}
+	padding: 3px 5px;
+	height: 1.5em;
+	border: 1px solid #AAA;
+	margin: 5px 0;
+	border-radius: 4px;
+}
+
+
+/*--- end --*/
+
+
+/*之前写在index的html里面的css */
+
+		.container{
+			padding:10px;
+			min-width: 980px;
+			max-width: 980px;
+			border:1px solid #000;
+			margin:0 auto;
+		}
+		/*================占位css=============*/
+		.logo{
+			width:200px;
+			height: 150px;
+			background-color: #eeffee;
+			line-height: 200px;
+		}
+		/*================占位css=============*/
+
+		/*微调css*/
+		body{
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			background: #B4E69D;
+		}
+		.nav-wrap{
+			text-align: center;
+		}
+		ul.nav{
+			display: inline-block;
+		}
+		.searchbar{
+			text-align: center;
+		}
+		.searchbar .search-query{
+			width:70%;
+		}
+		#newbooks{
+			border:1px solid #000;
+			background-color: #345;
+			width:60%;
+			float: left;
+		}
+		.nav-wrap{
+			margin:1em 0;
+			background-color: rgb(53, 44, 43);
+		}
+		.nav-wrap .nav{
+			margin: 0;
+			vertical-align: top;
+	}
+		#newbooks li{
+			list-style: none;
+			color:#fff;
+		}
+		#newbooks .bookname{
+			width:30%;
+			display: inline-block;
+		}
+		#newbooks .booktime{
+			float: right;
+			padding-right: 50px;
+		}
+		.signup-wrap{
+			width:30%;
+			background-color: #345;
+		}
+		#signup{
+			padding:1em;
+			color: #fff;
+			font-size: 1.5em;
+			text-align: center;
+		}
+		.hotbooks-wrap ul{
+			background-color: #345;
+		}
+		#hotbook-title{
+			font-size: 1.2em;
+			font-weight: bold;
+			color:#fff;
+		}
+		.footer{
+			height: 2em;
+			width:100%;
+			background-color: lightgreen;
+		}
+
+		/*======= module login ===========*/
+		.module-login-wrap{
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.module-login{
+			position: relative;
+			height: 600px;
+			width: 100%;
+			
+		}
+		.module-color{
+			background-color: rgba(0,0,0,0.8);
+			position: fixed;
+		}
+		.module-login form{
+			border:1px solid #777777;
+			box-shadow: 0 0 2px red;
+			width:37em;
+			padding:0 0 0 2em;
+			top:0;
+			bottom:0;
+			height:350px;
+			position: absolute;
+			background-color: #fff;
+		}
+		.dec-title{
+			font-weight: bold;
+
+		}
+		#login-form .close{
+			float: right;
+			display: inline-block;
+			font-size: 2em;
+			padding:0 5px;
+		}
+		.close:hover{
+			background-color: tomato;
+			cursor: pointer;
+			-webkit-transition: all ease 0.2s;
+			-moz-transition: all ease 0.2s;
+			-ms-transition: all ease 0.2s;
+			-o-transition: all ease 0.2s;
+			transition: all ease 0.2s;
+		}
+
+		/*======= module login ===========*/
+
+		.newpro-wrap,.askpro-wrap,.hotpro-wrap{
+			background-color: tomato;
+			margin-top:2em;
+			height:200px;
+		}
+		.askpro-wrap,.hotpro-wrap{
+			width:45%;
+			background: #fff;
+		}
+		.hotpro-wrap{
+			background-color: #95D353;
+		}
+/*之前写在index的html里面的css */
+.borderRadius(@radius:10px){
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+.boxShadow(@color:#000,@x:0,@y:0,@blur:30px){
+	-moz-box-shadow: @arguments;
+	-webkit-box-shadow: @arguments;
+	box-shadow: @arguments;
+}
+.transitionEase(@time:0.5s){
+	-webkit-transition: all ease @time;
+	-moz-transition: all ease @time;
+	-ms-transition: all ease @time;
+	-o-transition: all ease @time;
+	transition: all ease @time;
+}
+.transformRotate(@rotate: 30deg){
+	-webkit-transform: rotate(@rotate);
+	-moz-transform: rotate(@rotate);
+	-ms-transform: rotate(@rotate);
+	-o-transform: rotate(@rotate);
+	transform: rotate(@rotate);
+}
+
+/*=======<a></a>========link button======*/
+.lButton(@color:lighten(red,10%)){
+	display: inline-block;
+	background-color: @color;
+	color:#fff;
+	cursor:pointer;
+	padding:5px 10px;
+	margin: 5px 10px;
+	.borderRadius(5px);
+	&:hover{
+		background-color: darken(@color, 5%);
+		text-decoration: none;
+	}
+}
+ 
+
+
+/*css*/
+.header{
+	padding-top:1px;
+	.tool{
+		.t-register{
+			.lButton(tomato);
+		}
+		.t-login,.t-logout{
+			.lButton(#1C9439);
+		}
+		.t-userinfo{
+			.lButton(#303030);
+		}
+	}
+	.search{
+		form{
+			width: 270px;
+			margin: 0 auto;
+		}
+		margin-top:4em;
+	}
+}
+
+.nav{
+	a{
+		.lButton(#666B64);
+		&.active{
+			background-color: #79AFFF;
+		}
+	}
+}
+
+/*second page*/
+.b-items{
+	width:20%;
+	height:500px;
+	background-color: #F38383;
+	li{
+		padding:10px 5px;
+		position:relative;
+		&:hover{
+			background: #A4E479;
+			color:#fff;
+			div{
+				display: block;
+			}
+		}
+		div{
+			display: none;
+		}
+
+	}
+}
+.hot-wrap{
+	width:80%;
+	.hotpros{
+		width:48%;
+		margin:5px;
+		box-sizing:border-box;
+		height: 200px;
+		background-color: orange;
+		border:1px solid #000;
+	}
+}
+/*end of second page*/

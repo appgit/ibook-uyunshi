@@ -1,0 +1,83 @@
+
+.ct-login form{
+	padding: 25px 10px 25px 25px;
+}
+.ct-login p{
+	margin:20px 0;
+}
+.ct-login .dec-title{
+	margin-right: 20px;
+}
+.ct-login .submit {
+	border: 0;
+	padding: 10px 50px;
+	color: white;
+	border-radius: 5px;
+	margin-top: -3px;
+	width:132px;
+	background: #3bb3c3;
+	margin-left: 70px;
+	cursor: pointer;
+}
+.ct-login .submit:hover {
+	background: #62c2cf;
+}
+.ct-login .submit:active {
+	box-shadow: 0 0 10px #3BB3C3;
+}
+.ct-login .login-wp{
+	border-bottom: dashed 1px #e4e4e4;
+	padding-bottom: 20px;
+	margin-bottom: 0;
+}
+#go-homepage{
+	cursor:pointer;
+}
+.ct-login input{
+	border: 1px solid #E4E4E4;
+	box-shadow: 0 0 1px #E4E4E4;
+	padding:2px 10px;
+}
+input.verify{
+	width:70px;
+}
+#verify{
+	width: 100px;
+	margin-left: 10px;
+	height: 50px;
+	vertical-align: bottom;
+}
+.submit-right{
+	vertical-align: middle;
+	display: inline-block;
+	margin-left: 5px;
+}
+.submit-right a{
+	display: block;
+	font-size: 0.8em;
+}
+
+.ct-login .error-info{
+	text-align: center;
+	color: #F00;
+	margin-top: 0;
+}
+.autologin{
+	font-size: 0.8em;
+	color:#9B9A9A;
+}
+.autologin input{
+	margin-left:80px;
+	margin-top: 0;
+}
+.auto-login{
+	display:inline-block; 
+	margin:0;
+}
+.process{
+	display:none;
+	margin: 0 50px 0 124px;
+}
+.forget-passwd{
+	margin-bottom: 5px;
+}

@@ -1,0 +1,127 @@
+
+#verify{
+	width: 100px;
+	height: 35px;
+}
+
+.ct-login form{
+	padding:30px;
+}
+.ct-login p{
+	margin:20px 0;
+}
+.ct-login .dec-title{
+	margin-right: 20px;
+}
+.ct-login #submit {
+	border: 0;
+	padding: 10px 50px;
+	color: white;
+	border-radius: 5px;
+	background: #3bb3c3;
+	cursor: pointer;
+}
+.ct-login #submit:hover {
+	background: #62c2cf;
+}
+.ct-login .login-wp{
+	text-align: center;
+	border-bottom: dashed 1px #e4e4e4;
+	padding-bottom: 20px;
+	margin-bottom: 0;
+}
+.c-wrap form{
+	border:1px solid #e4e4e4;
+}
+.user-reg{
+	margin:30px 0;
+	text-align: center;
+}
+div.item-name-wp{
+	width:356px;
+}
+.input-item-wp{
+	margin-left: 10px;
+}
+.content-wp p{
+	height: 45px;
+	line-height: 45px;
+}
+
+.input-item-wp p input{
+	height: 33px;
+	margin: 5px 0;
+	width:310px;
+	border: 1px solid #E4E4E4;
+	box-shadow: 0 0 1px #E4E4E4;
+	padding:0;
+}
+span.must-field{
+	color:#ff0000;
+	margin-left: 27px;
+	vertical-align: middle;
+}
+
+
+.input-item-wp #input-verify{
+	width:155px;
+}
+#verify{
+	width: 100px;
+	height: 35px;
+}
+.reg-now{
+	margin-left: 50px;
+	padding-bottom: 20px;
+	margin-bottom: 0;
+}
+form #submit:hover {
+	background: #62C2CF;
+}
+form #submit {
+	width: 164px;
+	border: 0;
+	padding: 10px 50px;
+	color: #FFF;
+	border-radius: 5px;
+	background: #3BB3C3;
+	cursor: pointer;
+	height: 100%;
+}
+
+.service-item{
+	color:#259;
+}
+.service-item:hover{
+	color:#2b6cc3;
+	text-decoration: none;
+}
+span.info-ok{
+	display: inline-block;
+	background: url(img/ok.png);
+	width: 24px;
+	background-position: 0 -16px;
+	height: 17px;
+}
+.error-info {
+	padding-left: 15px;
+	font-size: 0.9em;
+	color: #F00;
+}
+
+.input-item-wp p input{
+	padding-left:10px;
+}
+#go-homepage{
+	cursor:pointer;
+}
+.input-error{
+	background-color: #FFE7E7;
+}
+input.process{
+	background: url(img/loader.gif) no-repeat scroll 56px 7px rgba(0, 0, 0, 0) !important;
+	text-align: center;
+	text-indent: -9999px;
+	border: none;
+	box-shadow: none;
+}

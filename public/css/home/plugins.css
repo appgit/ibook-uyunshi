@@ -1,0 +1,141 @@
+/* module-box plugin */
+.module-wrap{
+	position: fixed;
+	top:0;
+	left: 0;
+	width:100%;
+	height: 100%;
+	z-index: 999;
+	background-color: rgba(0,0,0,0.8);
+	background-color: #444\9;
+	/* ie678910 */;
+}
+:root .module-wrap{
+	background-color: rgba(0,0,0,0.8);
+	/* >=ie 9 */;
+}
+.module-wrap .dom-wrap{
+	border:2px solid #000;
+	-webkit-transition: all ease 0.5s;
+	-moz-transition: all ease 0.5s;
+	-ms-transition: all ease 0.5s;
+	-o-transition: all ease 0.5s;
+	transition: all ease 0.5s;
+}
+.module-wrap .dom-wrap{
+	*display: inline !important;
+}
+.module-wrap .m-head{
+	background-color: #fff;
+}
+.module-wrap .m-close{
+	float: right;
+	display: inline-block;
+	font-size: 2em;
+	padding: 0 5px;
+}
+.module-wrap .m-close:hover{
+	background-color: #FF6347;
+	cursor: pointer;
+	-webkit-transition: all ease 0.2s;
+	-moz-transition: all ease 0.2s;
+	-ms-transition: all ease 0.2s;
+	-o-transition: all ease 0.2s;
+	transition: all ease 0.2s;
+}
+/* end of module-box plugin */
+
+/* circle button */
+.my-button-radious{
+	cursor:pointer;
+	font-weight: bold;
+	border-radius: 30px;
+	text-align: center;
+	color: #9297a0;
+	box-shadow: 0 3px 4px #cdcdcd;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select:none;
+	user-select:none;
+}
+/* 悬停色 */
+.my-button-radious-hover{
+	background-color: #f76a38 !important;
+	color: white !important;
+}
+/* mousedown */
+.my-button-radious-active{
+	background-color: #67737d !important;
+}
+/* 当前按钮色 */
+.active-btn{
+	background-color:#F76A38 !important;
+}
+/* end of circleBtn */
+
+/* imgslider */
+.slider-wp{
+	position: relative;
+}
+.slider-wp li{
+	list-style-type: none;
+	position: absolute;
+	top:0;
+	left: 0;
+	z-index:0;
+}
+.arrow-wp{
+	position: absolute;
+	width:100%;
+	top: 49%;
+	bottom: 49%;
+	z-index: 999;
+	height: 1%;
+}
+.next-pic,.prev-pic{
+	height:50px;
+	width: 50px;
+	position: absolute;
+	top:-25px;
+	background-color: red;
+	z-index:999;
+}
+.prev-pic{
+	left:0;
+}
+.next-pic{
+	right:0;
+}
+/* 按钮 */
+.btn-wp div{
+	display: inline-block;
+	border:1px solid #fff;
+	margin:0 4px;
+	/*按钮间距*/;
+}
+.btn-wp div{
+	*display: inline;
+}
+/* 按钮的wrap */
+.btn-wp{
+	text-align:center;
+	position: relative;
+	top:-50px;
+	z-index:999;
+}
+/* 按钮 */
+
+/* ie7 */
+.btn-wp div{
+	*display: inline !important;
+}
+.btn-wp div.active-btn{
+	*position: relative;
+	*top:-5px;
+}
+.btn-wp div.my-button-radious-hover{
+	*position: relative;
+	*top:-5px;
+}
+/* end of imgslider */
+
