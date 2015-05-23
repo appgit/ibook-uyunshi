@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>类别展示</title>
+<link href="__PUBLIC__/css/admin/style.css" rel="stylesheet"
+	type="text/css" />
+<link href="__PUBLIC__/css/admin/pageskip.css" rel="stylesheet"
+	type="text/css" />
+<style type="text/css">
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-family: "宋体";
+	font-size: 12px;
+	color: #333333;
+	background-color: #2286C2;
+}
+</style>
+
+<script type="text/javascript">
+function cheakvail(obj){
+if(document.getElementById('tbpage').value<=<{$pages}>&&document.getElementById('tbpage').value>=1){
+	self.location='__CONTROLLER__/typeshow?page='+document.getElementById('tbpage').value;
+	}else{
+	alert('请输入正确数字!');
+	}
+}
+</script>
+
+</head>
+<body>
+
+</head>
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td background="__PUBLIC__/images/admin/index1_45.gif"></td>
+		<td bgcolor="#FFFFFF" style="height: 490px; vertical-align: top;">
+		<table width="100%" border="0" cellspacing="10" cellpadding="0">
+			<tr>
+				<td>
+				<table width="100%" border="0" cellpadding="0" cellspacing="1"
+					bgcolor="#BBD3EB">
+					<tr>
+						<td height="27" align="center"
+							background="__PUBLIC__/images/admin/index1_72.gif"
+							bgcolor="#FFFFFF">ID</td>
+							<td height="27" align="center"
+							background="__PUBLIC__/images/admin/index1_72.gif"
+							bgcolor="#FFFFFF">超类</td>
+						<td height="27" align="center"
+							background="__PUBLIC__/images/admin/index1_72.gif"
+							bgcolor="#FFFFFF">大类</td>
+						<td height="27" align="center"
+							background="__PUBLIC__/images/admin/index1_72.gif"
+							bgcolor="#FFFFFF">小类</td>
+					
+						<td align="center"
+							background="__PUBLIC__/images/admin/index1_72.gif"
+							bgcolor="#FFFFFF">直属新品</td>
+							<td align="center"
+							background="__PUBLIC__/images/admin/index1_72.gif"
+							bgcolor="#FFFFFF">删除</td>
+					</tr><!-- 
+					
+					
+					//进行循环取出数据
+					--><volist name="types" id="vo">
+                    
+
+					<tr>
+						<td height="26" align="center" bgcolor="#FFFFFF"> <{$vo.id}></td>
+						<td height="26" align="center" bgcolor="#FFFFFF"> <{$vo.sptype}></td>
+						
+						<td height="26" align="center" bgcolor="#FFFFFF"><{$vo.btype}></td>
+						<td height="26" align="center" bgcolor="#FFFFFF"> <{$vo.stype}></td>
+						<td align="center" bgcolor="#FFFFFF"><{$vo.isnew}></td>
+                         <td align="center" bgcolor="#FFFFFF"><a href="__CONTROLLER__/delstype?stypeid=<{$vo.id}>">删除</a></td>
+                        
+					</tr>
+					</volist>	
+				</table>
+				</td>
+			</tr>
+			<tr>
+				<td style="background-color:#eeeeff ;width:100%;height:40">
+				
+					
+                <div class="fenye">
+                 <?php
+                    if($page>1){
+                     $prepage =$page-1;
+                    echo "<a href='__CONTROLLER__/typeshow?page=$prepage' class='backpage'>上一页</a>";
+                 
+                      }else{
+                    echo " <a href='##' class='backpage'>上一页</a>";
+                     }
+                 
+                    if($page<= 6){
+                        for($i=1;$i<=$page-1;$i++){
+                            echo " <a href='__CONTROLLER__/typeshow?page=$i'><b>$i</b></a> " ;
+                         }
+                           echo " <a href='__CONTROLLER__/typeshow?page=$i' class='active'><b>$i</b></a> " ;
+                        if($pages==$page){
+                        }else if(($pages-$page)<=4){
+                              for($i=$page+1;$i<=$pages;$i++){
+                                 echo " <a href='__CONTROLLER__/typeshow?page=$i'><b>$i</b></a> " ;
+                              } 
+                        }else{
+                               for($i=$page+1;$i<=$page+4;$i++){
+                                  echo " <a href='__CONTROLLER__/typeshow?page=$i'><b>$i</b></a> " ;
+                               } 
+                               echo "<a href='__CONTROLLER__/typeshow?page=$i'>..</a>";
+                               echo "<a href='__CONTROLLER__/typeshow?page=$pages'>$pages</a>"; 
+                        }
+                    
+                     
+                  
+                    }else {
+                           echo "<a href='__CONTROLLER__/typeshow?page=1'>1</a>";
+                           echo "<a href='__CONTROLLER__/typeshow?page=$page-5'>..</a>";
+                           for($i=$page-4;$i<$page;$i++){
+                            echo " <a href='__CONTROLLER__/typeshow?page=$i'><b>$i</b></a> " ;
+                           }
+                            echo " <a href='__CONTROLLER__/typeshow?page=$i' class='active'><b>$i</b></a> " ;
+                           
+                           if(($pages-$page)<=5){
+                              for($i=$page+1;$i<=$pages;$i++){
+                                    
+                                 echo " <a href='__CONTROLLER__/typeshow?page=$i'><b>$i</b></a> " ;
+                                 
+                              } 
+                           }else{
+                               
+                               for($i=$page+1;$i<=$page+4;$i++){
+                                  echo " <a href='__CONTROLLER__/typeshow?page=$i'><b>$i</b></a> " ;
+                               } 
+                               echo "<a href='__CONTROLLER__/typeshow?page=$i'>..</a>";
+                               echo "<a href='__CONTROLLER__/typeshow?page=$pages'>$pages</a>";    
+                          }
+                        
+                    }
+                  
+                    if($page<$pages){
+                       $nextpage =$page+1;
+                       echo "<a href='__CONTROLLER__/typeshow?page=$nextpage' class='nextpage'>下一页</a>";
+                    }else{
+                      echo "<a href='##' class='nextpage'>下一页</a>"; 
+                      }
+                  
+                  
+                  
+                  ?><!--
+                  
+                       
+                  -->
+                                                                     转到第 <input name="tbpage" id="tbpage" size="3" type="text"> 页
+                       <input id="btngo" onclick="cheakvail(this)" value="跳转" type="submit">
+                </div>
+           
+				</td>
+			</tr>
+			
+		</table>
+
+
+		</td>
+		
+	</tr>
+	
+</table>
+</body>
+</html>
+ 

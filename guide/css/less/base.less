@@ -1,0 +1,70 @@
+/*--reset--*/
+/*.bs -> bootstrap*/
+input.bs{
+	.transitionEase;
+	&:focus{
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 8px rgba(82, 168, 236, 0.6);
+		border-color:#A0D5FF;
+	}
+	padding: 3px 5px;
+	height: 1.5em;
+	border: 1px solid #AAA;
+	margin: 5px 0;
+	border-radius: 4px;
+}
+/*--- end --*/
+.opacity(@val:100){
+
+	filter:alpha(opacity=@val);
+    opacity:@val/100.0;
+}
+.borderRadius(@radius:10px){
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+.boxShadow(@color:#000,@x:0,@y:0,@blur:30px){
+	-moz-box-shadow: @arguments;
+	-webkit-box-shadow: @arguments;
+	box-shadow: @arguments;
+}
+.transitionEase(@time:0.5s){
+	-webkit-transition: all ease @time;
+	-moz-transition: all ease @time;
+	-ms-transition: all ease @time;
+	-o-transition: all ease @time;
+	transition: all ease @time;
+}
+.transformRotate(@rotate: 30deg){
+	-webkit-transform: rotate(@rotate);
+	-moz-transform: rotate(@rotate);
+	-ms-transform: rotate(@rotate);
+	-o-transform: rotate(@rotate);
+	transform: rotate(@rotate);
+}
+
+/*=======<a></a>========link button======*/
+.lButton(@color:lighten(red,10%)){
+	display: inline-block;
+	background-color: @color;
+	color:#fff;
+	cursor:pointer;
+	padding:5px 10px;
+	margin: 5px 10px;
+	.borderRadius(5px);
+	&:hover{
+		background-color: darken(@color, 5%);
+		text-decoration: none;
+	}
+}
+.r-arrow(@val:10px){
+    border: @val solid #939393;
+    border-top: @val solid transparent;
+    border-right: 0px solid transparent;
+    border-bottom: @val solid transparent;
+    display: inline-block;
+    margin-left: 5px;
+}
+i.r-arrow{
+    .r-arrow(5px);
+}

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>添加大类别</title>
+ </head>
+ <body>
+  
+      
+    <form action='__CONTROLLER__/addbtypepro' method='post'>
+	    <table>
+		     <tr>
+			     <td>超类别</td>
+				 <td>
+				      <select name='sptypeid' >
+					  <option selected value='no'>选择超类</option>
+					  <volist name='sptypes' id='vo'>
+				          <option value="<{$vo.id}>"><{$vo.note}></option>
+					  </volist>
+					  </select></td>
+			 </tr>
+		     <tr>
+			     <td>大类别名称：</td>
+				 <td><input name='note' type='text'></input></td>
+			 </tr>
+			  <tr>
+			     <td><input type='submit' value='提交'></input></td>
+				 <td><input type='reset' value='重置'></input></td>
+			 </tr>
+		
+		</table>
+	
+	
+	
+	</form>
+
+
+
+ </body>
+</html>

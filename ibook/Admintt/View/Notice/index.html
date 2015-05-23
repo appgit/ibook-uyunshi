@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>发布公告</title>
+ 
+ <style type="text/css">
+ 
+ 
+#myTablemy {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 1em 0;
+}
+
+
+tr {
+  height:40px;
+}
+
+th {
+	background-color: #328aa4;
+	color: #fff;
+}
+
+td {
+	background: #e5f1f4;
+}
+
+tr.even td {
+	background: #e5f1f4;
+}
+
+tr.odd td {
+	background: #f8fbfc;
+}
+
+tr.over td {
+	background: #bce774;
+}
+
+tr.out td {
+	
+}
+.even,.odd,.over{
+	height:25px;
+}
+.even td,.odd td{
+	height:25px !important;
+}
+.over{
+	height:25px !important;
+}
+#myTablemy  .even td,#myTablemy  .odd td{ 
+	/*background-color:red;*/
+	padding-top:0;
+	padding-bottom:0;
+}
+#myTablemy td:focus{
+     border-color: #ffeedd;
+}
+ </style>
+ </head>
+ 
+ 
+ 
+ <body bgcolor="#efffff" onload="changeTableBg();">
+ <center>
+ <form method="post" action="/ibook/index.php/Admintt/Notice/publishnotice" onsubmit='return noticecheck(this)'>
+	<table id='myTablemy' >
+	<tr>
+		<td>公告内容</td>
+		
+		<td><textarea name='text' cols="100" rows="5"></textarea></td>
+	</tr>
+	
+	<tr>
+		<td>有效天数</td>
+		<td><input type='text' name='effectivedays' maxLength=4 size=10 onkeyup="value=value.replace(/[^\d|\.]/g,'')"/>天</td>
+	</tr>
+
+	</table>
+  
+      <input type='submit' value='提交' />
+	 <input type='reset' value='重置'/>
+ </form>
+  </center>
+  
+  
+  <script type="text/javascript">
+function changeTableBg()
+{
+var changeTr=document.getElementById("myTablemy").getElementsByTagName("tr");
+   for(i=0;i<changeTr.length;i++)
+   {
+      changeTr[i].className=(i%2>0)?"even":"odd";
+	  changeTr[i].temp=changeTr[i].className;
+	  changeTr[i].onmouseover=function(){
+	             this.className='over';        
+	  }
+	  changeTr[i].onmouseout=function(){
+	             this.className=this.temp;        
+	  }
+   }
+ 
+}
+
+
+</script>
+<script type='text/javascript' src='__PUBLIC__/js/admin/publishcheck.js'></script>
+ </body>
+</html>

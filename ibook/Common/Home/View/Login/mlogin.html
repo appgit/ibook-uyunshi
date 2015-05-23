@@ -1,0 +1,77 @@
+<div class="module-login-wrap">
+	<div class="module-color"></div>
+	<div class="module-login">
+		<form id="login-form" action method="post">
+			<span class="close">×</span>
+			<br>
+			<br>
+			<br>
+			<span class="dec-title">用 户 名</span>：<input type='text' name='username'/>
+			<br/>
+			<span class="dec-title">密　&nbsp;&nbsp;码</span>：<input type='password' name='passwd'/><br/>
+			<span class="dec-title">验 证 码</span>：<input type='text' name='code'/>
+			<img id="verify" src="" alt="" style="vertical-align: bottom;">
+			<br />
+			<br />
+			<a href="" class="forget-passwd">忘记密码?</a>
+			<br />
+			<br />
+			<br />
+			<input type="submit" value="提交">
+		</form>
+	</div>
+</div>
+	<script>
+		$(function(){
+
+			var CONTROLLER = "http://localhost/ibook/index.php/Home";
+
+			$('#login-form').attr('action',CONTROLLER + '/Login/login?via='+__C.cname);
+
+			$('form #verify')[0].src = CONTROLLER + '/Login/verify';
+
+			$('.forget-passwd').attr('href',CONTROLLER + '/Resetpsd');
+
+			(function changeVerify(){
+
+				var $verify = $('#verify');
+
+				var src = $verify[0].src;
+
+				$verify.click(function(event) {
+
+					$verify[0].src = src+'?'+Math.ceil(Math.random()*999);
+				});
+				
+			})()
+			function fixCenter() {
+				
+				$win_width = window.innerWidth;
+				$win_height = window.innerHeight;
+
+				$form_width = $('#login-form').outerWidth();
+				$form_height = $('#login-form').outerHeight();
+
+				_left = ($win_width - $form_width)/2 +'px';
+				_top = ($win_height - $form_height)/2 +'px';
+
+				$('#login-form').css({
+					top: _top,
+					left: _left
+				});
+				$('.module-color').css({
+					width: $win_width +'px',
+					height: $win_height +'px'
+				});
+
+			}
+			$(window).on('resize', fixCenter);
+			fixCenter();
+
+			$('.close').click(function(){
+
+				$('.module-login-wrap').fadeOut()
+			})
+			
+		})
+	</script>

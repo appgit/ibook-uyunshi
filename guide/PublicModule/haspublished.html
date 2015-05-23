@@ -1,0 +1,84 @@
+<php> if (isset($cur_haspub)): </php>
+<!-- 约谈管理 -->
+<div class="left user-content bg-w">
+    <div class="main-content-wp">
+        <div class="title-wp-b haspub">
+            <div class="title-wp">
+                <span class="title">
+                已发布宝贝
+                </span>
+            </div>
+        </div>
+        <div class="ct ct-user">
+            <div class="toolbar-wp clearfix">
+                <div class="left opt1">宝贝名称</div>
+                <div class="left opt">价格</div>
+                <div class="left opt">原价</div>
+                <div class="left opt">状态</div>
+                <div class="left opt">操作</div>
+            </div>
+            <ul>
+                <php> foreach ($mypubpros as $key => $val): </php>
+                <php>
+                if ( $val['ishandled'] == 1 ){
+                $href = "__MODULE__/Detail/index/seller/{$val['username']}/id/{$val['id']}";
+                $unreview = null;
+                }else{
+                $href = "javascript:;";
+                $unreview = " unreview";
+                }
+                </php>
+                <li>
+                    <a class="info-title bg-g">
+                    宝贝编码：A<span class="goodsid"><{$val['id']}></span>
+                    <span class="order-time">发布时间：<php>echo date('Y-m-d  H:i',$val['publishdate'])</php></span>
+                    </a>
+                    
+                    <div class="toolbar-wp toolbar-main-wp clearfix<php>echo $unreview;</php>">
+                        <div class="left opt1">
+                            <div class="info-img">
+                                <a href="<php>echo $href;</php>">
+                                <img src="__ROOT__/uploads<{$val['image']}>" alt="">
+                                </a>
+                            </div>
+                            <div class="pro-info">
+                                <a href="<php>echo $href;</php>">
+                                【<{$val['name']}>】
+                                </a>
+                            </div>
+                        </div>
+                        <div class="left opt">
+                            <input class="haspub-price price-gp" value="<{$val['price']}>" disabled=true/>
+                            <span>
+                            <i class="icon modify"></i>
+                            </span>
+                        </div>
+                        <div class="left opt">
+                            <input class="haspub-costprice price-gp" value="<{$val['costprice']}>" disabled=true/>
+                            <span>
+                            <i class="icon modify"></i>
+                            </span>
+                        </div>
+                        <div class="left opt">
+                            <php> if ( $val['ishandled'] == 1 ): </php>
+                            <span class="review_ok">审核通过</span>
+                            <php>elseif( $val['ishandled'] == 2 ):</php>
+                            <span class="review_pass">审核不通过</span>
+                            <php>else:</php>
+                            <span class="review_ing">审核中</span>
+                            <php>endif </php>
+                        </div>
+                        <div class="left opt"><a class="deletepros">删除</a></div>
+                    </div>
+                </li>
+                <php>endforeach;</php>
+            </ul>
+            <div class="tool-page">
+                <php>
+                pageTool($page,$pages,$base_url);
+                </php>
+            </div>
+        </div>
+    </div>
+</div>
+<php> endif </php>

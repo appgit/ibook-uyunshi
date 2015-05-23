@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>忘记密码页</title>
+</head>
+<body>
+		<form action="__CONTROLLER__/setnewpasswd" method="post">
+		密码：<input type="text" name="newpasswd"><br>
+		确认密码：<input type="text" name="psd_confirm"><br>
+		<input id="commit" type="submit" value="确认" style="color:#fff;border:none;background-color:red;cursor:pointer;padding: 0.5em 1em;border-radius: 5px;font-weight: bold;">
+	</form>
+		<script src="__PUBLIC__/js/home/jquery-2.1.0.min.js"></script>
+	<script>
+	$('#commit').click(function(event) {
+		$(this).val('处理中...');
+	});
+	</script>
+</body>
+</html>

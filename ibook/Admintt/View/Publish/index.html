@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ 
+ <style type="text/css">
+ 
+ 
+#myTablemy {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 1em 0;
+}
+
+
+tr {
+  height:40px;
+}
+
+th {
+	background-color: #328aa4;
+	color: #fff;
+}
+
+td {
+	background: #e5f1f4;
+}
+
+tr.even td {
+	background: #e5f1f4;
+}
+
+tr.odd td {
+	background: #f8fbfc;
+}
+
+tr.over td {
+	background: #bce774;
+}
+
+tr.out td {
+	
+}
+.even,.odd,.over{
+	height:25px;
+}
+.even td,.odd td{
+	height:25px !important;
+}
+.over{
+	height:25px !important;
+}
+#myTablemy  .even td,#myTablemy  .odd td{ 
+	/*background-color:red;*/
+	padding-top:0;
+	padding-bottom:0;
+}
+#myTablemy td:focus{
+     border-color: #ffeedd;
+}
+ </style>
+ </head>
+ 
+ 
+ 
+ <body bgcolor="#efffff" onload="changeTableBg();">
+ <center>
+ <form method="post" action="/ibook/index.php/Admintt/Publish/publishsp" onsubmit='return publishcheck(this)' enctype="multipart/form-data"
+ >
+	<table id='myTablemy' >
+	<tr>
+		<td>商品名</td>
+		<td><input type='text' name='name'/></td>
+	</tr>
+	<tr>
+		<td>是否二手</td>
+		<td><select name="isnew">
+			<option value="" selected>新旧</option>
+			<option value="0" > 二手 </option> 
+			<option value="1"> 新品</option>
+			</select></td>
+	</tr>
+	
+	<tr>
+		<td>原价￥</td>
+		<td><input type='text' name='costprice' maxLength=6 size=10 onkeyup="value=value.replace(/[^\d|\.]/g,'')"/>元</td>
+	</tr>
+	<tr>
+		<td>现价￥</td>
+		<td><input type='text' name='price' maxLength=6 onkeyup="value=value.replace(/[^\d]/g,'')"/>元(若不想打折就写与原价相同价格，建议打折!)</td>
+	</tr>
+
+
+	<tr>
+		<td>大类别</td>
+		<td><select name="btypeid">
+			<option value="" selected>选择类别</option>
+			<option value="1" > 公共基础课 </option> 
+			<option value="2"> 通信/电子/电气/自动化</option>
+			<option value="3">计算机/软件/网络/信息/数学</option>
+			<option value="4">经济/金融/营销/管理/电子商务</option>
+			<option value="5">物理/光学/声学/热学/力学</option>
+			<option value="6">土建/机械/车辆/制造/材料</option>
+			<option value="7">化学/环境/生物/医学/制药</option>
+			<option value="8">法学/哲学/心理学/政治学</option>
+			<option value="9">文学/史学/外语/教育</option>
+			<option value="10">其它专业的书籍</option>
+
+		</select></td>
+	</tr>
+	
+	<tr>
+		<td>图片</td>
+		<td><input type='file' name='image'/>图片限制在2M以下,仅支持jpg格式</td>
+	</tr>
+
+		<tr>
+		<td>商品描述</td>
+		<td><textarea name='description' cols="100" rows="5"></textarea>请详细说明的商品信息</td>
+		
+	</tr>
+	
+	</table>
+  
+      <input type='submit' value='提交' />
+	 <input type='reset' value='重置'/>
+ </form>
+  </center>
+  
+  
+  <script type="text/javascript">
+function changeTableBg()
+{
+var changeTr=document.getElementById("myTablemy").getElementsByTagName("tr");
+   for(i=0;i<changeTr.length;i++)
+   {
+      changeTr[i].className=(i%2>0)?"even":"odd";
+	  changeTr[i].temp=changeTr[i].className;
+	  changeTr[i].onmouseover=function(){
+	             this.className='over';        
+	  }
+	  changeTr[i].onmouseout=function(){
+	             this.className=this.temp;        
+	  }
+   }
+ 
+}
+
+
+</script>
+<script type='text/javascript' src='__PUBLIC__/js/admin/publishcheck.js'></script>
+ </body>
+</html>

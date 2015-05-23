@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<title>网站管理员登陆</title>
+<META http-equiv=Content-Language content=zh-cn>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META content="MSHTML 6.00.2800.1611" name=GENERATOR>
+<link href="__PUBLIC__/css/admin/skin.css" rel="stylesheet" type="text/css">
+</HEAD>
+
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #1D3647;
+}
+-->
+</style>
+<script language="JavaScript">
+function tt()  //change verify;
+{
+	document.getElementById('verify').src = '__CONTROLLER__/verify?a='+ Math.random(100);
+	
+	
+}
+function cheak(form){
+	var u=document.getElementById('u');
+	var p=document.getElementById('p');
+	var v=document.getElementById('v');
+	if(u.value==null||u.value==''){
+		alert('请输入用户名');
+		u.focus();
+		return false;	
+	}
+	if(p.value==null||p.value==''){
+		alert('请输入密码');
+		p.focus();
+		return false;	
+	}
+	if(v.value==null||v.value==''){
+		alert('请输入正确验证码');
+		v.focus();
+		return false;	
+	}
+	
+	
+	return true;
+}
+</script>
+
+
+
+<body>
+<table width="100%" height="166" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="42" valign="top"><table width="100%" height="42" border="0" cellpadding="0" cellspacing="0" class="login_top_bg">
+      <tr>
+        <td width="1%" height="21">&nbsp;</td>
+        <td height="42">&nbsp;</td>
+        <td width="17%">&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td valign="top"><table width="100%" height="532" border="0" cellpadding="0" cellspacing="0" class="login_bg">
+      <tr>
+        <td width="49%" align="right"><table width="91%" height="532" border="0" cellpadding="0" cellspacing="0" class="login_bg2">
+            <tr>
+              <td height="138" valign="top"><table width="89%" height="427" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td height="149">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td height="144" align="right" valign="top"><img src="__PUBLIC__/images/admin/login/adminlogo.jpg" width="236" height="80"></td>
+                </tr>
+                <tr>
+                  <td height="198" align="right" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td width="35%">&nbsp;</td>
+                      <td height="25" colspan="2" class="left_txt"><p>1- <font color='red'>登录后请马上对未处理的订单处理...</font></p></td>
+                    </tr>
+                    <tr>
+                      <td>&nbsp;</td>
+                      <td height="25" colspan="2" class="left_txt"><p>2- 查看用户求书帮助，尽量发布符合的书...</p></td>
+                    </tr>
+                    <tr>
+                      <td>&nbsp;</td>
+                      <td height="25" colspan="2" class="left_txt"><p>3- 发货送货时请务必核实身份...</p></td>
+                    </tr>
+                  </table></td>
+                </tr>
+              </table></td>
+            </tr>
+            
+        </table></td>
+        <td width="1%" >&nbsp;</td>
+        <td width="50%" valign="bottom"><table width="100%" height="59" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="4%">&nbsp;</td>
+              <td width="96%" height="38"><span class="login_txt_bt">登陆网后台管理</span></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td height="21"><table cellSpacing="0" cellPadding="0" width="100%" border="0" id="table211" height="328">
+                  <tr>
+                    <td height="164" colspan="2" align="middle">
+                    <form name="myform" action="__MODULE__/Administrator/login" method="post" onsubmit='return cheak(this)'>
+                        <table cellSpacing="0" cellPadding="0" width="100%" border="0" height="143" id="table212">
+                          <tr>
+                            <td width="10%" height="38" class="top_hui_text"><span class="login_txt">管理员：&nbsp;&nbsp; </span></td>
+                            <td height="38" colspan="3" class="top_hui_text"><input id='u' name="adminname" title='请输入用户名' class="editbox4" value="" size="20">                            </td>
+                          </tr>
+                          <tr>
+                            <td width="10%" height="35" class="top_hui_text"><span class="login_txt"> 密 码： &nbsp;&nbsp; </span></td>
+                            <td height="35" colspan="3" class="top_hui_text"><input id='p' class="editbox4" type="password" title='请输入密码' size="20" name="passwd">
+                              <img src="__PUBLIC__/images/admin/login/luck.gif" width="19" height="18"> </td>
+                          </tr>
+                          <tr>
+                             <td width="10%" height="35" class="top_hui_text"><span class="login_txt">验证码： &nbsp;&nbsp; </span></td>
+                            <td  width="10%" height="35" class="top_hui_text"><input  id='v' title='请输入验证码' class=wenbenkuang name='verifycode' type=text value="" maxLength=4 size=10>
+                              </td>
+                             <td  width="10%" height="35" colspan="2" class="top_hui_text" ><img id='verify' src='__CONTROLLER__/verify' /></td>
+                             <td ><input type='button' value='change' onclick="tt()"/></td>
+                          </tr>
+                          <tr>
+                            
+                            <td width="10%" height="35" ><input name="Submit" type="submit" class="button" id="Submit" value="登 陆"> </td>
+                            <td width="10%" class="top_hui_text"><input name="cs" type="reset" class="button" id="cs" value="取 消" "></td>
+                            <td height="35" colspan="2" >&nbsp;</td>
+                          </tr>
+                        </table>
+                        <br>
+                    </form></td>
+                  </tr>
+                  <tr>
+                    <td width="433" height="164" align="right" valign="bottom"><img src="__PUBLIC__/images/admin/login/login-wel.gif" width="242" height="138"></td>
+                    <td width="57" align="right" valign="bottom">&nbsp;</td>
+                  </tr>
+              </table></td>
+            </tr>
+          </table>
+          </td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="20"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="login-buttom-bg">
+      <tr>
+        <td align="center"><span class="login-buttom-txt">Copyright &copy; 2009-2010 </span></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>

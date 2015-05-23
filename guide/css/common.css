@@ -1,0 +1,32 @@
+/* module-box plugin */
+.module-wrap{
+	position: fixed;
+	top:0;
+	left: 0;
+	width:100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.8);
+}
+.module-wrap .dom-wrap{
+		border:2px solid #000;
+}
+.module-wrap .m-head{
+	background-color: #fff;
+}
+.module-wrap .m-close{
+	float: right;
+	display: inline-block;
+	font-size: 2em;
+	padding: 0 5px;
+}
+.module-wrap .m-close:hover{
+	background-color: #FF6347;
+	cursor: pointer;
+	-webkit-transition: all ease 0.2s;
+	-moz-transition: all ease 0.2s;
+	-ms-transition: all ease 0.2s;
+	-o-transition: all ease 0.2s;
+	transition: all ease 0.2s;
+}
+/* end of module-box plugin */
+

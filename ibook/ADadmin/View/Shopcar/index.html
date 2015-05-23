@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>购物车</title>
+	<head>
+	<meta charset="UTF-8">
+	<title>二手书</title>
+	<link rel="stylesheet" href="__PUBLIC__/css/home/bts/bootstrap.min.css">
+	<style>
+		.container{
+			min-width: 980px;
+			max-width: 980px;
+			border:1px solid #000;
+		}
+		/*================占位css=============*/
+		.logo{
+			width:200px;
+			height: 200px;
+			background-color: red;
+			margin-top:-100px;
+			line-height: 200px;
+		}
+		/*================占位css=============*/
+
+		/*微调css*/
+		body{
+			background: #B4E69D;
+		}
+		.nav-wrap{
+			text-align: center;
+		}
+		ul.nav{
+			display: inline-block;
+		}
+		.searchbar{
+			text-align: center;
+		}
+		.searchbar .search-query{
+			width:70%;
+		}
+		#newbooks{
+			border:1px solid #000;
+			background-color: #345;
+			width:60%;
+			float: left;
+		}
+		.nav-wrap{
+			margin:1em 0;
+			background-color: rgb(53, 44, 43);
+		}
+		.nav-wrap .nav{margin: 0;}
+		#newbooks li{
+			list-style: none;
+			color:#fff;
+		}
+		#newbooks .bookname{
+			width:30%;
+			display: inline-block;
+		}
+		#newbooks .booktime{
+			float: right;
+			padding-right: 50px;
+		}
+		.signup-wrap{
+			width:30%;
+			background-color: #345;
+		}
+		#signup{
+			padding:1em;
+			color: #fff;
+			font-size: 1.5em;
+			text-align: center;
+		}
+		.hotbooks-wrap ul{
+			background-color: #345;
+		}
+		#hotbook-title{
+			font-size: 1.2em;
+			font-weight: bold;
+			color:#fff;
+		}
+		.footer{
+			height: 2em;
+			width:100%;
+			background-color: lightgreen;
+		}
+	</style>
+</head>
+</head>
+<body>
+	<div class="header1 clearfix">
+			<div class="user pull-right drag-debug">
+				 <a class="btn btn-primary" href="__MODULE__/Shopcar"><i class="icon-user icon-white"></i> 购物车</a>
+				 <a class="btn btn-primary" href="__MODULE__/Register"><i class="icon-user icon-white"></i> 注册</a>
+				 <?php 
+				if(session('?_loginuser')){
+					echo "欢迎你，".$_SESSION['_loginuser'];
+				}else{
+					echo '<a class="btn btn-primary" href="__MODULE__/Login"><i class=" icon-star-empty icon-white"></i> 登录</a>';
+				}
+			?>
+				
+			</div>
+			
+			</div>
+			<div class="row">
+				<div class="span3 drag-debug">
+					<div class="logo">LOGO</div>
+				</div>
+				<div >
+					<form action='__MODULE__/Search/search' class="form-search searchbar" method='post'>
+						<input name='searchkey' type="text" >
+						<button type="submit" class="btn">Search</button>
+					</form>
+				</div>
+				<div class="span2"></div>
+			</div>		
+			<div class="nav-wrap drag-debug">
+				<ul class="nav nav-pills">
+					<li class="active">
+						<a href="__MODULE__/Index">首页</a>
+					</li>
+					<li><a href="#">买书</a></li>
+					<li><a href="__MODULE__/Search">搜索</a></li>
+					<li><a href="__MODULE__/Sale">卖书</a></li>
+				</ul>
+			</div>
+
+<div class="shopcar">	
+<style>
+	.shopcar{
+		margin-left: 400px;
+		border: 1px solid #ffffff;
+		display: inline-block;
+		padding:2em;
+	}
+</style>		
+	<p><strong>购物车信息：</strong></p>
+	<table border=1>
+		<tr>
+			<th>书本名称</th>
+			<th>书本价格</th>
+			<th>购买数量</th>
+			<th>商品合计</th>
+			<th>操作</th>
+		</tr>
+		<php>$total = 0;</php>
+		<volist name="myshopcar" id="vo">
+		<tr>
+			<td><{$vo.book.bookname}></td>
+			<td><{$vo.book.price}></td>
+			<td><{$vo.count}></td>
+			<td><{$vo['book']['price']*$vo['count']}> 元</td>
+			<td><a href="__CONTROLLER__/del/bid/<{$vo.book.id}>">删除</a></td>
+		</tr>
+		<php>$total += ($vo['book']['price']*$vo['count']); </php>
+		</volist>
+	</table>
+	<br>
+	<p>总共：<{$total}>元
+		<php>session('_shopcartotal',$total);</php>
+		<br>
+		 <a class="btn btn-primary" href="__MODULE__/Purchase"><i class="icon-shopping-cart icon-white"></i> 购买</a>
+	</p>
+
+</div>
+</body>
+</html>

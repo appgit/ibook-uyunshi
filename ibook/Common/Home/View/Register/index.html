@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>优云会员注册</title>
+        <include file="PublicModule/common_css" />
+        <link rel="stylesheet" href="__PUBLIC__/css/home/reg.style.css">
+    </head>
+    <body>
+        <div class="c-wrap mt-30 clearfix top-colume">
+            <div class="left"><a href="__MODULE__/Index"><img  id="go-homepage" src="__PUBLIC__/images/home/biglogo.png" title="优云网首页"></a></div>
+            <div class="right go-login mt-30">
+                已有账号了？<a href="__MODULE__/Login">去登陆</a>
+            </div>
+        </div>
+        <div class="c-wrap mt-20 clearfix">
+            <form class="reg-form" action="__MODULE__/Register/doReg" method="post" name="myForm">
+                <h2 class="user-reg">注册优云市集</h2>
+                <div class="content-wp clearfix">
+                    <div class="left item-name-wp">
+                        <p class="clearfix item-name"><span class="right">用户名：</span></p>
+                        <p class="clearfix item-name"><span class="right">密码：</span></p>
+                        <p class="clearfix item-name"><span class="right">确认密码：</span></p>
+                        <p class="clearfix item-name"><span class="right">地址：</span></p>
+                        <p class="clearfix item-name"><span class="right">电话：</span></p>
+                        <p class="clearfix item-name"><span class="right">邮箱：</span></p>
+                         <?php if(session('_regcnt')>=2): ?>
+                        <p class="clearfix item-name"><span class="right">验证码：</span></p>
+                         <?php endif; ?>
+                    </div>
+                    <div class="input-item-wp left">
+                        <p>
+                        <input type="text" class="bs" name="username" maxlength="16">
+                        <span class="must-field">*</span>
+                        </p>
+                        <p>
+                        <input type="password" class="bs" name="passwd" maxlength="16">
+                        <span class="must-field">*</span>
+                        </p>
+                        <p>
+                        <input type="password" class="bs" name="repasswd" maxlength="16">
+                        <span class="must-field">*</span>
+                        </p>
+                        <p>
+                        <input type="text" class="bs" name="addr" maxlength="20">
+                        <span class="must-field">*</span>
+                        </p>
+                        <p>
+                        <input type="text" class="bs" name="tel" maxlength="11">
+                        <span class="must-field">*</span>
+                        </p>
+                        <p>
+                        <input type="text" class="bs" name="email" placeholder="找回密码唯一凭证">
+                        <span class="must-field">*</span>
+                        </p>
+                         <?php if(session('_regcnt')>=2): ?>
+                        <p>
+                        <input type="text" name="code" id="input-verify">
+                        <img id="verify" src="__MODULE__/Register/verify" alt="">
+                        <a id="verify-btn">看不清？</a>
+                        </p>
+                        <?php endif; ?>
+                        <div class=" mt-15">
+                            <input type="checkbox" checked class="agree mr-10">我已经认真阅读并同意优云市集的
+                            <a href="#" class="service-item">《服务条款》</a>
+                        </div>
+                        <div class="reg-now mt-30">
+                            <input type="submit" id="submit" value="立即注册">
+                        </div>
+                        
+                    </div>
+                </form>
+                
+            </div>
+            <div class="c-wrap">
+                <div class="footer">
+                    <p class="copyright">Copyright (c) 2014 www.uyunshi.com. All rights reserved.优云网</p>
+                </div>
+            </div>
+            <include file="PublicModule/script_const" />
+            <script src="__PUBLIC__/js/home/jquery.min.js"></script>
+            <script src="__PUBLIC__/js/home/public.js"></script>
+            <script src="__PUBLIC__/js/home/reg.js"></script>
+        </body>
+    </html>

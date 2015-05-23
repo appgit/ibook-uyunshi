@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title>求助区</title>
+        <include file="PublicModule/common_css" />
+        <link rel="stylesheet" href="__PUBLIC__/css/home/askhelp.css">
+</head>
+<body>
+	<include file="PublicModule/header" />
+            <div class="main-body pt-30">
+                <div class="c-wrap br bg-w">
+                    <div class="listhelp">
+                        <div class="head clearfix">
+                            <div class="left title mt-5">求助区</div>
+                            <a href="__CONTROLLER__/help.html" class="right go-help noulinde button-style1"><i class="icon askhelp"></i>求助</a>
+                        </div>
+                        <div class="body">
+                            <ul>
+                                <?php foreach ($helporders as $key => $val): ?>
+                                <li class="clearfix">
+                                    <div class="col1 left">
+                                        <p><img src="__ROOT__/<{$val['avatar']}>!x60" alt="优云网"></p>
+                                        <p class="user over-width" title="<{$val['username']}>"><{$val['username']}></p>
+                                    </div>
+                                    <div class="col2 left">
+                                        <p class="helptitle help-<{$val['helporderid']}>">
+                                            <a href="#myModal" class="helptitle" data-toggle="modal"><{$val['name']}></a>
+                                        </p>
+                                        <p class="helpdesc over-width">描述: <{$val['description']}></p>
+                                        <p class="info">
+                                            <span>电子邮箱: <{$val['email']}></span>
+                                            <span>联系电话: 
+                                                <?php if ($val['publictel']): ?>
+                                                <{$val['tel']}>    
+                                                <?php else: ?>
+                                                未公开
+                                                <?php endif ?>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="col3">
+                                        <p class="help-createtime"><{$val['publishdate']|date="m-d  H:i",###}></p>
+                                        <p>&nbsp;</p>
+                                        <p>
+                                            <i class="icon view"></i>
+                                            <span><{$val['view']}></span>
+                                        </p>
+                                    </div>
+                                </li>
+                                <?php endforeach ?>
+                            </ul>
+                            <div class="tool-page">
+                                <php>
+                                    pageTool($page,$pages,$base_url);
+                                </php>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+	</div>
+
+ 
+<!-- Modal -->
+<div id="myModal" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h3 id="myModalLabel">求助详细</h3>
+            </div>
+            <div class="modal-body">
+              <h4 align="center">title</h4><br>
+              <p class="helpdesc"><span>content</span>
+              </p><br>
+              <p class="info">
+                <span>email</span>
+                <span>tel</span>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button class="button-style1" data-dismiss="modal">关闭</button>
+            </div>
+          </div>
+
+	<include file="PublicModule/footer" />
+	<include file="PublicModule/script_const" />
+    <script src="__PUBLIC__/js/home/help.js"></script>
+</body>
+</html>

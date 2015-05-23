@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>忘记密码页</title>
+</head>
+<body>
+	<form action="__CONTROLLER__/resetpasswd" method="post">
+		<!-- 用户名：<input type="text" name="username"><br> -->
+		邮&nbsp;&nbsp;箱：<input type="text" name="email"><br>
+		<php>if( $verify ):</php>
+		<span>
+		<span class="dec-title">验证码</span>：<input type='text' name='code'/>	
+			<img id="verify" src="__CONTROLLER__/verify" alt="">
+			<br>
+		</span>
+		<php>endif;</php>
+		<input id="commit" type="submit" value="确认" style="color:#fff;border:none;background-color:red;cursor:pointer;padding: 0.5em 1em;border-radius: 5px;font-weight: bold;">
+	</form>
+	<script src="__PUBLIC__/js/home/jquery-2.1.0.min.js"></script>
+	<script>
+	$(function(){
+
+		(function changeVerify(){
+
+				var $verify = $('#verify');
+
+				var src = $verify[0].src;
+
+				$verify.click(function(event) {
+
+					$verify[0].src = src+'?'+Math.ceil(Math.random()*999);
+				});
+				
+			})()
+
+		$('#commit').click(function(event) {
+			$(this).val('处理中...');
+		});
+		
+			(function(){	/*重复提交*/
+
+				var commited = false;
+
+				$('input[type=submit]').click(function(event) {
+					
+					if(commited){
+						alert('请勿重复提交！！！');
+						return false;
+					}
+					commited = true;
+
+				});
+			})()
+	})
+	</script>
+</body>
+</html>

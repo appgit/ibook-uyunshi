@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>购买订单</title>
+<link href="__PUBLIC__/css/admin/style.css" rel="stylesheet"
+	type="text/css" />
+<link href="__PUBLIC__/css/admin/pageskip.css" rel="stylesheet"
+	type="text/css" />
+<link href="__PUBLIC__/css/admin/lightbox.css" rel="stylesheet"
+	type="text/css" />
+
+<style type="text/css"><!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-family: "宋体";
+	font-size: 12px;
+	color: #333333;
+	background-color: #2286C2;
+}
+
+
+#myTablemy {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 1em 0;
+}
+
+
+tr {
+  height:40px;
+}
+
+th {
+	background-color: #328aa4;
+	color: #fff;
+}
+
+td {
+	background: #e5f1f4;
+}
+
+tr.even td {
+	background: #e5f1f4;
+}
+
+tr.odd td {
+	background: #f8fbfc;
+}
+
+tr.over td {
+	background: #bce774;
+}
+
+tr.out td {
+	
+}
+.even,.odd,.over{
+	height:25px;
+}
+.even td,.odd td{
+	height:25px !important;
+}
+.over{
+	height:25px !important;
+}
+#myTablemy  .even td,#myTablemy  .odd td{ 
+	/*background-color:red;*/
+	padding-top:0;
+	padding-bottom:0;
+}
+
+#dingdan tr{
+     background: #ffffff;
+}
+--></style>
+
+<script type="text/javascript">
+
+function cheakvail(obj){
+if(document.getElementById('tbpage').value<=<{$pages}>&&document.getElementById('tbpage').value>=1){
+	self.location='__CONTROLLER__/shangpindis?ishandled=<{$ishandled}>&page='+document.getElementById('tbpage').value;
+	}else{
+	alert('请输入正确数字!');
+	}
+}
+
+
+
+
+</script>
+
+</head>
+<body onload="changeTableBg();">
+
+
+	
+
+
+	<table  width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td background="__PUBLIC__/images/admin/index1_45.gif"></td>
+			<td bgcolor="#FFFFFF" style="height: 490px; vertical-align: top;">
+			<table width="100%" border="0" cellspacing="10" cellpadding="0">
+				<tr>
+					<td><!--
+					
+					image,name,username,price,count,publishdate,ishandled,status,description,truename,tel,email,vip,stype,btype
+					--><table id='myTablemy' width="100%" border="0" cellpadding="0" cellspacing="1"
+						bgcolor="#BBD3EB">
+						<tr>
+						
+							<td height="27" align="center"
+								background="__PUBLIC__/images/admin/index1_72.gif"
+								bgcolor="#FFFFFF">订单号</td>
+							<td height="27" align="center"
+								background="__PUBLIC__/images/admin/index1_72.gif"
+								bgcolor="#FFFFFF">图片</td>
+							<td height="27" align="center"
+								background="__PUBLIC__/images/admin/index1_72.gif"
+								bgcolor="#FFFFFF">商品名</td>
+							<td height="27" align="center"
+								background="__PUBLIC__/images/admin/index1_72.gif"
+								bgcolor="#FFFFFF">单价/数量</td>
+							<td height="27" align="center"
+								background="__PUBLIC__/images/admin/index1_72.gif"
+								bgcolor="#FFFFFF">vip</td>
+							<td height="27" align="center"
+								background="__PUBLIC__/images/admin/index1_72.gif"
+								bgcolor="#FFFFFF">用户名/tel/真实名</td>
+							<td align="center"
+								background="__PUBLIC__/images/admin/index1_72.gif"
+								bgcolor="#FFFFFF">发布时间</td>
+							<td align="center"
+								background="__PUBLIC__/images/admin/index1_72.gif"
+								bgcolor="#FFFFFF">类别</td>
+							<td align="center"
+								background="__PUBLIC__/images/admin/index1_72.gif"
+								bgcolor="#FFFFFF">审核状态</td>
+								<td align="center"
+								background="__PUBLIC__/images/admin/index1_72.gif"
+								bgcolor="#FFFFFF">审核</td>
+								<td align="center"
+								background="__PUBLIC__/images/admin/index1_72.gif"
+								bgcolor="#FFFFFF">删除</td>
+						</tr>
+						<!-- 
+					
+					image,name,username,price,count,publishdate,ishandled,status,description,truename,tel,email,vip,stype,btype
+					//进行循环取出数据
+					-->
+						<volist name="shangpin" id="vo">
+
+
+						<tr>
+							<td height="26" align="center" bgcolor="#FFFFFF"><{$vo.id}></td>
+							<td height="26" align="center" bgcolor="#FFFFFF"><img src='__ROOT__/uploads<{$vo.image}>' width="200" height='100'/></td>
+							<td height="26" align="center" bgcolor="#FFFFFF"><{$vo.name}></td>
+							<td height="26" align="center" bgcolor="#FFFFFF"><{$vo.price}>/<{$vo.count}></td>
+							<td align="center" bgcolor="#FFFFFF"><font color="red"><{$vo.vip}></font></td>
+							<td align="center" bgcolor="#FFFFFF"><{$vo.username}>/<{$vo.tel}>/<{$vo.truename}></td>
+							<td align="center" bgcolor="#FFFFFF"><?php echo date('Y-m-d H:m:s',$vo['publishdate']);?></td>
+							<td align="center" bgcolor="#FFFFFF"><{$vo.btype}>/<{$vo.stype}></td>
+							<td align="center" bgcolor="#FFFFFF"><{$vo.ishandled}></td>
+							<td align="center" bgcolor="#FFFFFF">
+							<?php if($ishandled==0){?> 
+							          <a href='__CONTROLLER__/shangpinpass?id=<{$vo.id}>'><font color='blue'>通过审核</font></a>
+						           <?php }else{?> 
+								       <font color='green'>已审核</font> <?php }?></td>
+		                <td align="center" bgcolor="#FFFFFF"><a href="__CONTROLLER__/shangpindel?id=<{$vo.id}>"><font color='red'>删除商品</font></a></td>
+						</tr>
+						</volist>
+					</table>
+					</td>
+				</tr>
+				<tr>
+					<td style="background-color: #eeeeff; width: 100%; height: 40">
+
+
+					<div class="fenye"><?php
+                    if($page>1){
+                     $prepage =$page-1;
+                    echo "<a href='__CONTROLLER__/shangpindis?ishandled=$ishandled&page=$prepage' class='backpage'>上一页</a>";
+                 
+                      }else{
+                    echo " <a href='##' class='backpage'>上一页</a>";
+                     }
+                 
+                    if($page<= 6){
+                        for($i=1;$i<=$page-1;$i++){
+                            echo " <a href='__CONTROLLER__/shangpindis?ishandled=$ishandled&page=$i'><b>$i</b></a> " ;
+                         }
+                    echo "<a href='__CONTROLLER__/shangpindis?ishandled=$ishandled&page=$i' class='active'><b>$i</b></a> " ;
+                        if($pages==$page){
+                        }else if(($pages-$page)<=4){
+                              for($i=$page+1;$i<=$pages;$i++){
+                                 echo " <a href='__CONTROLLER__/shangpindis?ishandled=$ishandled&page=$i'><b>$i</b></a> " ;
+                              } 
+                        }else{
+                               for($i=$page+1;$i<=$page+4;$i++){
+                                  echo " <a href='__CONTROLLER__/shangpindis?ishandled=$ishandled&page=$i'><b>$i</b></a> " ;
+                               } 
+                               echo "<a href='__CONTROLLER__/shangpindis?ishandled=$ishandled&page=$i'>..</a>";
+                               echo "<a href='__CONTROLLER__/shangpindis?ishandled=$ishandled&page=$pages'>$pages</a>"; 
+                        }
+                    
+                     
+                  
+                    }else {
+                           echo "<a href='__CONTROLLER__/shangpindis?ishandled=$ishandled&page=1'>1</a>";
+                           echo "<a href='__CONTROLLER__/shangpindis?ishandled=$ishandled&page=$page-5'>..</a>";
+                           for($i=$page-4;$i<$page;$i++){
+                            echo " <a href='__CONTROLLER__/shangpindis?ishandled=$ishandled&page=$i'><b>$i</b></a> " ;
+                           }
+                            echo " <a href='__CONTROLLER__/shangpindis?ishandled=$ishandled&page=$i' class='active'><b>$i</b></a> " ;
+                           
+                           if(($pages-$page)<=5){
+                              for($i=$page+1;$i<=$pages;$i++){
+                                    
+                                 echo " <a href='__CONTROLLER__/shangpindis?ishandled=$ishandled&page=$i'><b>$i</b></a> " ;
+                                 
+                              } 
+                           }else{
+                               
+                               for($i=$page+1;$i<=$page+4;$i++){
+                                  echo " <a href='__CONTROLLER__/shangpindis?ishandled=$ishandled&page=$i'><b>$i</b></a> " ;
+                               } 
+                               echo "<a href='__CONTROLLER__/shangpindis?ishandled=$ishandled&page=$i'>..</a>";
+                               echo "<a href='__CONTROLLER__/shangpindis?ishandled=$ishandled&page=$pages'>$pages</a>";    
+                          }
+                        
+                    }
+                  
+                    if($page<$pages){
+                       $nextpage =$page+1;
+                       echo "<a href='__CONTROLLER__/shangpindis?ishandled=$ishandled&page=$nextpage' class='nextpage'>下一页</a>";
+                    }else{
+                      echo "<a href='##' class='nextpage'>下一页</a>"; 
+                      }
+                  
+                  
+                  
+                  ?><!--
+                  
+                       
+                  --> 转到第 <input name="tbpage" id="tbpage" size="3"
+						type="text"> 页 <input id="btngo" onclick="cheakvail(this)"
+						value="跳转" type="submit"></div>
+
+					</td>
+				</tr>
+
+			</table>
+
+
+			</td>
+
+		</tr>
+
+	</table>
+
+	
+
+
+
+
+<script type="text/javascript"><!--
+function changeTableBg()
+{
+	
+var changeTr=document.getElementById("myTablemy").getElementsByTagName("tr");
+
+   for(i=0;i<changeTr.length;i++)
+   {
+      changeTr[i].className=(i%2>0)?"even":"odd";
+	  changeTr[i].temp=changeTr[i].className;
+	  changeTr[i].onuseover=function(){
+	             this.className='over';        
+	  }
+	  changeTr[i].onmouseout=function(){
+	             this.className=this.temp;        
+	  }
+   }
+  // var changeTr2=document.getElementById("myTablemy2").getElementsByTagName("tr");
+  
+ 
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>新订单</title>
+        <style>
+        a{
+            text-decoration: none !important;
+        }
+        h3{
+        color: #000;
+        }
+        #_return{
+        color: rgb(35, 149, 238);
+        border-bottom: 2px solid rgb(71, 0, 255);
+        padding-bottom: 2px;
+        text-decoration: none;
+        }
+        #_return:hover{
+        color: rgb(89, 226, 138);
+        text-decoration: none;
+        border-bottom: 2px solid rgb(159, 230, 68);
+        }
+        .bs-callout-info {
+        background-color: #f4f8fa;
+        border-color: #bce8f1;
+        }
+        .bs-callout-1 {
+        background-color: rgb(255, 143, 115);
+        border-color: #bce8f1;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 20px;
+        color: #fff;
+        font-weight: bold;
+        }
+        .bs-callout {
+        margin: 20px 0;
+        margin-top: 0;
+        padding: 20px;
+        border-left: 3px solid #eee;
+        }
+        .c-wrap {
+        margin: 0 auto;
+        padding: 0 200px;
+        }
+        a.order-name{
+        color: #f4f8fa;
+        background: rgb(76, 192, 22);
+        border-radius: 5px;
+        padding: 5px 10px;
+        display: inline-block;
+        text-decoration: none;
+        }
+        </style>
+    </head>
+    <body style="padding-top:0;">
+        <div class="c-wrap">
+            <div class="bs-callout-1">您有新的订单！</div>
+            <div class="bs-callout bs-callout-info">
+                <h3>亲爱的优云网商家
+                <span style="color:red; font-size:20px;">$_USERNAME</span> ，<br><br>
+                您的以下商品有人下单啦，快去看看吧！<br><br>
+                <a href="http://$_HOME/Detail/index/seller/$_USERNAME/id/$_ID" class="order-name" target="_blank">$_GOODS</a>
+                <br><br>
+                </h3>
+                <p>
+                <h4>
+                <a id="_return" href="http://$_HOME" target="_blank">马上去优云网！</a>
+                </h4>
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

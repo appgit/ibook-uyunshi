@@ -1,0 +1,294 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0037)http://2school.wygk.cn/admin/main.asp -->
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+<TITLE>二手书交易网-后台管理</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<LINK href="__PUBLIC__/css/admin/style.css" type=text/css rel=stylesheet>
+<STYLE>
+.main_left {
+	TABLE-LAYOUT: auto;
+	BACKGROUND: url(__PUBLIC__/images/admin/left_bg.gif)
+}
+
+.main_left_top {
+	BACKGROUND: url(__PUBLIC__/images/admin/left_menu_bg.gif);
+	PADDING-TOP: 5px
+}
+
+.main_left_title {
+	PADDING-LEFT: 15px;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 14px;
+	COLOR: #fff;
+	TEXT-ALIGN: left
+}
+
+.left_iframe {
+	BACKGROUND: none transparent scroll repeat 0% 0%;
+	VISIBILITY: inherit;
+	WIDTH: 180px;
+	HEIGHT: 92%
+}
+
+.main_iframe {
+	Z-INDEX: 1;
+	VISIBILITY: inherit;
+	WIDTH: 100%;
+	HEIGHT: 92%
+}
+
+TABLE {
+	FONT-SIZE: 12px;
+	FONT-FAMILY: tahoma, 宋体, fantasy
+}
+
+TD {
+	FONT-SIZE: 12px;
+	FONT-FAMILY: tahoma, 宋体, fantasy
+}
+</STYLE>
+
+<SCRIPT language=javaScript src="__PUBLIC__/js/admin/admin.js"
+	type=text/javascript></SCRIPT>
+
+<SCRIPT language=javascript src="__PUBLIC__/js/admin/Admin2.js"></SCRIPT>
+
+<SCRIPT>
+	var status = 1;
+	var Menus = new DvMenuCls;
+	document.onclick = Menus.Clear;
+	function switchSysBar() {
+		if (1 == window.status) {
+			window.status = 0;
+			switchPoint.innerHTML = '<img src="__PUBLIC__/images/admin/left.gif">';
+			document.all("frmTitle").style.display = "none"
+		} else {
+			window.status = 1;
+			switchPoint.innerHTML = '<img src="__PUBLIC__/images/admin/right.gif">';
+			document.all("frmTitle").style.display = ""
+		}
+	}
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.5726" name=GENERATOR>
+</HEAD>
+<BODY style="MARGIN: 0px">
+<!--导航部分-->
+<DIV class=top_table>
+<DIV class=top_table_leftbg>
+<DIV class=system_logo><a href="__URL__/index"><IMG
+	src="__PUBLIC__/images/admin/logo_up.png"></a></DIV>
+<DIV class=menu>
+<UL>
+	<LI id=menu_0 onmouseover=Menus.Show(this,0) onclick=getleftbar(this);><A
+		href="#">用户上传商品</A>
+	<DIV class=menu_childs onmouseout=Menus.Hide(0);>
+	<UL>
+		<LI><A href="__CONTROLLER__/shangpindis?ishandled=0" target=frmright>未审核</A></LI>
+		<LI><A href="__CONTROLLER__/shangpindis?ishandled=1" target=frmright>已审核</A></LI>
+	</UL>
+	</DIV>
+	<DIV class=menu_div><IMG style="VERTICAL-ALIGN: bottom"
+		src="__PUBLIC__/images/admin/menu01_right.gif"></DIV>
+	</LI>
+
+   <LI id=menu_0 onmouseover=Menus.Show(this,0) onclick=getleftbar(this);><A
+		href="#">类别管理</A>
+	<DIV class=menu_childs onmouseout=Menus.Hide(0);>
+	<UL>
+	    <LI><A href="__MODULE__/Publish/typeshow" target=frmright>所有类别</A></LI>
+		<LI><A href="__MODULE__/Publish/addsptype" target=frmright>增加超类</A></LI>
+		<LI><A href="__MODULE__/Publish/addbtype" target=frmright>增加大类</A></LI>
+		<LI><A href="__MODULE__/Publish/addstype" target=frmright>增加小类</A></LI>
+	</UL>
+	</DIV>
+	<DIV class=menu_div><IMG style="VERTICAL-ALIGN: bottom"
+		src="__PUBLIC__/images/admin/menu01_right.gif"></DIV>
+	</LI>
+
+
+	<LI id=menu_0 onmouseover=Menus.Show(this,0) onclick=getleftbar(this);><A
+		href="#">购物求助</A>
+	<DIV class=menu_childs onmouseout=Menus.Hide(0);>
+	<UL>
+		<LI><A href="__MODULE__/Helporder" target=frmright>求助列表</A></LI>
+
+	</UL>
+	</DIV>
+	<DIV class=menu_div><IMG style="VERTICAL-ALIGN: bottom"
+		src="__PUBLIC__/images/admin/menu01_right.gif"></DIV>
+	</LI>
+	
+
+	
+	
+	
+	
+	
+
+	<LI id=menu_8 onmouseover=Menus.Show(this,0) onclick=getleftbar(this);><A
+		href="#">用户管理</A>
+	<DIV class=menu_childs onmouseout=Menus.Hide(0);>
+	<UL>
+	<?PHP if($_SESSION['permission']>1){?>
+		<LI><A href="__MODULE__/Admin/index" target=frmright>网站管理员</A></LI>
+		<?PHP }?>
+		<LI><A href="__MODULE__/User/userinfo" target=frmright>前台会员</A></LI>
+	</UL>
+	</DIV>
+	<DIV class=menu_div><IMG style="VERTICAL-ALIGN: bottom"
+		src="__PUBLIC__/images/admin/menu01_right.gif"></DIV>
+	</LI>
+	
+	<?PHP if($_SESSION['permission']>1){?>
+	<LI id=menu_10 onmouseover=Menus.Show(this,0) onclick=getleftbar(this);><A
+		href="#">系统管理</A>
+	<DIV class=menu_childs onmouseout=Menus.Hide(0);>
+	<UL>
+	   <LI><A href="__MODULE__/Notice/notice" target=frmright>网站公告</A></LI>
+		<LI><A href="__MODULE__/Notice/" target=frmright>发布网站公告</A></LI>
+		
+		<?PHP if($_SESSION['permission']>2){?>
+		<LI><A href="#" target=frmright>修改密码</A></LI>
+		<LI><A href="#" target=frmright>网站信息设置</A></LI>
+		<LI><A href="#" target=frmright>导航栏目</A></LI>
+		<LI><A href="#" target=frmright>在线客服</A></LI>
+		
+		<LI><A href="#" target=frmright>数据库操作</A></LI>
+		<LI><A href="#" target=frmright>空间统计</A></LI>
+		<LI><A href="#" target=frmright>访问统计</A></LI>
+		<LI><A href="#" target=frmright>友情链接</A></LI>
+		<LI><A href="#" target=frmright>阻止SQL注入记录</A></LI>
+		<LI><A href="#" target=frmright>幻灯设置</A></LI>
+		<LI><A href="#" target=frmright>使用帮助</A></LI>
+		<?PHP }?>
+	</UL>
+	</DIV>
+	<DIV class=menu_div><IMG style="VERTICAL-ALIGN: bottom"
+		src="__PUBLIC__/images/admin/menu01_right.gif"></DIV>
+	</LI>
+	<LI id=menu_9 onmouseover=Menus.Show(this,0) onclick=getleftbar(this);><A
+		href="#">网站推广</A>
+	<DIV class=menu_childs onmouseout=Menus.Hide(0);>
+	<UL>
+		<LI><A href="http://adm.cnzz.com/"
+			target=_blank>广告管理</A></LI>
+
+	</UL>
+	</DIV>
+	<DIV class=menu_div><IMG style="VERTICAL-ALIGN: bottom"
+		src="__PUBLIC__/images/admin/menu01_right.gif"></DIV>
+	</LI>
+	<?PHP }?>
+</UL>
+</DIV>
+</DIV>
+</DIV>
+<DIV
+	style="BACKGROUND: #337abb; HEIGHT: 18px; padding-right: 100px; text-align: right;">
+<div style="width: 200px; HEIGHT: 18px; display: inline-block;">
+欢迎您 <{$_SESSION['loginuser']}> ,今天是 <span id='date'></span> <script
+	type="text/javascript">
+	var myDate = new Date();
+	document.getElementById("date").innerHTML = myDate.getFullYear() + "-"
+			+ (myDate.getMonth() + 1) + "-" + myDate.getDate();
+</script></div>
+</DIV>
+<!--导航部分结束-->
+<TABLE style="BACKGROUND: #00ffff" height="92%" cellSpacing=0
+	cellPadding=0 width="100%" border=0>
+	<TBODY>
+		<TR>
+			<TD class=main_left id=frmTitle vAlign=top align=middle
+				name="fmTitle">
+			<TABLE class=main_left_top cellSpacing=0 cellPadding=0 width="100%"
+				border=0>
+				<TBODY>
+					<TR height=32>
+						<TD vAlign=top></TD>
+						<TD class=main_left_title id=leftmenu_title>常用快捷功能</TD>
+						<TD vAlign=top align=right></TD>
+					</TR>
+				</TBODY>
+			</TABLE>
+			<IFRAME class=left_iframe target=frmright id=frmleft name=frmleft
+				src="__URL__/left" frameBorder=0 allowTransparency></IFRAME>
+			<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+				<TBODY>
+					<TR height=32>
+						<TD vAlign=top></TD>
+						<TD vAlign=bottom align=middle></TD>
+						<TD vAlign=top align=right></TD>
+					</TR>
+				</TBODY>
+			</TABLE>
+			</TD>
+			<TD style="WIDTH: 10px" bgColor=#337abb>
+			<TABLE height="100%" cellSpacing=0 cellPadding=0 border=0>
+				<TBODY>
+					<TR>
+						<TD style="HEIGHT: 100%" onclick=switchSysBar()><SPAN
+							class=navPoint id=switchPoint title=关闭/打开左栏><IMG
+							src="__PUBLIC__/images/admin/right.gif"></SPAN></TD>
+					</TR>
+				</TBODY>
+			</TABLE>
+			</TD>
+			<TD vAlign=top width="100%" bgColor=#99ffcc>
+			<TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#c4d8ed
+				border=0>
+				<TBODY>
+					<TR height=32>
+						<TD vAlign=top width=10 background=__PUBLIC__/images/admin/bg2.gif><IMG
+							alt="" src="__PUBLIC__/images/admin/teble_top_left.gif"></TD>
+						<TD width=28 background=__PUBLIC__/images/admin/bg2.gif></TD>
+						<TD background=__PUBLIC__/images/admin/bg2.gif><SPAN
+							style="FLOAT: left" id="tablename">二手书交易网后台</SPAN><SPAN
+							id=dvbbsannounce
+							style="FONT-WEIGHT: bold; FLOAT: left; WIDTH: 300px; COLOR: #c00"></SPAN></TD>
+						<TD style="COLOR: #135294; TEXT-ALIGN: right"
+							background=__PUBLIC__/images/admin/bg2.gif>| <A
+							href="__URL__/index" target=_top>后台首页</A> | <A
+							href="__ROOT__ " target=_blank>首页</A> | <A
+							href="javascript:AdminOut()" target=_top>退出</A></TD>
+						<TD vAlign=top align=right width=28
+							background=__PUBLIC__/images/admin/bg2.gif><IMG alt=""
+							src="__PUBLIC__/images/admin/teble_top_right.gif"></TD>
+						<TD align=right width=16 bgColor=#337abb></TD>
+					</TR>
+				</TBODY>
+			</TABLE>
+			<!--
+			
+			右侧主界面
+			--> <IFRAME class=main_iframe id=frmright name=frmright
+				src="__URL__/syscome" frameBorder=0 scrolling=yes>
+			</IFRAME>
+
+
+			<TABLE style="BACKGROUND: #c4d8ed" cellSpacing=0 cellPadding=0
+				width="100%" border=0>
+				<TBODY>
+					<TR>
+						<TD><IMG height=6 alt=""
+							src="__PUBLIC__/images/admin/teble_bottom_left.gif" width=5></TD>
+						<TD align=right><IMG height=6 alt=""
+							src="__PUBLIC__/images/admin/teble_bottom_right.gif" width=5></TD>
+						<TD align=right width=16 bgColor=#337abb></TD>
+					</TR>
+				</TBODY>
+			</TABLE>
+			</TD>
+		</TR>
+	</TBODY>
+</TABLE>
+<DIV id=dvbbsannounce_true style="DISPLAY: none"></DIV>
+<SCRIPT language=JavaScript>
+<!--
+	document.getElementById("dvbbsannounce").innerHTML = document
+			.getElementById("dvbbsannounce_true").innerHTML;
+//-->
+</SCRIPT>
+</BODY>
+</HTML>

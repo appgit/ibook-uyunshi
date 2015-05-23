@@ -1,0 +1,59 @@
+<php> if (isset($cur_myinfo)): </php>
+<!-- 宝贝管理 -->
+<div class="left user-content bg-w">
+    <div class="main-content-wp">
+        <div class="title-wp-b myinfo-wp">
+            <div class="title-wp">
+                <span class="title">
+                个人信息
+                </span>
+            </div>
+        </div>
+        <div class="ct ct-myinfo">
+            <div class="headicon-wp">
+                <img src="__ROOT__<{$myinfo.avatar}>" alt="">
+                <input type="text" disabled=false value="<{$myinfo.username}>" class="modify-forbidden">
+            </div>
+
+            <form action="__CONTROLLER__/modifyInfo" method="post">
+                <p class="p-first">
+                    <span class='pi-n'>电子邮箱：</span>
+                    <input type="text" disabled=false value="<{$myinfo.email}>" class="w-h sd group modify-forbidden">
+                </p>
+                <?php if (session('_isseller')==true): ?>
+                <p>
+                    <span class='pi-n'>真实姓名：</span>
+                    <input type="text" name="truename" disabled=false value="<{$myinfo.truename}>" class="w-h sd group modify-forbidden">
+                </p>
+                <?php endif ?>
+                <p>
+                    <span class='pi-n'>上次登录：</span>
+                    <input type="text" name="qq" disabled=false value="<?php echo date('m-d H:i:s',session('_lastlogindate')); ?>" class="w-h sd group modify-forbidden">
+                </p>
+                <p>
+                      <span class='pi-n'>联系电话：</span>
+                    <input type="text" name="tel" disabled=false value="<{$myinfo.tel}>" class="w-h sd group">
+                </p>
+                <p>
+                    <span class='pi-n'>地址：</span>
+                    <input type="text" name="addr" disabled=false value="<{$myinfo.addr}>" class="w-h sd group">
+                </p>
+                <?php if (session('_isseller')==true): ?>
+                <p>
+                    <span class='pi-n'>qq：</span>
+                    <input type="text" name="qq" disabled=false value="<{$myinfo.number}>" class="w-h sd group">
+                </p>
+
+                <?php endif ?>
+                <p class="submit-wp mt-10">
+                    <input type="submit" value="保存" class='submit'>
+                    <input type="button" value="取消" class='cancle'>
+                </p>
+            </form>
+            <p class="modify-myinfo-wp">
+                <button id="modify-myinfo" class='mt-20'>编辑个人资料</button>
+            </p>
+        </div>
+    </div>
+</div>
+<php> endif </php>

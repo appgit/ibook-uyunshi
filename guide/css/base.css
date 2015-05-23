@@ -1,0 +1,11 @@
+i.r-arrow{
+    border: 5px solid #939393;
+    border-top: 5px solid transparent;
+    border-right: 0px solid transparent;
+    border-bottom: 5px solid transparent;
+    display: inline-block;
+    vertical-align: bootom;
+    font-size: 0;
+    margin-left:3px;
+    
+}

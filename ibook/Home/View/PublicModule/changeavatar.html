@@ -1,0 +1,52 @@
+<php> if (isset($cur_changeavatar)): </php>
+<!-- 宝贝管理 -->
+<div class="left user-content bg-w">
+  <div class="main-content-wp">
+    <div class="title-wp-b change-avatar-titile">
+      <div class="title-wp">
+        <span class="title">
+        修改头像
+        </span>
+      </div>
+    </div>
+    
+    <div class="ct ct-myinfo change-avatar-wp">
+      <div class="row-fluid pl-5 pr-5">
+        <div class="span1"></div>
+        <div class="span3">
+          <p class="text-warning">当前头像</p>
+          <div class="thumbnail">
+            <img src="__ROOT__/<{$user.path}>" class="avatar-img">
+          </div>
+        </div>
+        <div class="span1"></div>
+        <div class="span7 modify-avator-wp">
+          <p class="text-warning">设置新头像</p>
+          
+          <p class="text-muted">支持jpg，jpeg 和 png格式</p>
+          <p id="upload_tip" class="text-danger"></p>
+           <img class="uploading" src="__PUBLIC__/images/home/facebook_loader.gif" alt="">
+          <form action="__CONTROLLER__/ajaxUpload" id="avatar_form" method="post" enctype="multipart/form-data" target="i-upload">
+            <div class="i-f-wrap">
+              <a href="javascript:;" class="c-tx btn" id="r_f_input">选择头像</a>
+              <input type="file" id="imgUpload" name="image" class="i-upload imgfile" accept="image/*">
+            </div>
+          </form>
+          <div id="uploaded_image_div" style="display: none;">
+                <div class="thumbnail">
+                    <img id="uploaded_image" style="width: 100%;" class="thumbnails">
+                </div>
+                <p class="text-danger" id="save_avatar_tip"></p>
+                <p>
+                    <a class="btn btn-primary" id="save_avatar_button" data-url="__CONTROLLER__/doCropAvatar">选区裁剪后保存头像</a>
+                </p>
+            </div>
+          <div class="j_crop-wp">
+            <img src="" class="j_crop">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<php> endif </php>

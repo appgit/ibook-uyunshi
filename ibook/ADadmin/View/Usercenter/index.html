@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>个人中心</title>
+		<link rel="stylesheet" href="__PUBLIC__/css/home/base/reset.css">
+
+	<style>
+
+		body{
+			padding:50px;
+		}
+		ul.user-index,ul.user-index *{
+			border-radius: 10px;
+		}
+		li{
+			list-style-type: none;
+		}
+		.user-index li:hover a{
+			color:#fff;
+			background-color: lightgreen;
+			text-decoration: underline;
+		}
+		.user-index li a{
+			padding:15px 10px;
+			display: block;
+			text-decoration: none;
+		}
+		.home a{
+			display: inline-block;
+			width:2.5em;
+			position: fixed;
+			top:0;
+			color:#fff;
+			font-weight: bold;
+			right:0;
+			left:0;
+			margin:30px auto;
+			background-color: red;
+			padding:10px;
+			border-radius: 70%;
+
+		}
+		.home a:hover{
+			box-shadow: 0 0 20px #000;
+		}
+	</style>
+</head>
+<body>
+	<div class="home"><a href="__MODULE__/Index">首页</a></div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="clearfix">
+		<ul class="user-index" style="float:left; background:pink;">
+			<li><a href="__CONTROLLER__/myinfo">个人信息</a></li>
+			<li><a href="__CONTROLLER__/buyorders">购买的订单</a></li>
+			<li><a href="__CONTROLLER__/saleorders">售出的订单</a></li>
+			<li><a href="__CONTROLLER__/psd">修改密码</a></li>
+		</ul>
+		<style>
+		.content-container{
+				background-color: lightgreen;		
+				border-radius: 10px;
+				padding:1em;
+				margin-left:30px;
+			}
+			.info-name{
+				text-indent: 5px;
+				font-weight: bold;
+				width:110px;
+				display: inline-block;
+			}
+			.myinfo li{
+				padding:0.3em;
+			}
+			</style>
+	<div class="content-container left">
+		<div class="content">
+
+			<php> if($tag1): </php>
+			<div class="myinfo-wrap">
+				<ul class="myinfo">
+				<foreach name="myinfo" item="vo">
+					<li><span class="info-name">用户名：</span><{$vo.username}></li>
+				    <li><span class="info-name">联系电话：</span><{$vo.tel}></li>
+				    <li><span class="info-name">电子邮箱：</span><{$vo.email}></li>
+				    <li><span class="info-name">注册日期：</span><{$vo.regdate}></li>
+				    <li><span class="info-name">上次登录时间</span>:<{$vo.lastlogindate}></li>
+				    <li><span class="info-name">地址：</span><{$vo.addr}></li>
+				    <li><span class="info-name">学号：</span><{$vo.number}></li>
+				    <li><span class="info-name">真实姓名：</span><{$vo.truename}></li>
+				    <li><span class="info-name">剩余二手币：</span><{$vo['income']-$vo['outcome']}></li>
+				    <li><span class="info-name">收入二手币：</span><{$vo.income}></li>
+				    <li><span class="info-name">支出二手币：</span><{$vo.outcome}></li>
+				    <!-- <li><span class="info-name">是否是会员：</span><{$vo.vip}></li> -->
+				    <!-- <li><span class="info-name">最多领书数：</span><{$vo.maxbooks}></li> -->
+				</foreach>
+				</ul>
+			</div>
+			<php> endif; </php>
+
+			<php> if($tag2): </php>
+			<div class="buyorder-wrap">
+				<h4>已处理的和未处理暂且先懒得处理。。。</h4><br><br>
+				<table id="myTablemy" width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#BBD3EB" style="text-align:center;">
+                        <tbody>
+                        	<tr class="odd">
+                            <td height="27" align="center" background="/ibook/Public/images/admin/index1_72.gif" bgcolor="#FFFFFF">订单号</td>
+                            <td height="27" align="center" background="/ibook/Public/images/admin/index1_72.gif" bgcolor="#FFFFFF">用户学号/联系方式</td>
+                            <td height="27" align="center" background="/ibook/Public/images/admin/index1_72.gif" bgcolor="#FFFFFF">书本名</td>
+                            <td height="27" align="center" background="/ibook/Public/images/admin/index1_72.gif" bgcolor="#FFFFFF">单价</td>
+                            <td height="27" align="center" background="/ibook/Public/images/admin/index1_72.gif" bgcolor="#FFFFFF">数量</td>
+                            <td height="27" align="center" background="/ibook/Public/images/admin/index1_72.gif" bgcolor="#FFFFFF">总价</td>
+                            <td align="center" background="/ibook/Public/images/admin/index1_72.gif" bgcolor="#FFFFFF">下单时间</td>
+                            <td align="center" background="/ibook/Public/images/admin/index1_72.gif" bgcolor="#FFFFFF">分类</td>
+                        </tr>
+
+						<volist name="myorders" id="vo">
+							<tr>
+								<td><{$vo.id}></td>
+								<td><{$vo.number}>/<{$vo.tel}></td>
+								<td><{$vo.bookname}></td>
+								<td><{$vo.price}></td>
+								<td><{$vo.count}></td>
+								<td><{$vo['price']*$vo['count']}></td>
+								<td><{$vo.orderdate}></td>
+								<td><{$vo.note}></td>
+							</tr>
+						</volist>
+						</tbody>
+				</table>
+			</div>
+			<php> endif; </php>
+
+			<php> if($tag3): </php>
+			<div class="saleorder">
+				<table id="myTablemy" width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#BBD3EB" style="text-align:center;">
+                        <tbody>
+                        	<tr class="odd">
+                            <td height="27" align="center" background="/ibook/Public/images/admin/index1_72.gif" bgcolor="#FFFFFF">订单号</td>
+                            <td height="27" align="center" background="/ibook/Public/images/admin/index1_72.gif" bgcolor="#FFFFFF">用户学号/联系方式</td>
+                            <td height="27" align="center" background="/ibook/Public/images/admin/index1_72.gif" bgcolor="#FFFFFF">书本名</td>
+                            <td height="27" align="center" background="/ibook/Public/images/admin/index1_72.gif" bgcolor="#FFFFFF">单价</td>
+                            <td height="27" align="center" background="/ibook/Public/images/admin/index1_72.gif" bgcolor="#FFFFFF">数量</td>
+                            <td height="27" align="center" background="/ibook/Public/images/admin/index1_72.gif" bgcolor="#FFFFFF">总价</td>
+                            <td align="center" background="/ibook/Public/images/admin/index1_72.gif" bgcolor="#FFFFFF">下单时间</td>
+                            <td align="center" background="/ibook/Public/images/admin/index1_72.gif" bgcolor="#FFFFFF">分类</td>
+                        </tr>
+
+						<volist name="mysaleorders" id="vo">
+							<tr>
+								<td><{$vo.id}></td>
+								<td><{$vo.number}>/<{$vo.tel}></td>
+								<td><{$vo.bookname}></td>
+								<td><{$vo.price}></td>
+								<td><{$vo.count}></td>
+								<td><{$vo['price']*$vo['count']}></td>
+								<td><{$vo.orderdate}></td>
+								<td><{$vo.note}></td>
+							</tr>
+						</volist>
+						</tbody>
+				</table>
+			</div>
+			<php> endif; </php>
+
+			<php> if($tag4): </php>
+			<div class="psd">
+				<form action="__CONTROLLER__/updatepasswd" method="post">
+					原 密 码 &nbsp;: <input type="text" name="passwdori"><br><br>
+					新 密 码 &nbsp;: <input type="text" name="passwd"><br><br>
+					确认新密码: <input type="text" name="passwd_confirm"><br><br>
+					<input type="submit"value="确定提交">
+				</form>
+			</div>
+			<php> endif; </php>
+		</div>
+	</div>
+	</div>
+</body>
+</html>

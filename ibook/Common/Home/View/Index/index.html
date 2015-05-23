@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>优云网</title>
+        <include file="PublicModule/common_css" />
+        <link rel="stylesheet" href="__PUBLIC__/css/home/home.style.css">
+    </head>
+    <body>
+        <include file="PublicModule/header" />
+        <div class="main-body">
+            <div class="slider c-wrap">
+                <div class="myslider loading">
+                    <img src="__PUBLIC__/images/home/loader.gif" alt="" class="loading">
+                </div>
+                <div class="right-col right">
+                    <div class="publishgoods">
+                        <a class="br" href="__MODULE__/Usercenter/publishgoods">发布商品</a>
+                    </div>
+                    <div class="pubhelp">
+                        <a class="icon" href="__MODULE__/Askhelp/help">我要求助</a>
+                    </div>
+                    <div class="pt-notice m-tb">
+                        <div class="main-content-wp">
+                            <div class="title-wp-b t-notice">
+                                <div class="title-wp">
+                                    <span class="title">平台公告</span>
+                                </div>
+                            </div>
+                            <div class="ct ct-notice">
+                                <ul>
+                                    <li class="notice-item icon"><a href="/notice/公告页.html">优云网开通咯<a/></li>
+                                    <li class="notice-item icon"><a href="/notice/公告页.html">网站及应用的认证用户帐号..<a/></li>
+                                    <li class="notice-item icon"><a href="/notice/公告页.html">提防虚假<a/></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+<!--                     <div class="pt-service m-tb">
+    <div class="main-content-wp">
+        <div class="title-wp-b t-service">
+            <div class="title-wp">
+                <span class="title">平台服务</span>
+            </div>
+        </div>
+        <div class="ct ct-service clearfix">
+            <img src="__PUBLIC__/images/home/erweima.png" alt="" class="left">
+            <p class="right">扫描微信二维码加关注 随时随地享受“XXX”平 台，便捷服务</p>
+        </div>
+    </div>
+</div> -->
+                </div>
+            </div>
+            <div class="c-wrap">
+                <div class="main-content-wp mt-25">
+                    <div class="title-wp-b hotpro">
+                        <div class="title-wp">
+                            <span class="title">热卖商品</span>
+                            <a class="more icon right" href="__MODULE__/Products/hot"></a>
+                        </div>
+                    </div>
+                    <div class="ct ct-hotpro">
+                        <div class="tab-head">
+                            <ul class="clearfix">
+                                <volist name="sptype" id="vo">
+                                <li class="items it<{$i}>"><div class="items-type-wp">
+                                    <img src="__PUBLIC__/img/<{$vo.icon}>" alt="">
+                                    <span><{$vo.note}></span>
+                                </div></li>
+                                </volist>
+                                <p class="items-line"></p>
+                            </ul>
+                            <div class="tab-arraw al icon"></div>
+                            <div class="tab-arraw ar icon"></div>
+                        </div>
+                        <div class="tab-body">
+                            <ul>
+                                <php> foreach ($sptype as $key => $value): </php>
+                                <php>
+                                $sql['sptypeid'] = $value['id'];
+                                $sql['ishandled'] = 1;
+                                $sql['status'] = 1;/*热卖的状态 -.-||*/
+                                $pros = D('ShangpinView')->where($sql)->limit(8)/*->order('chatcount desc')*/->order('id desc')->select();
+                                /*dump($pros);*/
+                                </php>
+                                
+                                <li class="clearfix">
+                                    <php> foreach ($pros as $key => $val): </php>
+                                    <div class="hot-pro-wp">
+                                        <div class="hp-img-wp"><a href="__MODULE__/Detail/index/seller/<{$val['username']}>/id/<{$val['id']}>"><img src="__ROOT__/uploads<{$val['image']}>" alt="优云网">
+                                            <span>&yen; <{$val['price']}></span></a>
+                                        </div>
+                                        <div class="hp-tle"> <a href="__MODULE__/Detail/index/seller/<{$val['username']}>/id/<{$val['id']}>"><{$val['name']}></a></div>
+                                    </div>
+                                    <php> endforeach </php>
+                                </li>
+                                <php> endforeach </php>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="mt-25">
+                    <div class="main-content-wp help-wp">
+                        <div class="title-wp-b newhelp">
+                            <div class="title-wp">
+                                <span class="title">最新求助</span>
+                                <a class="more icon right" href="__MODULE__/Askhelp"></a>
+                            </div>
+                        </div>
+                        <div class="ct ct-newhelp">
+                            <ul>
+                                <?php foreach ($helporders as $key => $val): ?>
+                                    
+                                <li>
+                                    <div class="help-item clearfix hi-last">
+                                      <img src="<{$val['avatar']}>" alt="优云网" class="headimg left">
+                                        <div class="left p-wp">
+                                            <p class="helptext"><a href="__MODULE__/Askhelp"><{$val['name']}></a></p>
+                                        <span class="author p-bottom"><{$val['username']}></span><span class="helpdate p-bottom"><{$val['publishdate']|date="m-d  H:i",###}></span></div>
+                                        <span class="view"><i class="icon view"></i><span class="view-count"></span><{$val['view']}></span>
+                                    </div>
+                                </li>
+                                <?php endforeach ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-content-wp mt-25" style="" >
+                    <div class="title-wp-b bargin">
+                        <div class="title-wp">
+                            <span class="title">本周特价</span>
+                            <a class="more icon right" href="#"></a>
+                        </div>
+                    </div>
+                    <div class="ct ct-bargin clearfix">
+                        <div class="left bargin-item-wp">
+                            <ul class="clearfix">
+                                <li class="left bargin-item">
+                                    <div class="bargin-info">
+                                        <img src="__PUBLIC__/images/home/tejia.png" alt="">
+                                        <div class="underimg">
+                                            <p class="item-belong icon">新</p>
+                                            <p class="view-count">已有10人浏览</p>
+                                            <div class="priceinfo">
+                                                <p class="itemname">
+                                                你好好好的非红豆杉
+                                                </p>
+                                                <span class="price">
+                                                &yen;&nbsp;10.00
+                                                </span><span class="oriprice">
+                                                原价:&yen;&nbsp;25.00
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="left bargin-item">
+                                    <div class="bargin-info">
+                                        <img src="__PUBLIC__/images/home/tejia.png" alt="">
+                                        <div class="underimg">
+                                            <p class="item-belong icon">新</p>
+                                            <p class="view-count">已有10人浏览</p>
+                                            <div class="priceinfo">
+                                                <p class="itemname">
+                                                你好好好的非红豆杉
+                                                </p>
+                                                <span class="price">
+                                                &yen;&nbsp;10.00
+                                                </span><span class="oriprice">
+                                                原价:&yen;&nbsp;25.00
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="left bargin-item">
+                                    <div class="bargin-info">
+                                        <img src="__PUBLIC__/images/home/tejia.png" alt="">
+                                        <div class="underimg">
+                                            <p class="item-belong icon ib-red">二手</p>
+                                            <p class="view-count">已有10人浏览</p>
+                                            <div class="priceinfo">
+                                                <p class="itemname">
+                                                你好好好的非红豆dfdfdfdfdfdfdfdfdfdfdf杉
+                                                </p>
+                                                <span class="price">
+                                                &yen;&nbsp;10.00
+                                                </span><span class="oriprice">
+                                                原价:&yen;&nbsp;25.00
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="left hotbargin-wp">
+                            <p class="hotbargin-title">热门特价</p>
+                            <ul>
+                                <li class="hb-item hb-first">
+                                    <div class="clearfix">
+                                        <img src="__PUBLIC__/images/home/tejia2.png" alt="" class="left">
+                                        <div class="item-info-wrap left">
+                                            <p class="itemname">
+                                            你好好好的非红豆dfdfdfdfdfdfdfdfdfdfdf杉
+                                            </p>
+                                            <span class="price">
+                                            &yen;&nbsp;10.00
+                                            </span><span class="oriprice">
+                                            原价:&yen;&nbsp;25.00
+                                            </span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="hb-item">
+                                    <div class="clearfix">
+                                        <div class="tip-num left"><i>2</i></div>
+                                        <div class="item-info-wrap left">
+                                            <p class="itemname">
+                                            你好好好的非红豆dfdfdfdfdfdfdfdfdfdfdf杉
+                                            </p>
+                                            <span class="price">
+                                            &yen;&nbsp;10.00
+                                            </span><span class="oriprice">
+                                            原价:&yen;&nbsp;25.00
+                                            </span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="hb-item">
+                                    <div class="clearfix">
+                                        <div class="tip-num left"><i>3</i></div>
+                                        <div class="item-info-wrap left">
+                                            <p class="itemname">
+                                            你好好好的非红豆dfdfdfdfdfdfdfdfdfdfdf杉
+                                            </p>
+                                            <span class="price">
+                                            &yen;&nbsp;10.00
+                                            </span><span class="oriprice">
+                                            原价:&yen;&nbsp;25.00
+                                            </span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="hb-item">
+                                    <div class="clearfix">
+                                        <div class="tip-num left"><i>4</i></div>
+                                        <div class="item-info-wrap left">
+                                            <p class="itemname">
+                                            你好好好的非红豆dfdfdfdfdfdfdfdfdfdfdf杉
+                                            </p>
+                                            <span class="price">
+                                            &yen;&nbsp;10.00
+                                            </span><span class="oriprice">
+                                            原价:&yen;&nbsp;25.00
+                                            </span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-content-wp mt-25">
+                    <div class="title-wp-b fashionman">
+                        <div class="title-wp">
+                            <span class="title">达人世界</span>
+                            <a class="more icon right" href="#"></a>
+                        </div>
+                    </div>
+                    <div class="ct ct-fashionman">
+                        <ul class="clearfix">
+                            <li class="left f-col f-col1">
+                                <div class="fmanwrap">
+                                    <h3>超级买家<span>/////////////////////////</span></h3>
+                                    <ul>
+                                        <li class="clearfix fman-info">
+                                            <img src="__PUBLIC__/images/home/logo.png" alt="" class="left fman-head">
+                                            <div class="left fman-info-text">
+                                                <h1>anglababay</h1>
+                                                <p>你好你好你好你好好</p>
+                                            </div>
+                                        </li>
+                                        <li class="clearfix fman-info">
+                                            <img src="__PUBLIC__/images/home/logo.png" alt="" class="left fman-head">
+                                            <div class="left fman-info-text">
+                                                <h1>anglababay</h1>
+                                                <p>你好你好</p>
+                                            </div>
+                                        </li>
+                                        <li class="clearfix fman-info">
+                                            <img src="__PUBLIC__/images/home/logo.png" alt="" class="left fman-head">
+                                            <div class="left fman-info-text">
+                                                <h1>anglababay</h1>
+                                                <p>你好你好</p>
+                                            </div>
+                                        </li>
+                                        <li class="clearfix fman-info">
+                                            <img src="__PUBLIC__/images/home/logo.png" alt="" class="left fman-head">
+                                            <div class="left fman-info-text">
+                                                <h1>anglababay</h1>
+                                                <p>你好你好</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="left f-col f-col2">
+                                <div class="fmanwrap">
+                                    <h3>二手达人<span>/////////////////////////</span></h3>
+                                    <ul>
+                                        <li class="clearfix fman-info">
+                                            <img src="__PUBLIC__/images/home/logo.png" alt="" class="left fman-head">
+                                            <div class="left fman-info-text">
+                                                <h1>anglababay</h1>
+                                                <p>你好你好你好你好好</p>
+                                            </div>
+                                        </li>
+                                        <li class="clearfix fman-info">
+                                            <img src="__PUBLIC__/images/home/logo.png" alt="" class="left fman-head">
+                                            <div class="left fman-info-text">
+                                                <h1>anglababay</h1>
+                                                <p>你好你好</p>
+                                            </div>
+                                        </li>
+                                        <li class="clearfix fman-info">
+                                            <img src="__PUBLIC__/images/home/logo.png" alt="" class="left fman-head">
+                                            <div class="left fman-info-text">
+                                                <h1>anglababay</h1>
+                                                <p>你好你好</p>
+                                            </div>
+                                        </li>
+                                        <li class="clearfix fman-info">
+                                            <img src="__PUBLIC__/images/home/logo.png" alt="" class="left fman-head">
+                                            <div class="left fman-info-text">
+                                                <h1>anglababay</h1>
+                                                <p>你好你好</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="left f-col f-col3">
+                                <div class="fmanwrap">
+                                    <h3>新品达人<span>/////////////////////////</span></h3>
+                                    <ul>
+                                        <li class="clearfix fman-info">
+                                            <img src="__PUBLIC__/images/home/logo.png" alt="" class="left fman-head">
+                                            <div class="left fman-info-text">
+                                                <h1>anglababay</h1>
+                                                <p>你好你好你好你好好</p>
+                                            </div>
+                                        </li>
+                                        <li class="clearfix fman-info">
+                                            <img src="__PUBLIC__/images/home/logo.png" alt="" class="left fman-head">
+                                            <div class="left fman-info-text">
+                                                <h1>anglababay</h1>
+                                                <p>你好你好</p>
+                                            </div>
+                                        </li>
+                                        <li class="clearfix fman-info">
+                                            <img src="__PUBLIC__/images/home/logo.png" alt="" class="left fman-head">
+                                            <div class="left fman-info-text">
+                                                <h1>anglababay</h1>
+                                                <p>你好你好</p>
+                                            </div>
+                                        </li>
+                                        <li class="clearfix fman-info">
+                                            <img src="__PUBLIC__/images/home/logo.png" alt="" class="left fman-head">
+                                            <div class="left fman-info-text">
+                                                <h1>anglababay</h1>
+                                                <p>你好你好</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <include file="PublicModule/footer" />
+            <include file="PublicModule/script_const" />
+        <script>
+        _IMG_SRC = [
+        '__PUBLIC__/images/home/slider/1.jpg',
+        '__PUBLIC__/images/home/slider/2.jpg',
+        '__PUBLIC__/images/home/slider/3.jpg',
+        '__PUBLIC__/images/home/slider/4.jpg'
+        ];
+        </script>
+        <script src="__PUBLIC__/js/home/jquery.min.js"></script>
+        <script src="__PUBLIC__/js/home/public.js"></script>
+        <script src="__PUBLIC__/js/home/jquery.imgpreloader.js"></script>
+        <script src="__PUBLIC__/js/home/home.script.js"></script>
+    </body>
+</html>

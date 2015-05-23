@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>优云网-二手</title>
+        <include file="PublicModule/common_css" />
+        <link rel="stylesheet" href="__PUBLIC__/css/home/products.style.css">
+    </head>
+    <body>
+        <include file="PublicModule/header" />
+        <div class="main-body">
+            <div class="c-wrap bg-w">
+                <div class="classify clearfix br">
+                    <div class="classify-name left">分类</div>
+                    <ul class="left clearfix">
+                        <?php foreach ($classify as $key => $value): ?>
+                            <li>
+                                <a href="__CONTROLLER__/index/type/<?php echo session('_isnew').'/'.$which_type.'/'.$value[$type_name]; ?>">
+                                <?php echo $value[$type_name]; ?>
+                                </a>
+                            </li>
+                        <?php endforeach ?>
+                    </ul>
+                </div>
+                <div class="main-list-wp br mt-25">
+                    <div class="list-head">
+                        <ul class="clearfix">
+                            <li class="left <{$active_a}>"><a href='<{$type_url1}>'>所有宝贝</a></li>
+                            <li class="left <{$active_b}>"><a href='<{$type_url2}>'>二手</a></li>
+                            <li class="left <{$active_c}>"><a href='<{$type_url3}>'>新品</a></li>
+                            <li class="right view-type">
+                                <a href="__CONTROLLER__/grid/show/true" class="icon-grid <php>echo session('_view_grid_active');</php>"><span class="icon"></span></a>
+
+                                <a href="__CONTROLLER__/grid" class="icon-list <php>if(!session('?_view_grid_active')){echo 'active';}</php>"><span class="icon"></span></a>
+                            </li>
+
+                            <li class="right <{$sort_active4}> sort-icon"><a href='<{$sortby_latest}>'>最新<i class="icon"></i></a></li>
+                            <li class="right <{$sort_active3}> sort-icon"><a href='<{$sortby_price}>'>价格<i class="icon"></i></a></li>
+                            <li class="right <{$sort_active2}> sort-icon"><a href='<{$sortby_chat}>'>约谈<i class="icon"></i></a></li>
+                            <li class="right <{$sort_active1}>"><a href='<{$sortby_default}>'>默认排序</a></li>
+                        </ul>
+                    </div>
+                    <?php if (!session('?_view_grid')): ?>
+                        
+                    <php> foreach ($shangpin as $key => $val): </php> 
+                    <div class="list-body">
+                        <div class="clearfix">
+                            <div class="left">
+                                <div class="pro-info-wp">
+                                    <div class="info-img">
+                                        <a href="__MODULE__/Detail/index/seller/<{$val['username']}>/id/<{$val['id']}>"><img src="__ROOT__/uploads/<{$val['image']}>" alt=""></a>
+                                    </div>
+                                    <div class="pro-info">
+                                        <p class="pro-name"><a href="__MODULE__/Detail/index/seller/<{$val['username']}>/id/<{$val['id']}>"><{$val['name']}></a></p>
+                                        <p class="author">发布者: <{$val['username']}></p>
+                                        <p class="desc mt-15">商品描述<br>
+                                        <{$val['description']}>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="left mt-25">
+                                <p class="tt-c">&yen;<span class="price"> <{$val['price']}></span><span class="costprice">原零售价：&yen; <{$val['costprice']}></span></p>
+                            </div>
+                            <div class="right">
+                                <div class="chat"><i class="icon icon-chat"></i>已约谈(<{$val['chatcount']}>)</div>
+                                <div class="start-chat mt-25"><span class="ichat">我要约谈</span></div>
+                                <input class="username_" type="hidden" value="<{$val['username']}>">
+                                <input class="id_" type="hidden" value="<{$val['id']}>">
+                            </div>
+                        </div>
+                    </div>
+                    <php> endforeach </php>
+                    <?php endif ?>
+
+                    <php> if (session('?_view_grid') && $shangpin): </php>
+                        
+                    <div class="list-body-grid">
+                        <ul class="clearfix">
+                        <php> foreach ($shangpin as $key => $val): </php> 
+                            <li>
+                                <a href="__MODULE__/Detail/index/seller/<{$val['username']}>/id/<{$val['id']}>">
+                                    <img src="__ROOT__/uploads/<{$val['image']}>" alt="">
+                                </a>
+                                <div class="info clearfix"><span class="left pro-name"><a href="__MODULE__/Detail/index/seller/<{$val['username']}>/id/<{$val['id']}>"><{$val['name']}></a></span><span class="price"><span>&yen;</span> <{$val['price']}></span></div>
+                                <div class="chat-div">
+                                    <div class="chat"><i class="icon icon-chat"></i>已约谈(<{$val['chatcount']}>)</div>
+                                    <div class="start-chat"><span class="ichat">我要约谈</span></div>
+                                    <input class="username_" type="hidden" value="<{$val['username']}>">
+                                    <input class="id_" type="hidden" value="<{$val['id']}>">
+                                    <div class="author mt-20">发布者: <{$val['username']}></div>
+                                </div>
+                            </li>
+                            <php> endforeach </php>
+                        </ul>
+                    </div>
+                    <php> endif </php>
+                    <php> if ($errormsg): </php>
+                        <div class="notfind">
+                            <{$errormsg}>
+                        </div>
+                    <php>else:</php>
+                        <div class="tool-page">
+                            <php>
+                            pageTool($page,$pages,$base_url);
+                            </php>
+                        </div>
+                    <php> endif </php>
+                </div>
+            </div>
+        </div>
+    <include file="PublicModule/footer" />
+    <include file="PublicModule/script_const" />
+
+    <script src="__PUBLIC__/js/home/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/home/public.js"></script>
+    <script src="__PUBLIC__/js/home/pros.js"></script>
+    </body>
+</html>

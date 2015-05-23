@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>忘记密码</title>
+		<include file="PublicModule/common_css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/home/bootsdocs.css">
+		<style>
+		#verify{
+			display: inline-block;
+			cursor: pointer;
+			width: 90px;
+			height: 30px;
+			margin-top: -10px;
+		}
+		input[type=text]{
+			width:150px;
+		}
+		h2{
+			color: rgb(243, 132, 45);
+		}
+		.bs-callout-info{
+			/*background-color: #D6FFBE;*/
+		}
+		#_return{
+			color: rgb(35, 149, 238);
+			border-bottom: 2px solid rgb(71, 0, 255);
+		}
+		#_return:hover{
+			color: rgb(89, 226, 138);
+			text-decoration: none;
+			border-bottom: 2px solid rgb(159, 230, 68);
+		}
+		</style>
+	</head>
+	<body style="padding-top:0;">
+		<div class="c-wrap mt-30 top-colume">
+			<div>
+				<a href="/">
+				<img id="go-homepage" src="__PUBLIC__/images/home/biglogo.png" title="优云网首页">
+				</a>
+			</div>
+		</div>
+		<hr>
+		<div class="c-wrap">
+			<div class="bs-callout bs-callout-info">
+				<h4>请输入您的邮箱</h4><br>
+				<form action="__CONTROLLER__/resetpasswd" method="post">
+					<!-- 用户名：<input type="text" name="username"><br> -->
+					邮　箱：<input type="text" name="email"><br>
+					<php>if( $verify ):</php>
+					<span>
+					<span class="dec-title">验证码</span>：<input type='text' name='code'/>
+					<img id="verify" src="__CONTROLLER__/verify" alt="">
+					<br>
+					</span>
+					<php>endif;</php>
+					<input id="commit" type="submit" value="确认" style="color:#fff;border:none;background-color:red;cursor:pointer;padding: 5px 1em;border-radius: 5px;font-weight: bold;">
+				</form>
+			</div>
+		</div>
+		<script src="__PUBLIC__/js/home/jquery-2.1.0.min.js"></script>
+		<script>
+		$(function(){
+			(function changeVerify(){
+					var $verify = $('#verify');
+					var src = $verify[0].src;
+					$verify.click(function(event) {
+						$verify[0].src = src+'?'+Math.ceil(Math.random()*999);
+					});
+					
+				})()
+			$('#commit').click(function(event) {
+				$(this).val('处理中...');
+				
+			});
+			
+					(function(){	/*重复提交*/
+					var commited = false;
+					$('input[type=submit]').click(function(event) {
+						
+						if(commited){
+							alert('请勿重复提交！！！');
+							return false;
+						}
+						commited = true;
+					});
+				})()
+		})
+		</script>
+	</body>
+</html>

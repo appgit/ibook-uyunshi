@@ -1,0 +1,344 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Home</title>
+		<link rel="icon" href="images/favicon.ico">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/camera.css">
+		<link rel="stylesheet" href="css/form.css">
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery-migrate-1.1.1.js"></script>
+		<script src="js/forms.js"></script>
+		<script src="js/jquery.ui.totop.js"></script>
+		<script src="js/jquery.equalheights.js"></script>
+		<script src="js/jquery.easing.1.3.js"></script>
+		<script src="js/jquery.ui.totop.js"></script>
+		<script src="js/tms-0.4.1.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('.slider_wrapper')._TMS({
+					show:0,
+					pauseOnHover:false,
+					prevBu:'.prev',
+					nextBu:'.next',
+					playBu:false,
+					duration:800,
+					preset:'fade',
+					pagination:true,//'.pagination',true,'<ul></ul>'
+					pagNums:false,
+					slideshow:8000,
+					numStatus:false,
+					banners: 'fade',
+					waitBannerAnimation:false,
+					progressBar:false
+				});
+			});
+			$(document).ready(function(){
+				!function(){
+			var map=[]
+			 ,names=[]
+			 ,win=$(window)
+			 ,header=$('header')
+			 ,currClass
+			$('.content').each(function(n){
+			 map[n]=this.offsetTop
+			 names[n]=$(this).attr('id')
+			})
+			win
+			 .on('scroll',function(){
+				var i=0
+				while(map[i++]<=win.scrollTop());
+				if(currClass!==names[i-2])
+				currClass=names[i-2]
+				header.removeAttr("class").addClass(names[i-2])
+			 })
+			}(); });
+					function goToByScroll(id){
+				$('html,body').animate({scrollTop: $("#"+id).offset().top},'slow');
+				}
+				$(document).ready(function(){
+					$().UItoTop({ easingType: 'easeOutQuart' });
+				});
+		</script>
+		<!--[if lt IE 8]>
+			<div style=' clear: both; text-align:center; position: relative;'>
+				<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+					<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+				</a>
+			</div>
+		<![endif]-->
+		<!--[if lt IE 9]>
+			<script src="js/html5shiv.js"></script>
+			<link rel="stylesheet" media="screen" href="css/ie.css">
+		<![endif]-->
+	</head>
+	<body class="">
+<!--==============================header=================================-->
+		<header class="page1">
+			<div class="container_12">
+				<div class="grid_12">
+					<h1><a href="http://www.uyunshi.com"><img src="images/logo.png" alt="Gerald Harris attorney at law"></a></h1>
+					<div class="menu_block">
+						<nav class="">
+							<ul class="sf-menu">
+								<li class="current men"><a onClick="goToByScroll('page1'); return false;" href="#">Home </a> <strong class="hover"></strong></li>
+								<li class="men1"><a onClick="goToByScroll('page2'); return false;" href="#">About</a><strong class="hover"></strong></li>
+								<li class=" men2"><a onClick="goToByScroll('page3'); return false;" href="#">Service</a> <strong class="hover"></strong></li>
+								<li class=" men3"><a onClick="goToByScroll('page4'); return false;" href="#">Target</a> <strong class="hover"></strong></li>
+								<li class=" men4"><a onClick="goToByScroll('page5'); return false;" href="#">Contact</a> <strong class="hover"></strong></li>
+							   <a href='http://www.uyunshi.com'>首页</a>
+							</ul>
+							
+						</nav>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</header>
+<!--=======content================================-->
+		<div id="page1" class="content">
+			<div class="container_12">
+				<div class="grid_12">
+					<div class="slider_wrapper">
+						<ul class="items">
+							<li>
+								<img src="images/spacer.gif" alt="">
+								<div class="caption banner">
+									<h2>让我们指引你走向成功之路</h2>
+								</div>
+							</li>
+							<li>
+								<img src="images/spacer.gif" alt="">
+								<div class="caption banner">
+									<h2>为你的商业添加动力</h2>
+								</div>
+							</li>
+							<li>
+								<img src="images/spacer.gif" alt="">
+								<div class="caption banner">
+									<h2>我们知道如何解决你的问题</h2>
+								</div>
+							</li>
+							<li>
+								<img src="images/spacer.gif" alt="">
+								<div class="caption banner">
+									<h2>使你的创业变得如此之简单</h2>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="socials">
+						<a href="#"></a>
+						<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1915699835&site=qq&menu=yes"></a>
+						<a href="#"></a>
+						<a href="#"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="page2" class="content">
+			<div class="container_12">
+				<div class="grid_12">
+					<div class="slogan">
+						<h3>专业 <a onClick="goToByScroll('page3'); return false;" href="#"><span>服务</span></a> for Our <a onClick="goToByScroll('page4'); return false;" href="#"><em>客户</em></a></h3>
+						<div class="text1">
+						我们会为你提供一个免费开放平台,叫做  <a href='http://www.uyunshi.com'>优云网</a>,或者叫做优云市集, 在这里你可以展示你商业头脑，和发家致富的本领，我们坚信再小的个体都是一个伟大的商家，so加入我们吧 :)
+                     </div>
+					</div>
+				</div>
+				<div class="grid_3">
+					<div class="box maxheight">
+						<img src="images/box_img1.jpg" alt="">
+						<div class="text1"><a href="#">Billowton</a></div>技术总监
+						<div class="socials1">
+							<a href="#"></a>
+							<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1915699835&site=qq&menu=yes"></a>
+							<a href="#"></a>
+							<a href="#"></a>
+						</div>
+					</div>
+				</div>
+				<div class="grid_3">
+					<div class="box maxheight">
+						<img src="images/box_img2.jpg" alt="">
+						<div class="text1"><a href="#">M.J</a></div>王牌运营
+						<div class="socials1">
+							<a href="#"></a>
+							<a href="#"></a>
+							<a href="#"></a>
+							<a href="#"></a>
+						</div>
+					</div>
+				</div>
+				<div class="grid_3">
+					<div class="box maxheight">
+						<img src="images/box_img3.jpg" alt="">
+						<div class="text1"><a href="#">yj.z </a></div> 前端工程师
+						<div class="socials1">
+							<a href="#"></a>
+							<a href="#"></a>
+							<a href="#"></a>
+							<a href="#"></a>
+						</div>
+					</div>
+				</div>
+				<div class="grid_3">
+					<div class="box maxheight">
+						<img src="images/box_img4.jpg" alt="">
+						<div class="text1"><a href="#">Fannie</a></div>艺术总监
+						<div class="socials1">
+							<a href="#"></a>
+							<a href="#"></a>
+							<a href="#"></a>
+							<a href="#"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="page3" class="content">
+			<div class="container_12">
+				<div class="grid_12">
+					<div class="slogan">
+						<h3>我们的服务</h3>
+						<div class="text1">
+							任何人可以在我们网站上发布购买产品，我们只做平台
+						</div>
+					</div>
+				</div>
+				<div class="grid_3">
+					<div class="box maxheight1">
+						<img src="images/box1_img1.png" alt="">
+						<div class="text1"><a href="#">发布</a></div>免费发布任何你想卖的，不管新旧(<b>免费</b>)
+					</div>
+				</div>
+				<div class="grid_3">
+					<div class="box maxheight1">
+						<img src="images/box1_img2.png" alt="">
+						<div class="text1"><a href="#">搜索</a></div>直接搜索你想买的，简洁方便快捷
+					</div>
+				</div>
+				<div class="grid_3">
+					<div class="box maxheight1">
+						<img src="images/box1_img3.png" alt="">
+						<div class="text1"><a href="#">提醒</a></div>一旦买家购买，第一时间提醒卖家 
+					</div>
+				</div>
+				<div class="grid_3">
+					<div class="box maxheight1">
+						<img src="images/box1_img4.png" alt="">
+						<div class="text1"><a href="#">交流</a></div>买家与卖家直接可以通过QQ交流
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="page4" class="content">
+			<div class="container_12">
+				<div class="grid_12">
+					<h3>对象</h3>
+				</div>
+				<div class="companies">
+					<div class="grid_3">
+						<img src="images/logo1.jpg" alt="">
+						<div class="text1">单个个体</div>比如你只卖一两件东西，
+						<br>
+					</div>
+					<div class="grid_3">
+						<img src="images/logo2.jpg" alt="">
+						<div class="text1">小商家</div>比如，你卖的东西稍微多一些.
+						<br>
+					</div>
+					<div class="grid_3">
+						<img src="images/logo3.jpg" alt="">
+						<div class="text1">大商家</div>主要是实体商店的商家<br>
+					</div>
+					<div class="grid_3">
+						<img src="images/logo4.jpg" alt="">
+						<div class="text1">购买者</div>everyone is ok!<br>
+					</div>
+					<div class="clear"></div>
+					当然还有其它等等.....
+				</div>
+			</div>
+		</div>
+		<div id="page5" class="content">
+			<div class="container_12">
+				<div class="grid_12">
+					<div class="slogan">
+						<h3>与我们联系</h3>
+						<div class="text1">
+							你是否已经心动 ，那么赶快联系我们吧 
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="map">
+					<div class="grid_3">
+						<div class="text1">地址</div>
+						<address>
+							<dl>
+								<dt>浙江理工大学</br>
+								生活二区4#S  
+								</dt>
+								<dd><span>长号:</span>+86 188 1488 8888</dd>
+								<dd><span>短号:</span>615983</dd>
+								<dd><span>E-mail:</span> <a href="mailto:uyunshi@uyunshi.com" class="link-1">uyunshi@uyunshi.com</a></dd>
+								<dd><span>QQ:</span> <!-- WPA Button Begin -->
+<script charset="utf-8" type="text/javascript" src="http://wpa.b.qq.com/cgi/wpa.php?key=XzMwMDAwOTk4MzVfMTMyNTAzXzMwMDAwOTk4MzVf"></script>
+<!-- WPA Button End --></dd>
+							</dl>
+						</address>
+					</div>
+					<div class="grid_3">
+						<div class="text1">地图</div>
+						<figure class="">
+							<iframe src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=new+york+central+park&amp;aq=&amp;sll=30.315432,120.353569&amp;sspn=60.158465,135.263672&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=Central+Park,+New+York&amp;t=m&amp;ll=30.315432,120.353569&amp;spn=0.014284,0.033023&amp;z=14&amp;output=embed"></iframe>
+						</figure>
+					</div>
+					<div class="grid_5 prefix_1">
+						<div class="text1">咨询</div>
+						<form id="form" action='http://www.uyunshi.com'>
+						<div class="success_wrapper">
+						<div class="success">Contact form submitted!<br>
+						<strong>We will be in touch soon.</strong> </div></div>
+						<fieldset>
+						<label class="name">
+						<input type="text" value="Name:">
+						<br class="clear">
+						<span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
+						<label class="email">
+						<input type="text" value="E-mail:">
+						<br class="clear">
+						<span class="error error-empty">*This is not a valid email address.</span><span class="empty error-empty">*This field is required.</span> </label>
+						<label class="message">
+						<textarea>Message:</textarea>
+						<br class="clear">
+						<span class="error">*The message is too short.</span> <span class="empty">*This field is required.</span> </label>
+						<div class="clear"></div>
+						<div class="btns"><a data-type="submit" class="link1">Send</a>
+						<div class="clear"></div>
+						</div></fieldset></form>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+<!--==============================footer=================================-->
+		<footer>
+			<div class="container_12">
+				<div class="grid_12">
+					<div class="copy">
+						<a onClick="goToByScroll('page1'); return false;" href="#"><img src="images/logo.png" alt=""></a>  &copy; 2014 | <a href="http://www.uyunshi.com"> www.uyunshi.com</a>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</footer>
+	</body>
+	<!-- WPA Button Begin -->
+
+<!-- WPA Button End -->
+</html>

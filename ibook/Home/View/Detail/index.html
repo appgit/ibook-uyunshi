@@ -1,0 +1,100 @@
+ <!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>优云网-商品详细</title>
+        <include file="PublicModule/common_css" />
+        <link rel="stylesheet" href="__PUBLIC__/css/home/detail.style.css">
+    </head>
+    <body>
+        <include file="PublicModule/header" />
+        <div class="main-body pt-25">
+            <div class="c-wrap bg-w br">
+                <div class="pro-detail clearfix">
+                    <div class="left img">
+                        <img src="__ROOT__/uploads<{$shangpin.image}>" alt="">
+                    </div>
+                    <div class="left col-right">
+                        <div class="main-info">
+                            <p class="pro-name"><{$shangpin.name}></p>
+                            <p class="price">
+                                <span class="title">价格:</span> 
+                                <span style="color:#e9a6a0;">&yen;</span>
+                                <em><{$shangpin.price}></em>
+                            </p>
+                            <p class="costprice">
+                                <span class="title">商品原价:</span> 
+                                <span style="text-decoration: line-through;"><{$shangpin.costprice}>元</span>
+                            </p>
+                            <p class="time">
+                               <span class="title"> 发布者: </span>
+                               <span><{$shangpin.username}></span>
+                            </p>
+                            <p>
+                               <span class="title"> 发布时间: </span>
+                               <span><{$shangpin.publishdate}></span>
+                            </p>
+                            <p>
+                                <span class="title"> 宝贝性质: </span>
+                               <span>
+                                <php> if ( $shangpin['isnew'] ==1 ): </php>
+                                    新品
+                                <php>else:</php>
+                                    二手
+                                <php> endif </php>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="chat-wp">
+                            <input class="username_" type="hidden" value="<{$shangpin.username}>">
+                            <input class="id_" type="hidden" value="<{$shangpin.id}>">
+                            <div class="chat"><i class="icon icon_chat"></i>已约谈 (<{$shangpin.chatcount}>)</div>
+                                <div class="start-chat mt-25"><span class="ichat">我要约谈</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pro-description">
+                        <h3>商品描述</h3>
+                        <{$shangpin.description}>
+                </div>
+            </div>
+            <div class="c-wrap bg-w mt-30 other-goods">
+               <div class="title-wp-b" style="border-left:1px solid #e7e7e7;">
+                    <div class="title-wp"  style="text-align:center;">
+                        <span>//////////////////// 该商家的其他宝贝 //////////////////////</span>
+                        <a class="more icon right" href="__MODULE__/Products/index/type/2/seller/<{$shangpin.username}>"></a>
+                    </div>
+                </div>
+                    <div class="ct ct-other-goods">
+                        <ul class="row-fluid">
+                            <?php foreach ($other_pros as $key => $val): ?>
+                            <li class="span2">
+                                <div class="info-wp">
+                                    <a href="__CONTROLLER__/index/seller/<{$val['username']}>/id/<{$val['id']}>" title="<{$val['name']}>" target="_blank">
+                                        <img src="__ROOT__/uploads/<{$val['image']}>!145x160" alt="">
+                                    </a>
+                                    <div class="clearfix">
+                                        <h5 class="item-title mt-5">
+                                        <a href="__CONTROLLER__/index/seller/<{$val['username']}>/id/<{$val['id']}>" title="<{$val['name']}>" target="_blank"><{$val['name']}></a>
+                                        </h5>
+                                        <h5 class="item-price">
+                                            <span>¥</span>
+                                            <{$val['price']}>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </li>
+                            <?php endforeach ?>
+                            <?php if(!$other_pros): ?>
+                                <li class="span12" style="text-align:center;">oops~ 没有了...</li>
+                            <?php endif; ?>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+
+    <include file="PublicModule/footer" />
+    <include file="PublicModule/script_const" />
+    <script src="__PUBLIC__/js/home/detail.js"></script>
+    </body>
+</html>

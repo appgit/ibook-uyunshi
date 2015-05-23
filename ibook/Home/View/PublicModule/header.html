@@ -1,0 +1,79 @@
+    <div class="top top-colume">
+        <div class="c-wrap clearfix">
+            <ul class="nav nav-pills pull-right">
+            <php>
+                if(session('?_loginuser')){
+            </php>
+                <li><a class="welcome-tip">欢迎你，</a></li>
+                <li class="dropdown">
+                    <a class="btn btn-success" data-toggle="dropdown" href="#">
+                        <php>echo $_SESSION['_loginuser'];</php>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="t-userinfo" href="<?php echo U('Usercenter/index'); ?>">
+                                <!-- <i class="icon-user"></i> -->
+                                <img class="useravatar" src="__ROOT__/<?php echo session('_useravatar'); ?>">
+                                &nbsp;个人中心 &nbsp;
+                                <span class="badge badge-important"><?php echo session('_not_read_chat_num'); ?></span>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="t-logout" href="__MODULE__/Login/out" onclick="return confirm('您确定要退出吗?')"> 退出</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- <li class="top-tool right"><a class="share" href="#">分享<i class="r-arrow"></i></a></li> -->
+            <php>
+                }else{
+            </php>
+                
+            <li class="top-tool top-tool-g right">
+                <a class="login" href="<?php echo U('Login/index'); ?>">登录<i class="r-arrow"></i></a>
+            </li>
+            <li class="top-tool top-tool-g right">
+                <a class="register" href="<?php echo U('Register/index'); ?>">注册<i class="r-arrow"></i></a>
+            </li>            
+            <php>
+                }
+            </php>
+
+            </ul>
+        </div>
+    </div>
+    <div class="header">
+        <div class="c-wrap clearfix">
+            <div class="logo icon left">
+                <a id="go-homepage" href="/" title="优云网首页">
+                </a>
+            </div>
+            <div class="search right">
+                <div class="search-main">
+                    <form action="__MODULE__/Products/search" method="get">
+                        <input type="text" placeholder="想找什么？请输入关键字..." name="searchkey">
+                        <button id="pro-search"><i class="icon"></i>搜索</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-nav">
+        <div class="c-wrap">
+            <ul class="clearfix">
+                <li class="left">
+                    <a href="<?php echo U('Index/index'); ?>" class="nav-it<{$home_active}>" title="首页">首页</a>
+                </li>
+                <li class="left">
+                    <a href="<?php echo U('Secondhand/index'); ?>" class="nav-it<{$second_active}>" title="二手">二手</a>
+                </li>
+                <li class="left">
+                    <a href="<?php echo U('Newproducts/index'); ?>" class="nav-it<{$new_active}>" title="新品">新品</a>
+                </li>
+				<li class="left">
+                    <a href="http://bbs.uyunshi.com" title="优云社区" class="nav-it">优云社区</a>
+                </li>
+            </ul>
+        </div>
+    </div>

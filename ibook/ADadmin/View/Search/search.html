@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>搜索结果</title>
+<link href="__PUBLIC__/css/home/search/style.css" rel="stylesheet"
+	type="text/css" />
+<link href="__PUBLIC__/css/home/search/pageskip.css" rel="stylesheet"
+	type="text/css" />
+<style type="text/css">
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-family: "宋体";
+	font-size: 12px;
+	color: #333333;
+	background-color: #2286C2;
+}
+</style>
+
+<script type="text/javascript">
+function cheakvail(obj){
+if(document.getElementById('tbpage').value<=<{$pages}>&&document.getElementById('tbpage').value>=1){
+	self.location='__MODULE__/Search/search?searchkey=<{$searchkey}>&page='+document.getElementById('tbpage').value;
+	}else{
+	alert('请输入正确数字!');
+	}
+}
+</script>
+
+</head>
+
+
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td background="__PUBLIC__/images/admin/index1_45.gif"></td>
+		<td bgcolor="#FFFFFF" style="height: 490px; vertical-align: top;">
+		
+		<?php 
+		 if($books!=0){
+		?>
+		
+		<table width="100%" border="0" cellspacing="10" cellpadding="0">
+			<tr>
+				<td>
+				<table width="100%" border="0" cellpadding="0" cellspacing="1"
+					bgcolor="#BBD3EB">
+					
+					
+					
+					<volist name="books" id="vo">
+                    
+
+					<tr style="float:left">
+						<a href="__MODULE__/Display?bookid=<{$vo.id}>"><font size='5' color="red"><{$vo.bookname}></font><br/></a>
+						单价：<{$vo.price}> 二手币<br/>
+						<{$vo.publish}><br/>
+						
+					 </tr>
+					<hr/>
+					</volist>	
+				</table>
+				</td>
+			</tr>
+			<tr>
+				<td style="background-color:#eeeeff ;width:100%;height:40">
+				
+					
+                <div class="fenye">
+                 <?php
+                    if($page>1){
+                     $prepage =$page-1;
+                    echo "<a href='__CONTROLLER__/search?searchkey=$searchkey&page=$prepage' class='backpage'>上一页</a>";
+                 
+                      }else{
+                    echo " <a href='##' class='backpage'>上一页</a>";
+                     }
+                 
+                    if($page<= 6){
+                        for($i=1;$i<=$page-1;$i++){
+                            echo " <a href='__CONTROLLER__/search?searchkey=$searchkey&page=$i'><b>$i</b></a> " ;
+                         }
+                           echo " <a href='__CONTROLLER__/search?searchkey=$searchkey&page=$i' class='active'><b>$i</b></a> " ;
+                        if($orderpages==$page){
+                        }else if(($orderpages-$page)<=4){
+                              for($i=$page+1;$i<=$orderpages;$i++){
+                                 echo " <a href='__CONTROLLER__/search?searchkey=$searchkey&page=$i'><b>$i</b></a> " ;
+                              } 
+                        }else{
+                               for($i=$page+1;$i<=$page+4;$i++){
+                                  echo " <a href='__CONTROLLER__/search?searchkey=$searchkey&page=$i'><b>$i</b></a> " ;
+                               } 
+                               echo "<a href='__CONTROLLER__/search?searchkey=$searchkey&page=$i'>..</a>";
+                               echo "<a href='__CONTROLLER__/search?searchkey=$searchkey&page=$orderpages'>$orderpages</a>"; 
+                        }
+                    
+                     
+                  
+                    }else {
+                           echo "<a href='__CONTROLLER__/search?page=1'>1</a>";
+                           echo "<a href='__CONTROLLER__/search?page=$page-5'>..</a>";
+                           for($i=$page-4;$i<$page;$i++){
+                            echo " <a href='__CONTROLLER__/search?searchkey=$searchkey&page=$i'><b>$i</b></a> " ;
+                           }
+                            echo " <a href='__CONTROLLER__/search?searchkey=$searchkey&page=$i' class='active'><b>$i</b></a> " ;
+                           
+                           if(($orderpages-$page)<=5){
+                              for($i=$page+1;$i<=$orderpages;$i++){
+                                    
+                                 echo " <a href='__CONTROLLER__/search?searchkey=$searchkey&page=$i'><b>$i</b></a> " ;
+                                 
+                              } 
+                           }else{
+                               
+                               for($i=$page+1;$i<=$page+4;$i++){
+                                  echo " <a href='__CONTROLLER__/search?searchkey=$searchkey&page=$i'><b>$i</b></a> " ;
+                               } 
+                               echo "<a href='__CONTROLLER__/search?searchkey=$searchkey&page=$i'>..</a>";
+                               echo "<a href='__CONTROLLER__/search?searchkey=$searchkey&page=$orderpages'>$orderpages</a>";    
+                          }
+                        
+                    }
+                  
+                    if($page<$orderpages){
+                       $nextpage =$page+1;
+                       echo "<a href='__CONTROLLER__/search?searchkey=$searchkey&page=$nextpage' class='nextpage'>下一页</a>";
+                    }else{
+                      echo "<a href='##' class='nextpage'>下一页</a>"; 
+                      }
+                  
+                  
+                  
+                  ?><!--
+                  
+                       
+                  -->
+                                                                     转到第 <input name="tbpage" id="tbpage" size="3" type="text"> 页
+                       <input id="btngo" onclick="cheakvail(this)" value="跳转" type="submit">
+                </div>
+           <font size='3' color="bule"><a href="javascript:self.location='__MODULE__';">返回重新搜索</a></font>
+				</td>
+				 
+			</tr>
+			
+		</table>
+		<?php 
+		 }else{
+		?>
+        <font size='5' color="red">Sorry! 没有查找到此书 ，请准确输入书名，如：‘高数’,请输入‘高等数学’</font><br/>
+        <br/>
+        <br/>
+        <br/>
+        <font size='3' color="bule"><a href='javascript:history.go(-1)'>返回重新搜索</a></font>
+        <?php 
+		 }
+		?>
+		</td>
+		
+	</tr>
+	
+</table>
+</body>
+</html>
+ 

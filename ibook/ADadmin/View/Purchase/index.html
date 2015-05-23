@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>book</title>
+</head>
+<body>
+	<volist name="book" id="vo">
+		书名:<{$vo.bookname}><br/>
+		价格:<{$vo.price}><br/>
+		原价:<{$vo.costprice}><br/>
+		库存:<{$vo.count}><br/>
+	</volist>
+	<p>
+		<a href="__MODULE__/Shopcar">加入购物车</a>
+	</p>
+</body>
+</html>

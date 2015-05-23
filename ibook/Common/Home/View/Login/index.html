@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>登录优云网</title>
+        <include file="PublicModule/common_css" />
+        <link rel="stylesheet" href="__PUBLIC__/css/home/login.style.css">
+    <script>
+        _T={};//全局temp标记对象
+    </script>
+    </head>
+    <body>
+        <div class="c-wrap mt-30 top-colume">
+            <div><a id="go-homepage" href="__MODULE__/Index"><img src="__PUBLIC__/images/home/biglogo.png" title="优云网首页"></a></div>
+        </div>
+        <div class="c-wrap clearfix mt-30">
+            <img class="left" src="__PUBLIC__/images/home/login.png" alt="登录优云网">
+            <div class="left main-content-wp">
+                <div class="title-wp-b login">
+                    <div class="title-wp">
+                        <span class="title">登录</span>
+                    </div>
+                </div>
+                <div class="ct ct-login">
+                    <form id="login-form" action="__CONTROLLER__/login" method="post">
+                        <php>
+                            if($error!=null){
+                                echo '<p class="error-info">'.$error."</p>";
+                            }else{
+                            echo "<script> _T={fl:true}</script>";
+                        }
+                        </php>
+                        <p>
+                            <span class="dec-title">用 户 名</span><input class="bs" type="text" name="username">
+                        </p>
+                        <p>
+                            <span class="dec-title">密　&nbsp;&nbsp;码</span><input type="password" name="passwd" class="bs">
+                        </p>
+                        <p class="autologin">
+                            <input type="checkbox" name="autologin">
+                            <span class="auto-login"> 自动登录 (一周免登录)</span>
+                            <input type="hidden" name="via" value="<php>echo ($_GET['via']);</php>">
+                        </p>
+                        <?php if(session('_logincnt')>3): ?>
+                       <p>
+                            <span class="dec-title">验 证 码</span><input type="text" name="code" class="verify bs">
+                            <img id="verify" src="__CONTROLLER__/verify" alt="验证码">
+                            <a id="verify-btn">看不清？</a>
+                        </p>
+                        <?php endif; ?>
+                       <p class="login-wp">
+                           <input type="submit" id="submit" class="submit" value="登录">
+                           <img src="__PUBLIC__/images/home/loader.gif" class="process">
+                           <span class="submit-right"><a href="__MODULE__/Resetpsd" class="forget-passwd">忘记密码?</a>
+                               <a href="__MODULE__/Register">立即注册</a></span>
+                       </p>
+                       <div class="3rd-login">
+                          <!-- 您也可以：
+						   <br><br>
+                                        <a href="#" onclick='toQzoneLogin()'><img src="__PUBLIC__/images/home/qq_login.png"></a>
+                              <br><br> -->
+                       </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="c-wrap">
+            <div class="footer">
+                <p class="copyright">Copyright (c) 2014 www.uyunshi.com. All rights reserved.优云网</p>
+            </div>
+        </div>
+			 <script type="text/javascript">
+            var childWindow;
+            function toQzoneLogin()
+            {
+			
+                childWindow = window.open("__ROOT__/oauth/index.php","TencentLogin","width=450,height=320,menubar=0,scrollbars=1, resizable=1,status=1,titlebar=0,toolbar=0,location=1");
+            } 
+            
+            function closeChildWindow()
+            {
+                childWindow.close();
+            }
+        </script>
+    <script src="__PUBLIC__/js/home/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/home/bounce.js"></script>
+    <script src="__PUBLIC__/js/home/public.js"></script>
+    <script src="__PUBLIC__/js/home/login.js"></script>
+    </body>
+</html>

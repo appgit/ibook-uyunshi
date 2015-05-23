@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title>求助区</title>
+        <include file="PublicModule/common_css" />
+        <link rel="stylesheet" href="__PUBLIC__/css/home/askhelp.css">
+</head>
+<body>
+	<include file="PublicModule/header" />
+            <div class="main-body pt-30">
+                <div class="c-wrap br bg-w">
+                    <div class="listhelp">
+                        <div class="head clearfix">
+                            <div class="left title mt-5">求助区</div>
+                            <a href="__CONTROLLER__/help" class="right go-help noulinde button-style1"><i class="icon askhelp"></i>求助</a>
+                        </div>
+                        <div class="body">
+                            <ul>
+                                <?php foreach ($helporders as $key => $val): ?>
+                                <li class="clearfix">
+                                    <div class="col1 left">
+                                        <p><img src="<{$val['avatar']}>" alt="优云网"></p>
+                                        <p class="user over-width"><{$val['username']}></p>
+                                    </div>
+                                    <div class="col2 left">
+                                        <p class="helptitle"><{$val['name']}></p>
+                                        <p class="helpdesc over-width">描述: <{$val['description']}></p>
+                                        <p class="info">
+                                            <span>电子邮箱: <{$val['email']}></span>
+                                            <span>联系电话: 
+                                                <?php if ($val['publictel']): ?>
+                                                <{$val['tel']}>    
+                                                <?php else: ?>
+                                                未公开
+                                                <?php endif ?>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="col3">
+                                        <p class="help-createtime"><{$val['publishdate']|date="m-d  H:i",###}></p>
+                                        <p>&nbsp;</p>
+                                        <p>
+                                            <i class="icon view"></i>
+                                            <span><{$val['view']}></span>
+                                        </p>
+                                    </div>
+                                </li>
+                                <?php endforeach ?>
+                            </ul>
+                            <div class="tool-page">
+                                <php>
+                                    pageTool($page,$pages,$base_url);
+                                </php>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+	</div>
+	<include file="PublicModule/footer" />
+	<include file="PublicModule/script_const" />
+	            <script src="__PUBLIC__/js/home/jquery.min.js"></script>
+            <script src="__PUBLIC__/js/home/public.js"></script>
+            <script src="__PUBLIC__/js/home/help.js"></script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+
+<title>卖书</title>
+<link rel="stylesheet" href="__PUBLIC__/css/home/bts/bootstrap.min.css">
+<style>
+.container {
+	min-width: 980px;
+	max-width: 980px;
+	border: 1px solid #000;
+}
+
+/*================占位css=============*/
+.logo {
+	width: 200px;
+	height: 200px;
+	background-color: red;
+	margin-top: -100px;
+	line-height: 200px;
+}
+
+/*================占位css=============*/
+/*微调css*/
+body {
+	background: #B4E69D;
+}
+
+.nav-wrap {
+	text-align: center;
+}
+
+ul.nav {
+	display: inline-block;
+}
+
+.searchbar {
+	text-align: center;
+}
+
+.searchbar .search-query {
+	width: 70%;
+}
+
+#newbooks {
+	border: 1px solid #000;
+	background-color: #345;
+	width: 60%;
+	float: left;
+}
+
+.nav-wrap {
+	margin: 1em 0;
+	background-color: rgb(53, 44, 43);
+}
+
+.nav-wrap .nav {
+	margin: 0;
+}
+
+#newbooks li {
+	list-style: none;
+	color: #fff;
+}
+
+#newbooks .bookname {
+	width: 30%;
+	display: inline-block;
+}
+
+#newbooks .booktime {
+	float: right;
+	padding-right: 50px;
+}
+
+.signup-wrap {
+	width: 30%;
+	background-color: #345;
+}
+
+#signup {
+	padding: 1em;
+	color: #fff;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.hotbooks-wrap ul {
+	background-color: #345;
+}
+
+#hotbook-title {
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #fff;
+}
+
+.footer {
+	height: 2em;
+	width: 100%;
+	background-color: lightgreen;
+}
+
+#myTablemy {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 1em 0;
+}
+
+tr {
+	height: 40px;
+}
+
+th {
+	background-color: #328aa4;
+	color: #fff;
+}
+
+td {
+	background: #e5f1f4;
+}
+
+tr.even td {
+	background: #e5f1f4;
+}
+
+tr.odd td {
+	background: #f8fbfc;
+}
+
+tr.over td {
+	background: #bce774;
+}
+
+tr.out td {
+	
+}
+
+.even,.odd,.over {
+	height: 25px;
+}
+
+.even td,.odd td {
+	height: 25px !important;
+}
+
+.over {
+	height: 25px !important;
+}
+
+#myTablemy  .even td,#myTablemy  .odd td { /*background-color:red;*/
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+#myTablemy td:focus {
+	border-color: #ffeedd;
+}
+</style>
+</head>
+
+
+
+<body bgcolor="#efffff" onload="changeTableBg();">
+<div class="header1 clearfix">
+			<div class="user pull-right drag-debug">
+				 <a class="btn btn-primary" href="__MODULE__/Register"><i class="icon-user icon-white"></i> 注册</a>
+				 <a class="btn btn-primary" href="__MODULE__/Login"><i class=" icon-star-empty icon-white"></i> 登录</a>
+			</div>
+			</div>
+			<div class="row">
+				<div class="span3 drag-debug">
+					<div class="logo">LOGO</div>
+				</div>
+				<div >
+					<form action='__MODULE__/Search/search' class="form-search searchbar" method='post'>
+						<input name='searchkey' type="text" >
+						<button type="submit" class="btn">Search</button>
+					</form>
+				</div>
+				<div class="span2"></div>
+			</div>		
+			<div class="nav-wrap drag-debug">
+				<ul class="nav nav-pills">
+					<li >
+						<a href="__MODULE__/Index">首页</a>
+					</li>
+					<li><a href="#">买书</a></li>
+					<li ><a href="__MODULE__/Search">搜索</a></li>
+					<li class="active"><a href="__MODULE__/Sale">卖书</a></li>
+				</ul>
+			</div>
+
+<center>
+
+<form method="post" action="__CONTROLLER__/salebook"
+	onsubmit='return publishcheck(this)' enctype="multipart/form-data">
+<table id='myTablemy'>
+	<tr>
+		<td>书名</td>
+		<td><input type='text' name='bookname' />请写完整包括‘《》’</td>
+	</tr>
+
+	<tr>
+		<td>原价￥</td>
+		<td><input type='text' name='costprice' maxLength=6 size=10
+			onkeyup="value=value.replace(/[^\d|\.]/g,'')" />元</td>
+	</tr>
+
+	<tr>
+		<td>出版社</td>
+		<td><input type='text' name='publish' /></td>
+	</tr>
+	<tr>
+		<td>作者</td>
+		<td><input type='text' name='author' /></td>
+	</tr>
+	<tr>
+		<td>几成新</td>
+		<td><select name="newlevel">
+			<option value="" selected>选择几成新</option>
+			<option value="1">5成以下</option>
+			<option value="2">5-7(含7)</option>
+			<option value="3">8-10</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td>有无笔记</td>
+		<td><select name='hasnote'>
+			<option value="" selected>选择有无笔记</option>
+			<option value="0">无笔记</option>
+			<option value="1">有笔记</option>
+		</select></td>
+	</tr>
+
+
+	<tr>
+		<td>类别</td>
+		<td><select name="classid">
+			<option value="" selected>选择类别</option>
+			<option value="1">公共基础课</option>
+			<option value="2">通信/电子/电气/自动化</option>
+			<option value="3">计算机/软件/网络/信息/数学</option>
+			<option value="4">经济/金融/营销/管理/电子商务</option>
+			<option value="5">物理/光学/声学/热学/力学</option>
+			<option value="6">土建/机械/车辆/制造/材料</option>
+			<option value="7">化学/环境/生物/医学/制药</option>
+			<option value="8">法学/哲学/心理学/政治学</option>
+			<option value="9">文学/史学/外语/教育</option>
+			<option value="10">其它专业的书籍</option>
+
+		</select></td>
+	</tr>
+	<tr>
+		<td>出售数量:</td>
+		<td><input type='text' name='count' />本</td>
+	</tr>
+	<tr>
+		<td>图片</td>
+		<td><input type='file' name='image' />图片限制在2M以下</td>
+	</tr>
+
+</table>
+
+<input type='submit' value='提交' /> <input type='reset' value='重置' /></form>
+</center>
+
+
+<script type="text/javascript">
+	function changeTableBg() {
+		var changeTr = document.getElementById("myTablemy")
+				.getElementsByTagName("tr");
+		for (i = 0; i < changeTr.length; i++) {
+			changeTr[i].className = (i % 2 > 0) ? "even" : "odd";
+			changeTr[i].temp = changeTr[i].className;
+			changeTr[i].onmouseover = function() {
+				this.className = 'over';
+			}
+			changeTr[i].onmouseout = function() {
+				this.className = this.temp;
+			}
+		}
+
+	}
+</script>
+<script type='text/javascript' src='__PUBLIC__/js/home/salecheck.js'></script>
+</body>
+</html>

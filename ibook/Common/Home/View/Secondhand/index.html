@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <php>
+        if(session('_isnew')==0){
+
+            $web_title = "优云网-二手";
+        }else{
+            $web_title = "优云网-新品";
+        }
+        </php>
+        <title><php>echo $web_title;</php></title>
+        <include file="PublicModule/common_css" />
+        <link rel="stylesheet" href="__PUBLIC__/css/home/second.style.css">
+    </head>
+    <body>
+        <include file="PublicModule/header" />
+        <div class="top-body">
+            <div class="c-wrap clearfix">
+                <div class="left top-left">
+                    <div class="title-wp-b">
+                        <div class="title-wp">
+                            <span class="title">全部分类</span>
+                        </div>
+                    </div>
+                    <ul class="sd-items-wp">
+
+                        <php> foreach ($sptype as $key => $value): /*遍历超大类*/</php>
+                        <li class="sd-items clearfix">
+                            <div class="items-r1 clearfix">
+                                <span class="icon-tip left"><img src="__PUBLIC__/img/<{$value['icon']}>" alt=""></span>
+                                <h6 class="left sd-item-title"><{$value['note']}></h6>
+                                <span class="left icon arrawbg right"></span>
+                            </div>
+         
+                           <php> 
+                                $btype = get_type($value['id'])['btype'];/*获得大类*/
+                                $stype = get_type($value['id'])['stype'];/*获得小类*/
+                            </php>
+
+                            <div class="submenu-wp">
+                                <div class="sub-category-wp clearfix">
+                                <php>foreach ($btype as $btype_key => $btype_value):/*遍历大类*/</php>
+                                    <div class="sub-category">
+                                        <h4><a href="__MODULE__/Products/index/type/<?php echo session('_isnew'); ?>/b/<{$btype_value}>"><{$btype_value}></a></h4>
+                                        <div class="sub-sub-wp clearfix">
+                                        <php>foreach ($stype[$btype_key] as $stype_key => $stype_value):/*遍历小类*/</php>
+                                            <a class="left" href="__MODULE__/Products/index/type/<?php echo session('_isnew'); ?>/s/<{$stype_value}>"><{$stype_value}></a>
+                                        <php> endforeach </php>
+                                        </div>
+                                    </div>
+                                <php> endforeach </php>
+                                </div>
+                            </div>
+
+                            <div class="hover"></div>
+                        </li>
+                    <php> endforeach </php>
+
+
+
+                    </ul>
+                </div>
+                <div class="top-right1 left">
+                    <div class="top-slider left"></div>
+                    <div class="random1 left"></div>
+                </div>
+                <div class="top-right2 left">
+                    <div class="random2 r-g left"></div>
+                    <div class="random3 r-g left"></div>
+                    <div class="fastpub left"></div>
+                </div>
+            </div>
+        </div>
+        <div class="main-body">
+            <div class="c-wrap">
+
+                
+                 <php> foreach ($sptype as $key => $value): /*遍历超大类*/</php>
+                     <php>
+                        $shangpin = D('ShangpinView');
+                         $req['sptypeid'] = $value['id'];
+                         $req['ishandled'] = 1;
+                         $req['isnew'] = session('_isnew');
+                         $shangpin = $shangpin->where($req)->order('chatcount')->limit(5)->select();
+                         /*dump($shangpin);*/
+                     </php>
+                <div class="main-content-wp help-wp mt-25">
+                    <div class="title-wp-b row1">
+                        <div class="title-wp">
+                            <span class="title"><{$value['note']}></span>
+                            <a class="more icon right" href="__MODULE__/Products/index/type/<?php echo session('_isnew'); ?>/sp/<{$value['note']}>"></a>
+                        </div>
+                    </div>
+                    <div class="ct ct-row1 clearfix">
+                        <img class="items-bg" src="__PUBLIC__/img/<{$value['image']}>" style="float:right;" alt="">
+                        <ul class="items-wrap clearfix">
+                            
+                        <php> foreach ($shangpin as $key => $val): /*遍历超大类*/</php>
+                            <li class="items left">
+                                <div class="info-wp">
+                                    <a href="__MODULE__/Detail/index/seller/<{$val['username']}>/id/<{$val['id']}>"><img src="__ROOT__/uploads<{$val['image']}>" alt=""></a>
+                                    <div class="clearfix">
+                                        <h5 class="item-title mt-5">
+                                        <a href="__MODULE__/Detail/index/seller/<{$val['username']}>/id/<{$val['id']}>"><{$val['name']}></a>
+                                        </h5>
+                                        <h5 class="item-price">
+                                        <span>&yen;</span><{$val['price']}>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </li>
+                        <php> endforeach </php>
+                        </ul>
+                    </div>
+                </div>
+
+                <php> endforeach </php>
+            </div>
+        </div>
+    <include file="PublicModule/footer" />
+    <include file="PublicModule/script_const" />
+    <script src="__PUBLIC__/js/home/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/home/public.js"></script>
+    <script src="__PUBLIC__/js/home/second.script.js"></script>
+    </body>
+</html>

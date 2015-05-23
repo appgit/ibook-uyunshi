@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>购买订单</title>
+<link href="__PUBLIC__/css/admin/style.css" rel="stylesheet"
+	type="text/css" />
+<link href="__PUBLIC__/css/admin/pageskip.css" rel="stylesheet"
+	type="text/css" />
+	<link href="__PUBLIC__/css/admin/lightbox.css" rel="stylesheet"
+	type="text/css" />
+
+<style type="text/css">
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-family: "宋体";
+	font-size: 12px;
+	color: #333333;
+	background-color: #2286C2;
+}
+
+
+#myTablemy {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 1em 0;
+}
+
+
+tr {
+  height:40px;
+}
+
+th {
+	background-color: #328aa4;
+	color: #fff;
+}
+
+td {
+	background: #e5f1f4;
+}
+
+tr.even td {
+	background: #e5f1f4;
+}
+
+tr.odd td {
+	background: #f8fbfc;
+}
+
+tr.over td {
+	background: #bce774;
+}
+
+tr.out td {
+	
+}
+.even,.odd,.over{
+	height:25px;
+}
+.even td,.odd td{
+	height:25px !important;
+}
+.over{
+	height:25px !important;
+}
+#myTablemy  .even td,#myTablemy  .odd td{ 
+	/*background-color:red;*/
+	padding-top:0;
+	padding-bottom:0;
+}
+
+#dingdan tr{
+     background: #ffffff;
+}
+</style>
+
+<script type="text/javascript">
+function cheakvail(obj){
+if(document.getElementById('tbpage').value<=<{$orderpages}>&&document.getElementById('tbpage').value>=1){
+	self.location='__CONTROLLER__/saleorder?ishandled=<{$ishandled}>&page='+document.getElementById('tbpage').value;
+	}else{
+	alert('请输入正确数字!');
+	}
+}
+</script>
+
+</head>
+<body onload="changeTableBg2();">
+
+<?php 
+if($ishandled==0){
+?>
+
+<volist name="order" id="vo">
+<div id="wait<{$i}>" style="display:none;z-index:9999">
+   <img src="__PUBLIC__/images/admin/loding.jpg"/>
+</div>
+<div id="idBox2<{$i}>" class="lightbox"  >
+   <dt id="idBoxHead<{$i}>""><b>订单详情</b></dt>
+   <br/>
+   
+  <b><font size='6px'>订单号:</font> <font size='5px' color='red'><{$vo.id}></font></b>
+  &nbsp&nbsp&nbsp<b><font size='6px'>下单时间:</font> <font size='5px' color='red'><{$vo.orderdate}></font></b>
+  
+
+<form action="/ibook/admintt.php/Order/saleorder" onsubmit='return orderconfim(<{$i}>)'>
+<table width="800"  cellspacing="0" cellpadding="0">
+  
+	<tr >
+	 <td>用户</td>
+	 <td>学号</td>
+	 <td>书名</td>
+	 <td>类别</td>
+	 <td>地址</td>
+	 </tr>
+	 <tr>
+	 <td><{$vo.truename}></td>
+	 <td><{$vo.number}></td>
+	 <td><{$vo.bookname}></td>
+	 <td><{$vo.booktype}></td>
+	 <td><{$vo.addr}></td>
+	 </tr>
+	 <tr >
+	 <td>电话</td>
+	 <td>单价</td>
+	 <td>数量</td>
+	 <td>总计</td>
+	 <td>会员</td>
+	 </tr>
+	 <tr >
+	 <td><{$vo.tel}></td>
+	 <td><{$vo.price}></td>
+	 <td><{$vo.count}></td>
+	 <td><{$vo.sum}></td>
+	 <td><{$vo.vip}></td>
+	 </tr>
+</table>
+
+<div style="height:50px;text-align:left">
+  <font size='5px'>买家留言:</font><{$vo.message}><br/>
+     
+</div>
+    请输入配送员ID<input id="shopper<{$i}>" name='shopperid' type='text'/><span name='shoppername'></span>   
+    <br/>
+    <input  name='id' type="hidden" value='<{$vo.id}>'/>
+    <input name='confirm' type="submit" value="订单确认"/>
+</form>	
+	<input name='close' type="button" value=" 关闭 " id="idBoxCancel<{$i}>" />
+	<!-- 该 关闭 按钮为最后一个子元素 -->
+
+	</div>
+	</volist>
+	
+	<?php 
+}
+?>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td background="__PUBLIC__/images/admin/index1_45.gif"></td>
+		<td bgcolor="#FFFFFF" style="height: 490px; vertical-align: top;">
+		<table width="100%" border="0" cellspacing="10" cellpadding="0">
+			<tr>
+				<td>
+				<table id='myTablemy' width="100%" border="0" cellpadding="0" cellspacing="1"
+					bgcolor="#BBD3EB">
+					<tr>
+						<td height="27" align="center"
+							background="__PUBLIC__/images/admin/index1_72.gif"
+							bgcolor="#FFFFFF">订单号</td>
+						<td height="27" align="center"
+							background="__PUBLIC__/images/admin/index1_72.gif"
+							bgcolor="#FFFFFF">用户/学号/联系方式</td>
+						<td height="27" align="center"
+							background="__PUBLIC__/images/admin/index1_72.gif"
+							bgcolor="#FFFFFF">书本名</td>
+						<td height="27" align="center"
+							background="__PUBLIC__/images/admin/index1_72.gif"
+							bgcolor="#FFFFFF">单价</td>
+						<td height="27" align="center"
+							background="__PUBLIC__/images/admin/index1_72.gif"
+							bgcolor="#FFFFFF">数量</td>
+							<td height="27" align="center"
+							background="__PUBLIC__/images/admin/index1_72.gif"
+							bgcolor="#FFFFFF">总价</td>
+						<td align="center"
+							background="__PUBLIC__/images/admin/index1_72.gif"
+							bgcolor="#FFFFFF">下单时间</td>
+						<td align="center"
+							background="__PUBLIC__/images/admin/index1_72.gif"
+							bgcolor="#FFFFFF">分类</td>
+							<td align="center"
+							background="__PUBLIC__/images/admin/index1_72.gif"
+							bgcolor="#FFFFFF">处理</td>
+					</tr><!-- 
+					
+					
+					//进行循环取出数据
+					--><volist name="order" id="vo">
+                    
+
+					<tr>
+						<td height="26" align="center" bgcolor="#FFFFFF"> <{$vo.id}></td>
+						<td height="26" align="center" bgcolor="#FFFFFF">学号 <{$vo.number}>&nbsp;姓名<{$vo.truename}>&nbsp; 电话:<{$vo.tel}></td>
+						<td height="26" align="center" bgcolor="#FFFFFF"> <{$vo.bookname}></td>
+						<td height="26" align="center" bgcolor="#FFFFFF"><{$vo.price}></td>
+						<td align="center" bgcolor="#FFFFFF"><{$vo.count}></td>
+					   <td align="center" bgcolor="#FFFFFF"><{$vo.sum}></td>
+						<td align="center" bgcolor="#FFFFFF"><{$vo.orderdate}></td>
+						<td align="center" bgcolor="#FFFFFF"><{$vo.booktype}></td>
+						<td align="center" bgcolor="#FFFFFF"><?php if($ishandled==0) echo "<a href='#' class='idBoxOpen' id='#'><font color='red'>现在去处理</font></a>";
+						                                           else echo"<font color='green'>已成功处理</font>";
+						                                          ?></td>
+					</tr>
+					</volist>	
+				</table>
+				</td>
+			</tr>
+			<tr>
+				<td style="background-color:#eeeeff ;width:100%;height:40">
+				
+					
+                <div class="fenye">
+                 <?php
+                    if($page>1){
+                     $prepage =$page-1;
+                    echo "<a href='__CONTROLLER__/saleorder?ishandled=$ishandled&page=$prepage' class='backpage'>上一页</a>";
+                 
+                      }else{
+                    echo " <a href='##' class='backpage'>上一页</a>";
+                     }
+                 
+                    if($page<= 6){
+                        for($i=1;$i<=$page-1;$i++){
+                            echo " <a href='__CONTROLLER__/saleorder?ishandled=$ishandled&page=$i'><b>$i</b></a> " ;
+                         }
+                           echo " <a href='__CONTROLLER__/saleorder?ishandled=$ishandled&page=$i' class='active'><b>$i</b></a> " ;
+                        if($orderpages==$page){
+                        }else if(($orderpages-$page)<=4){
+                              for($i=$page+1;$i<=$orderpages;$i++){
+                                 echo " <a href='__CONTROLLER__/saleorder?ishandled=$ishandled&page=$i'><b>$i</b></a> " ;
+                              } 
+                        }else{
+                               for($i=$page+1;$i<=$page+4;$i++){
+                                  echo " <a href='__CONTROLLER__/saleorder?ishandled=$ishandled&page=$i'><b>$i</b></a> " ;
+                               } 
+                               echo "<a href='__CONTROLLER__/saleorder?ishandled=$ishandled&page=$i'>..</a>";
+                               echo "<a href='__CONTROLLER__/saleorder?ishandled=$ishandled&page=$orderpages'>$orderpages</a>"; 
+                        }
+                    
+                     
+                  
+                    }else {
+                           echo "<a href='__CONTROLLER__/saleorder?ishandled=$ishandled&page=1'>1</a>";
+                           echo "<a href='__CONTROLLER__/saleorder?ishandled=$ishandled&page=$page-5'>..</a>";
+                           for($i=$page-4;$i<$page;$i++){
+                            echo " <a href='__CONTROLLER__/saleorder?ishandled=$ishandled&page=$i'><b>$i</b></a> " ;
+                           }
+                            echo " <a href='__CONTROLLER__/saleorder?ishandled=$ishandled&page=$i' class='active'><b>$i</b></a> " ;
+                           
+                           if(($orderpages-$page)<=5){
+                              for($i=$page+1;$i<=$orderpages;$i++){
+                                    
+                                 echo " <a href='__CONTROLLER__/saleorder?ishandled=$ishandled&page=$i'><b>$i</b></a> " ;
+                                 
+                              } 
+                           }else{
+                               
+                               for($i=$page+1;$i<=$page+4;$i++){
+                                  echo " <a href='__CONTROLLER__/saleorder?ishandled=$ishandled&page=$i'><b>$i</b></a> " ;
+                               } 
+                               echo "<a href='__CONTROLLER__/saleorder?ishandled=$ishandled&page=$i'>..</a>";
+                               echo "<a href='__CONTROLLER__/saleorder?ishandled=$ishandled&page=$orderpages'>$orderpages</a>";    
+                          }
+                        
+                    }
+                  
+                    if($page<$orderpages){
+                       $nextpage =$page+1;
+                       echo "<a href='__CONTROLLER__/saleorder?ishandled=$ishandled&page=$nextpage' class='nextpage'>下一页</a>";
+                    }else{
+                      echo "<a href='##' class='nextpage'>下一页</a>"; 
+                      }
+                  
+                  
+                  
+                  ?><!--
+                  
+                       
+                  -->
+                                                                     转到第 <input name="tbpage" id="tbpage" size="3" type="text"> 页
+                       <input id="btngo" onclick="cheakvail(this)" value="跳转" type="submit">
+                </div>
+           
+				</td>
+			</tr>
+			
+		</table>
+
+
+		</td>
+		
+	</tr>
+	
+</table>
+
+	<script type="text/javascript">
+              //  document.getElementsByClassName  
+var idBoxOpen = document.getElementsByClassName('idBoxOpen');
+for(var i=0;i<idBoxOpen.length;i++){
+	
+	idBoxOpen[i].id = 'idboxopne'+i;
+}
+
+</script>
+
+<script type="text/javascript" src='__PUBLIC__/js/admin/orderhandle2.js'></script>
+
+
+
+<script type="text/javascript">
+
+
+
+function changeTableBg2()
+{
+	
+
+	//document.getElementById('idBox2'+i).style.dispaly='none';
+var changeTr=document.getElementById("myTablemy").getElementsByTagName("tr");
+
+   for(i=0;i<changeTr.length;i++)
+   {
+      changeTr[i].className=(i%2>0)?"even":"odd";
+	  changeTr[i].temp=changeTr[i].className;
+	  changeTr[i].onuseover=function(){
+	             this.className='over';        
+	  }
+	  changeTr[i].onmouseout=function(){
+	             this.className=this.temp;        
+	  }
+   }
+  // var changeTr2=document.getElementById("myTablemy2").getElementsByTagName("tr");
+  
+ 
+}
+function orderconfim(i){
+	
+	 if(document.getElementById('shopper'+i).value==''){
+		 alert('请输入配送员id');
+		 return false;
+	 }
+	 if (confirm("确定已经核查订单无误？")){
+		document.getElementById('idBox'+i).style.display='none';
+		// alert('idBox'+i);
+		
+		document.getElementById('wait'+i).style.display='block';
+		return true;
+		 
+	     }
+	 return false;
+	}
+
+
+
+
+</script>
+
+</body>
+</html>
+ 

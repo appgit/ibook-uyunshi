@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>优云网-列表页</title>
+        <include file="PublicModule/common_css" />
+        <link rel="stylesheet" href="__PUBLIC__/css/home/user.css">
+    </head>
+    <body>
+        <include file="PublicModule/header" />
+        <div class="main-body">
+            <div class="c-wrap clearfix pt-25">
+                <div class="left bg-w user-items-wp br">
+                    <ul>
+                        <li class="user-center">
+                            个人中心
+                        </li>
+                        <li class="user-chat <{$cur_chat}>">
+                            <div class="item">
+                                <span class="link <{$cur_chat}>">
+                                    <php> if (session('_isseller')): </php>
+                                    <a href="__CONTROLLER__/chatmanage">约谈管理
+                                        <?php if ($notread_chat>=1): ?>
+                                            <em class="notread-tips"><{$notread_chat}></em>
+                                        <?php endif ?>
+                                    </a>
+                                    <php>else:</php>
+                                    <a  class="notallow" title="请先成为卖家">约谈管理</a>
+                                    <php> endif </php>
+                                </span>
+                            </div>
+                            <i class="icon arrawbg hover"></i>
+                        </li>
+                        <li class="user-manage <{$cur_baobei}><{$cur_haspub}>">
+                            <div class="item">
+                                <span>宝贝管理</span>
+                                <div class="manage-sub">
+                                    <div class="manage-pub">
+                                        <span class="link <{$cur_baobei}>">
+                                        <a href="__CONTROLLER__/publishgoods">发布宝贝</a>
+                                        </span>
+                                    </div>
+                                    <div class="manage-haspub">
+                                        <span class="link  <{$cur_haspub}>">
+                                        <php> if (session('_isseller')): </php>
+                                        <a href="__CONTROLLER__/haspubpros">已发布宝贝</a>
+                                        <php>else:</php>
+                                        <a class="notallow" title="请先成为卖家">已发布宝贝</a>
+                                        <php> endif </php>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <i class="icon arrawbg arraw-middle"></i>
+                        </li>
+                        <!-- <li class="user-copa">
+                            <div class="item">
+                                <span class="link">合作加盟</span>
+                            </div>
+                            <i class="icon arrawbg"></i>
+                        </li> -->
+                        <li class="user-info <{$cur_myinfo}>">
+                            <div class="item">
+                                <span class="link <{$cur_myinfo}>">
+                                <a href="__CONTROLLER__/myinfo">个人信息</a>
+                                </span>
+                            </div>
+                            <i class="icon arrawbg"></i>
+                        </li>
+                    </ul>
+                </div>
+                <include file="PublicModule/chatmanage" />
+                <include file="PublicModule/publishgoods" />
+                <include file="PublicModule/haspublished" />
+                <include file="PublicModule/myinfo" />
+            </div>
+        </div>
+        <include file="PublicModule/footer" />
+        <include file="PublicModule/script_const" />
+        <script src="__PUBLIC__/js/home/jquery.min.js"></script>
+        <script src="__PUBLIC__/js/home/bounce.js"></script>
+        <script src="__PUBLIC__/js/home/public.js"></script>
+        <script src="__PUBLIC__/js/home/user.js"></script>
+        <php> if (isset($cur_baobei)): </php>
+        <script src="__PUBLIC__/js/home/preview.js"></script>
+        <php>endif;</php>
+    </body>
+</html>

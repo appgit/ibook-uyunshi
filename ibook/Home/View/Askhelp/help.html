@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title>发布求助</title>
+        <include file="PublicModule/common_css" />
+        <link rel="stylesheet" href="__PUBLIC__/css/home/askhelp.css">
+</head>
+<body>
+	<include file="PublicModule/header" />
+	<div class="c-wrap askhelp">
+	<h2>我要求助</h2>
+            <form class="reg-form" action="__CONTROLLER__/handle" method="post" >
+                    <p class="askname">
+                    	<span class="pi-n">求助名称 : </span>
+                    	<input type="text" class="sd group" name="name" maxlength="32" placeholder="10分钟内只能发布一条求助信息">
+		<span class="must-field">*</span>
+                    	<br>
+                    </p>
+
+                   <p>
+                   	 <span class="pi-n">求助描述 : </span>
+                   	<textarea name="description" class="descript sd" cols="30" rows="10" maxlength="200" placeholder="剩余可输入200字..."></textarea>
+                   	<br>
+                   </p>
+                    <p>
+                    	<span class="pi-n">电子邮箱 : </span>
+                    	<input type="text"  value="<?php echo get_user()['email']; ?>" name="email" disabled=true class='w-h sd group nomodify'>
+		<span class="must-field">*<span>默认公开邮箱</span></span><br>
+                    </p>
+
+                    <p class="tel">
+                    	<span class="colr pi-n">联系方式 : </span>
+                    	<input type="text"  value="<?php echo get_user()['tel']; ?>" name="tel" disabled=true  class="w-h sd group nomodify active">
+                    	<em class="active noopen">不公开</em><em>公开</em><br>
+                    	<input type="hidden" name="isopentel" class='isopentel' value="0">
+                    </p>
+
+                    <p class="submit-wp">
+                    	<input type="submit" id="submit" value="立即发布" class="group">
+                    </p>
+                </form>
+	</div>
+	<include file="PublicModule/footer" />
+	<include file="PublicModule/script_const" />
+	            <script src="__PUBLIC__/js/home/jquery.min.js"></script>
+            <script src="__PUBLIC__/js/home/public.js"></script>
+            <script src="__PUBLIC__/js/home/help.js"></script>
+</body>
+</html>

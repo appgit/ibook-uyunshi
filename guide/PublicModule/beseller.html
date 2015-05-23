@@ -1,0 +1,70 @@
+<div class="module-beseller-wrap">
+	<div class="module-color"></div>
+	<div class="module-beseller">
+		<form id="beseller-form" action method="post">
+			<div class="content-items" style="text-align:center;">
+				<p class="clearfix">
+					<span class="close">×</span>
+				</p>
+				<h1>阅读条款</h1>
+				<p style="
+    width: 80%;
+    margin: 0 auto;
+    overflow-y: scroll;
+    height: 200px;
+    font-size: 14px;
+    border: 5px dotted #F03A3A;
+    overflow-x: hidden;
+    padding: 5px 10px;
+    line-height: 1.8;
+    color: #271E1E;
+">
+					　您了解并同意，本服务及本服务所使用之相关软件（以下简称“软件”）含有受到相关知识产权及其它法律保护之专有保密资料。您也了解并同意，经由本服务或广告商向您呈现之赞助广告或信息所包含之内容，亦受到著作权、商标权、服务商标、专利权或其它专属权利之法律保护。未经优云或广告商明示授权，您不得修改、出租、出借、出售、散布本服务或软件之任何部份或全部，或据以制作衍生著作，或使用擅自修改后的软件，包括但不限于为了未经授权而使用本服务之目的。优云仅授予您个人、不可移转及非专属之使用权，使您得于单机计算机使用其软件之目的码，但您不得（并不得允许任何第三人）复制、修改、创作衍生著作、进行还原工程、反向组译，或以其它方式发现原始码，或出售、转让、再授权或提供软件设定担保，或以其它方式移转软件之任何权利。您同意将通过由优云所提供的界面而非任何其它途径使用本服务。
+				</p>
+			</div>
+			<p>
+				我已经认真阅读并同意优云的《使用协议》<input type="checkbox" name="itemok">
+			</p>
+			
+			<input type="submit" value="提交">
+		</form>
+	</div>
+</div>
+	<script>
+		$(function(){
+
+			var CONTROLLER = __C.module;
+
+			$('#beseller-form').attr('action',CONTROLLER + '/Usercenter/beseller');
+
+			function fixCenter() {
+				
+				$win_width = window.innerWidth;
+				$win_height = window.innerHeight;
+
+				$form_width = $('#beseller-form').outerWidth();
+				$form_height = $('#beseller-form').outerHeight();
+
+				_left = ($win_width - $form_width)/2 +'px';
+				_top = ($win_height - $form_height)/2 +'px';
+
+				$('#beseller-form').css({
+					top: _top,
+					left: _left
+				});
+				$('.module-color').css({
+					width: $win_width +'px',
+					height: $win_height +'px'
+				});
+
+			}
+			$(window).on('resize', fixCenter);
+			fixCenter();
+
+			$('.close').click(function(){
+
+				$('.module-beseller-wrap').fadeOut()
+			})
+			
+		})
+	</script>

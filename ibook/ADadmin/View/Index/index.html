@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>二手书</title>
+	<link rel="stylesheet" href="__PUBLIC__/css/home/bts/bootstrap.min.css">
+	<style>
+		.container{
+			min-width: 980px;
+			max-width: 980px;
+			border:1px solid #000;
+		}
+		/*================占位css=============*/
+		.logo{
+			width:200px;
+			height: 200px;
+			background-color: #eeffee;
+			margin-top:-100px;
+			line-height: 200px;
+		}
+		/*================占位css=============*/
+
+		/*微调css*/
+		body{
+			background: #B4E69D;
+		}
+		.nav-wrap{
+			text-align: center;
+		}
+		ul.nav{
+			display: inline-block;
+		}
+		.searchbar{
+			text-align: center;
+		}
+		.searchbar .search-query{
+			width:70%;
+		}
+		#newbooks{
+			border:1px solid #000;
+			background-color: #345;
+			width:60%;
+			float: left;
+		}
+		.nav-wrap{
+			margin:1em 0;
+			background-color: rgb(53, 44, 43);
+		}
+		.nav-wrap .nav{margin: 0;}
+		#newbooks li{
+			list-style: none;
+			color:#fff;
+		}
+		#newbooks .bookname{
+			width:30%;
+			display: inline-block;
+		}
+		#newbooks .booktime{
+			float: right;
+			padding-right: 50px;
+		}
+		.signup-wrap{
+			width:30%;
+			background-color: #345;
+		}
+		#signup{
+			padding:1em;
+			color: #fff;
+			font-size: 1.5em;
+			text-align: center;
+		}
+		.hotbooks-wrap ul{
+			background-color: #345;
+		}
+		#hotbook-title{
+			font-size: 1.2em;
+			font-weight: bold;
+			color:#fff;
+		}
+		.footer{
+			height: 2em;
+			width:100%;
+			background-color: lightgreen;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="header1 clearfix">
+			<div class="user pull-right drag-debug">
+				 <a class="btn btn-primary" href="__MODULE__/Shopcar"><i class="icon-user icon-white"></i> 购物车</a>
+				 <a class="btn btn-primary" href="__MODULE__/Register"><i class="icon-user icon-white"></i> 注册</a>
+
+				 <?php 
+				if(session('?_loginuser')){
+					echo '<a class="btn btn-primary" href="__MODULE__/Usercenter/myinfo"><i class="icon-th-list"></i> 个人中心</a>';
+					echo "欢迎你，".$_SESSION['_loginuser'];
+					echo '<a class="btn btn-primary" href="__MODULE__/Login/out"><i class="icon-user icon-white"></i> 退出</a>';
+				}else{
+					echo '<a class="btn btn-primary" href="__MODULE__/Login"><i class=" icon-star-empty icon-white"></i> 登录</a>';
+				}
+			?>
+				
+			</div>
+			
+			</div>
+			<div class="row">
+				<div class="span3 drag-debug">
+					<div class="logo">LOGO</div>
+				</div>
+				<div >
+					<form action='__MODULE__/Search/search' class="form-search searchbar" method='post'>
+						<input name='searchkey' type="text" >
+						<button type="submit" class="btn">Search</button>
+					</form>
+				</div>
+				<div class="span2"></div>
+			</div>		
+			<div class="nav-wrap drag-debug">
+				<ul class="nav nav-pills">
+					<li class="active">
+						<a href="#">首页</a>
+					</li>
+					<li><a href="__MODULE__/Buybook">买书</a></li>
+					<li><a href="__MODULE__/Search">搜索</a></li>
+					<li><a href="__MODULE__/Sale">卖书</a></li>
+				</ul>
+			</div>
+			<div class="newbooks-wrap clearfix">
+				<ul id="newbooks" class="nav nav-pills nav-stacked drag-debug">
+					<li id="newbooks-title" class="clearfix">
+						<span>最新二手</span>
+						<a class="pull-right">more<i class=" icon-star-empty icon-chevron-right"></i><i class=" icon-star-empty icon-chevron-right"></i></a>
+					</li>
+					<volist name="newbooks" id="nb">
+						<li>
+							<a href="__MODULE__/Detail/index/id/<{$nb.id}>" class="bookname"><{$nb.bookname}></a>
+							<span href="" class="bookauthor">root</span>
+							<span href="" class="booktime">3-21</span>
+						</li>
+					</volist>
+				</ul>
+				<ul class="signup-wrap pull-right active">
+					<div id=""><input type="button" id='signup' value='签到' onclick='signup()'/></div>
+				</ul>
+			</div>
+			<div class="hotbooks-wrap">
+				<ul class="nav nav-pills nav-stacked drag-debug">
+					<li id="hotbook-title">热门书籍</li>
+					<ul class="hotbook-l-col pull-left nav nav-pills nav-stacked">
+						<li><a href="#">PHP网站</a></li>
+					<li><a href="#">PHP网站</a></li>
+					<li><a href="#">PHP网站</a></li>
+					<li><a href="#">PHP网站</a></li>
+					<li><a href="#">PHP网站</a></li>
+					<li><a href="#">PHP网站</a></li>
+					<li><a href="#">PHP网站</a></li>
+					<li><a href="#">PHP网站</a></li>
+					<li><a href="#">PHP网站</a></li>
+					<li><a href="#">PHP网站</a></li>
+					</ul>
+					<ul class="hotbook-r-col pull-right nav nav-pills nav-stacked">
+						<li><a href="#">PHP网站</a></li>
+					<li><a href="#">PHP网站</a></li>
+					<li><a href="#">PHP网站</a></li>
+					<li><a href="#">PHP网站</a></li>
+					<li><a href="#">PHP网站</a></li>
+					<li><a href="#">PHP网站</a></li>
+					<li><a href="#">PHP网站</a></li>
+					<li><a href="#">PHP网站</a></li>
+					<li><a href="#">PHP网站</a></li>
+					<li><a href="#">PHP网站</a></li>
+					</ul>
+				</ul>
+			</div>
+			<div class="footer drag-debug"></div>
+	</div>
+	<script src="__PUBLIC__/js/home/jquery-1.10.1.min.js"></script>
+	<script src="__PUBLIC__/js/home/bootstrap.min.js"></script>
+	
+	
+	<!--
+	签到js  ajax
+	--><script >
+	var login = "<{$_SESSION['_loginuser']}>";
+	var userid = "<{$_SESSION['_userid']}>";
+    
+	
+	//定义一个变量用于存放XMLHttpRequest对象；
+	var xmlHttp;
+	
+	//该函数用于创建XMLHttpRequest对象；
+	function signup(){
+		var hassigup = document.getElementById('signup').value;
+		if(login==null||login==''){
+			alert('请先登录!');
+			self.location='__MODULE__/Login';
+			return ;
+		}
+		if(hassigup!='签到'){
+			alert('sorry,你已经签到过了!明日再来吧');
+			return ;
+		}
+		//创建一个XMLHttpRequest对象；
+		createXMLHttpRequest();
+		var url = "__MODULE__/Signup?userid="+userid;
+		//通过get方法向指定url建立服务器的调用；
+		xmlHttp.open("GET",url);
+		//将状态触发器绑定到一个函数；
+		xmlHttp.onreadystatechange = callBack;
+		//发送请求
+		xmlHttp.send(null);
+		
+	}
+	
+	function callBack(){
+		var responseContext;
+		
+		if(xmlHttp.readyState==4){
+			if(xmlHttp.status==200){
+				responseContext = xmlHttp.responseText;
+			//	mdiv = document.getElementById("checkid");
+				//alert(responseContext);
+				if(responseContext.indexOf("true")!=-1){
+					alert("成功签到，明日一定再来哦！");
+					document.getElementById('signup').value = '已签到 ';
+				}else if(responseContext.indexOf("false")!=-1){
+					
+					alert('sorry,你已经签到过了!明日再来吧');
+					document.getElementById('signup').value = '已签到 ';
+				}else{
+					alert('签到失败，请稍候再试');
+				}					
+			}
+		}
+	}
+	
+	function createXMLHttpRequest(){
+		
+		if(window.ActiveXObject){
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}else if(window.XMLHttpRequest){
+			         // new XMLHttpRequest();
+			xmlHttp = new XMLHttpRequest();
+			//alert(xmlHttp);
+		}
+	}
+	
+	</script>
+	<script>
+		(function beDragable ($dom){
+
+	var _zindex = 10000;
+
+	$dom.css({'box-shadow':'#BE5F5F 0px 0px 20px',
+				'cursor':'move'});
+
+	$dom.mousedown(function(e){
+
+		var $that = $(this);
+
+	var max_width = document.width - $that.outerWidth() ;
+	var max_height = document.height - $that.outerHeight();
+
+		if($that.css('position')==='static'){
+
+			$that.css({
+
+			'position':'relative',
+			'top':'0',
+			'left':'0'
+			//,'z-index':_zindex
+
+			})
+		}
+
+		else{
+
+			if($that.css('left') === 'auto')
+				$that.css('left', '0');
+
+			if($that.css('top') === 'auto')
+				$that.css('top', '0');		
+		}
+			//$that[0].style.zIndex =  ++_zindex;
+
+			e.stopPropagation();
+			e.preventDefault();
+
+			//console.log($that)
+
+			var ori_left = e.pageX - parseInt($that.css('left'));
+			var ori_top = e.pageY - parseInt($that.css('top'));
+
+			$(window).bind('mousemove',function(e){
+
+				//console.log(e.pageX)
+				if(e.pageX <= 0)	e.pageX = 1;
+				if(e.pageY <= 0)	e.pageY = 1;
+
+				var reset_left = e.pageX - ori_left;
+				var reset_top = e.pageY - ori_top;
+
+				$that.css({'left':reset_left+'px','top':reset_top+'px'});
+
+			}).mouseup(function(){
+
+				$(window).unbind('mousemove');
+
+			})
+
+	})})($('.drag-debug'));
+	</script>
+</body>
+</html>

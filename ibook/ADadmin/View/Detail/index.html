@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>book</title>
+</head>
+<body>
+	<volist name="book" id="vo">
+		书名:<{$vo.bookname}><br/>
+		价格:<{$vo.price}><br/>
+		原价:<{$vo.costprice}><br/>
+		库存:<{$vo.count}><br/>
+	</volist>
+	<p>
+		<form action="__CONTROLLER__/addShopcar" method="post">
+		数量：<input type="text" name="count" onkeyup="value=value.replace(/[^\d]/g,'')" placeholder="开发过程中先输入合法数字">
+		<input type="hidden" name="id" value="<{$vo.id}>">
+		<!-- <a href="__CONTROLLER__/addShopcar/id//count/1">加入购物车</a> -->
+		<input type="submit" value="加入购物车">
+		</form>
+	</p>
+</body>
+</html>

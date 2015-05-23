@@ -1,0 +1,74 @@
+    <div class="top top-colume">
+        <div class="c-wrap">
+            <ul class="clearfix">
+                <!-- <li class="top-tool right"><a class="share" href="#">分享<i class="r-arrow"></i></a></li> -->
+                <php>
+                if(session('?_loginuser')){
+                </php>
+                <li class="right">
+                    <div class="userhome-wp">
+                        <a class="username" href="javascript:;"><php>echo $_SESSION['_loginuser'];</php><i class="r-arrow csstransition"></i></a>
+                        <ul>
+                            <li>
+                                <a class="t-userinfo" href="__MODULE__/Usercenter">个人中心</a>
+                            </li>
+                            <li>
+                                <a class="t-logout" href="__MODULE__/Login/out" onclick="return confirm('您确定要退出吗?')"> 退出</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="right mt-5">
+                    <span>欢迎你，</span>
+                </li>
+                <php>
+                }else{
+                </php>
+                
+                <li class="top-tool top-tool-g right"><a class="login" href="__MODULE__/Login/index">登录<i class="r-arrow"></i></a></li>
+                <li class="top-tool top-tool-g right"><a class="register" href="__MODULE__/Register">注册<i class="r-arrow"></i></a></li>
+                
+                <php>
+                }
+                </php>
+            </ul>
+        </div>
+    </div>
+    <div class="header">
+        <div class="c-wrap clearfix">
+            <div class="logo icon left">
+                <a id="go-homepage" href="/" title="优云网首页">
+                </a>
+            </div>
+            <div class="search right">
+                <div class="search-main">
+                    <form action="__MODULE__/Products/search" method="get">
+                        <input type="text" placeholder="想找什么？请输入关键字..." name="searchkey">
+                        <button id="pro-search"><i class="icon"></i>搜索</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nav">
+        <div class="c-wrap">
+            <ul class="clearfix">
+                <li class="left">
+                    <a href="__MODULE__/Index" class="nav-it<{$home_active}>">首页</a>
+                </li>
+                <li class="left">
+                    <a href="__MODULE__/Secondhand" class="nav-it<{$second_active}>">二手</a>
+                </li>
+                <li class="left">
+                    <a href="__MODULE__/Newproducts" class="nav-it<{$new_active}>">新品</a>
+                </li>
+               
+                <li class="left">
+                    <a href="http://www.uyunshi.com/about" class="nav-it">关于我们</a>
+                </li>
+				<li class="left">
+                    <a href="http://bbs.uyunshi.com" title="暂未开放哦" class="nav-it">优云社区</a>
+                </li>
+            </ul>
+        </div>
+    </div>

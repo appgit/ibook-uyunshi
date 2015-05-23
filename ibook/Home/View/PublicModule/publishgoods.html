@@ -1,0 +1,124 @@
+<?php if (isset($cur_baobei)): ?>
+    <?php if (!isset($beseller)): ?>
+        
+    <!-- 宝贝管理 -->
+    <div class="left user-content bg-w">
+        <div class="main-content-wp">
+            <div class="title-wp-b publishgoods">
+                <div class="title-wp">
+                    <span class="title">
+                    发布宝贝
+                    </span>
+                </div>
+            </div>
+            <div class="ct ct-pubgoods">
+                <form action="__CONTROLLER__/pubpros" enctype="multipart/form-data" method="post" >
+                    <span class="pi-n">标题 : </span>
+                    <input type="text" class="goods-name sd group" name="name" maxlength="50"><br>
+                    <span class="pi-n">新旧 : </span>
+                    <input type="button" class="colr isnew active false group" value="二手"><input type="button" class="colr isnew true group" value="新品"><br>
+                    <span class="pi-n">类目: </span>
+                    <div class="type-choose">请选择<i class="b-arrow"></i></div><br>
+                    <div class="type-wrap">
+                        <span class="type-arraw"></span>
+                        <div class="sptype">
+                            <ul class="clearfix menu" >
+                                 <php> foreach ($sptype as $key => $value): /*遍历超大类*/</php>
+                                 <php>
+                                    $btype = get_type($value['id'])['btype'];/*获得大类*/
+                                    $stype = get_type($value['id'])['stype'];/*获得小类*/
+                                 </php>
+                                        <!-- <?php dump($value); ?> -->
+                                <li class="new-<{$value['isnew']}>">
+                                    <{$value['note']}>
+                                    <div class="btype-wp csstransition">
+                                        <php>foreach ($btype as $btype_key => $btype_value):/*遍历大类*/</php>
+                                      <div class="btype clearfix">
+                                        <div class="btype-name"><{$btype_value}></div>
+                                        <div class="stype left">
+                                            <ul class="clearfix">
+                                                <php>foreach ($stype[$btype_key] as $stype_key => $stype_value):/*遍历小类*/</php>
+                                                <li><{$stype_value}></li>
+                                                <php> endforeach </php>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                     <php> endforeach </php>
+                                </div>
+                                </li>
+                                 <php>endforeach;</php>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <span class="pi-n">价格 : </span>
+                    <input type="text" name="price" class='w-h sd group' maxlength="6">
+                    <span class="colr add-on">元</span><br>
+                    <span class="colr pi-n hide">原价 : </span>
+                    <span class="colr costprice-title">原价</span>
+                    <input type="text" name="costprice" class="costprice w-h sd group" maxlength="6">
+                    <span class="colr add-on">元</span><br>
+                    <span class="pi-n">宝贝图片 : </span>
+                    <div class="imgfile-wrap">
+                        <input class="imgfile" type="file" id="imgUpload" name="image" accept="image/*"  />
+                        <div id="uploadimg">
+                            <img src="__PUBLIC__/images/home/proimg.png" class="imgpreview">
+                        </div>
+                    </div>
+                    <span class="warning-tip"></span><br>
+                    <span class="pi-n">宝贝描述 : </span>
+                    <textarea name="description" class="descript group" id="" cols="30" rows="10" maxlength="200" placeholder="说点什么吧..."></textarea><br>
+
+                    <?php if (session('_publish_cnt')>=3): /*三次发布错误*/?>
+                        
+                    <span class="dec-title pi-n">验 证 码 : </span>
+                    <input type="text" name="code" id="input-verify" class=" group sd w-h">
+                    <img id="verify" src="__MODULE__/Register/verify" alt="">
+                    <a id="verify-btn">看不清？</a>
+                    <br>
+                    <?php endif ?>
+                    <input type="hidden" value="0" name="isnew" class=" group">
+                    <input type="hidden" value="" name="stype" class=" group">
+                    <input type="submit" id="submit" value="立即发布" class="group">
+                </form>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
+<?php endif; ?>
+
+
+<php> /*成为卖家*/ </php>
+<?php if (isset($beseller)): ?>
+<div class="left user-content bg-w">
+    <div class="main-content-wp">
+        <div class="title-wp-b publishgoods">
+            <div class="title-wp">
+                <span class="title">
+                成为卖家
+                </span>
+            </div>
+        </div>
+        <div class="ct ct-pubgoods">
+            <div class="agreeitems">
+                <p>
+                    亲，在发布宝贝之前，您必须要先成为优云市集的商家，请仔细阅读 <a target="_blank" href="http://www.uyunshi.com/guide/guide.html#seller-guide"> 卖家指南 </a><br><br>
+                    <!-- 您需要提供更详细的信息，以便买家能够方便的联系您,<br> -->
+                    我们建议您，<a target="_blank" href="http://shang.qq.com/widget/consult.php"> 点击这里 </a>开通qq商家，方便买家与您qq直接交谈~
+                </p>
+                <img src="__PUBLIC__/images/home/beseller.png" class="left" alt="成为卖家" style="margin-left: 40px;">
+                <form action="__CONTROLLER__/beseller" class="beseller-form" method="post">
+                    <span class="pi-n">真实姓名 : </span>
+                    <input type="text" name="truename" class='w-h sd group' maxlength="10" placeholder="提交后不能修改哦~">
+                    <br>
+                    <span class="pi-n">qq号码: </span>
+                    <input type="text" name="number" class='w-h sd group' maxlength="12" placeholder=""><br>
+                    <div>
+                        <input type="submit" id="submit" value="成为卖家" class="group">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>

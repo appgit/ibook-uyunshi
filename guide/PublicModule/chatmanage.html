@@ -1,0 +1,84 @@
+<php> if (isset($cur_chat)): </php>
+                <!-- 约谈管理 --> 
+                <div class="left user-content bg-w">
+                    <div class="main-content-wp">
+                        <div class="title-wp-b publishgoods">
+                            <div class="title-wp">
+                                <span class="title">
+                                	约谈管理
+                                    <span class="sub-title"> ( 
+                                        <span class="sub-title-all">共 <{$total_num}> 封</span>
+                                 ，其中 <span class="sub-title-em">
+                                           未读 <span><{$notread_num}></span> 封
+                                        </span> )
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ct ct-user">
+                            <ul>
+                                <php> foreach ($orders as $key => $value): </php>
+                                <php>
+                                    if($value['isread'] == 0){
+                                        $str = '未读';
+                                        $classname = 'notread';
+                                    }else{
+                                        $str = '已读';   
+                                        $classname = 'hasread';
+                                    }
+                                </php>
+                                <li>
+                                    <a href="javascript:;" class="info-title bg-g <php>echo $classname;</php>">
+                                        <span class="chat-num">
+                                            【<span class="isread"><php>echo $str;</php></span>】约谈编号：<span class="notread-id"><{$value['id']}></span>
+                                        </span>        
+                                        <span class="order-time">时间：<php>echo date('Y-m-d H:i:s',$value['createtime'])</php>
+                                        </span>
+                                    </a>
+                                    <div class="info-body pt-25 clearfix">
+                                        <div class="pro-info-wp left">
+                                            <div class="info-img">
+                                                <a href="__MODULE__/Detail/index/seller/<{$seller}>/id/<{$value['shangpinid']}>">
+                                                    <img src="__ROOT__/uploads/<{$value['image']}>" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="pro-info">
+                                                <p class="pro-name">
+                                                    <a href="__MODULE__/Detail/index/seller/<{$seller}>/id/<{$value['shangpinid']}>"><{$value['name']}></a>
+                                                </p>
+                                                <p class="">
+                                                    ¥<span class="price"> 
+                                                    <{$value['price']}>
+                                                    </span>
+                                                    <span class="costprice">
+                                                        原零售价：¥ <{$value['costprice']}>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="buyer left">
+                                            <div class="clearfix">
+                                                <img class="left" src="__ROOT__/<{$value['avatar']}>" alt="">
+                                                <div class="left text">
+                                                    <p>买家用户名：<{$value['username']}></p>
+                                                    <p>手机：<{$value['tel']}></p>
+                                                    <p>邮箱：<{$value['email']}></p>
+                                                    <?php if ($value['isseller']): ?>
+                                                        <p>QQ： <{$value['qq']}></p>
+                                                    <?php endif ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <php> endforeach </php>
+                            </ul>
+                            <div class="tool-page">
+                                <php>
+                                    pageTool($page,$pages,$base_url);
+                                </php>
+                            </div>
+                        </div>
+                    </div>
+                </div>                	
+                <php> endif </php>

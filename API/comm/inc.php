@@ -1,0 +1,2 @@
+<?php die('forbidden'); ?>
+{"appid":"101097244","appkey":"19f5b40f65d40936e11d3878dfea3282","callback":"http://www.uyunshi.com","scope":"get_user_info","errorReport":true,"storageType":"file","host":"localhost","user":"root","password":"root","database":"test"}
