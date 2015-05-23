@@ -1,8 +1,8 @@
 
 .svn
 ibook/Runtime
-uploads/
 node_modules/
-# public/
-ThinkPHP/
+uploads_bak/
+
+
 
